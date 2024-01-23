@@ -33,7 +33,7 @@ return [
     'inputs' => [
         'floating_labels' => false,
 
-        'inline' => true,
+        'inline' => false,
 
         'show_errors' => true,
 
@@ -54,6 +54,11 @@ return [
         'form-label' => [
             'view'  => 'forms::{framework}.form-label',
             'class' => Components\FormLabel::class,
+        ],
+
+        'form-help' => [
+            'view'  => 'forms::{framework}.form-help',
+            'class' => Components\FormHelp::class,
         ],
 
         /*

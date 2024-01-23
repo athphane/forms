@@ -70,4 +70,14 @@ class MaterialAdmin26Test extends TestCase
 
         $this->assertEquals('col-sm-3 col-lg-2 col-form-label', $class);
     }
+
+    /** @test */
+    public function it_can_display_form_help_text()
+    {
+        $this->registerTestRoute('form-help');
+
+        $this->visit('/form-help')
+            ->seeElementCount('small.form-text.text-muted', 1)
+            ->seeInElement('small.form-text.text-muted', 'This is a help text');
+    }
 }

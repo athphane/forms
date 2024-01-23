@@ -70,4 +70,14 @@ class Bootstrap5Test extends TestCase
 
         $this->assertEquals('col-sm-3 col-lg-2 col-form-label', $class);
     }
+
+    /** @test */
+    public function it_can_display_form_help_text()
+    {
+        $this->registerTestRoute('form-help');
+
+        $this->visit('/form-help')
+            ->seeElementCount('div.form-text', 1)
+            ->seeInElement('div.form-text', 'This is a help text');
+    }
 }
