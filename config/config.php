@@ -37,15 +37,27 @@ return [
 
         'show_errors' => true,
 
-        'show_la'
+        'required_text' => 'forms::strings.required_text'
     ],
 
     'components' => [
-        /*
         'form' => [
             'view'  => 'forms::{framework}.form',
             'class' => Components\Form::class,
         ],
+
+        'form-required' => [
+            'view'  => 'forms::{framework}.form-required',
+            'class' => Components\FormRequired::class,
+        ],
+
+        'form-label' => [
+            'view'  => 'forms::{framework}.form-label',
+            'class' => Components\FormLabel::class,
+        ],
+
+        /*
+
 
         'form-checkbox' => [
             'view'  => 'forms::{framework}.form-checkbox',
@@ -77,10 +89,7 @@ return [
             'class' => Components\FormInputGroupText::class,
         ],
 
-        'form-label' => [
-            'view'  => 'forms::{framework}.form-label',
-            'class' => Components\FormLabel::class,
-        ],
+
 
         'form-radio' => [
             'view'  => 'forms::{framework}.form-radio',

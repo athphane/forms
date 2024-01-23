@@ -2,7 +2,7 @@
 
 namespace Javaabu\Forms;
 
-use Illuminate\Support\Arr;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 
@@ -20,9 +20,15 @@ class FormsServiceProvider extends ServiceProvider
             ], 'forms-config');
 
             $this->publishes([
-                __DIR__ . '/../resources/views' => base_path('resources/views/vendor/forms'),
+                __DIR__ . '/../lang' => lang_path('vendor/forms'),
+            ], 'forms-translations');
+
+            $this->publishes([
+                __DIR__ . '/../resources/views' => resource_path('views/vendor/forms'),
             ], 'forms-views');
         }
+
+        $this->loadTranslationsFrom(__DIR__.'/../lang', 'forms');
 
         $this->loadViewsFrom(__DIR__ . '/../resources/views', 'forms');
 
@@ -34,6 +40,12 @@ class FormsServiceProvider extends ServiceProvider
         Blade::directive('endmodel', function ($model) {
             return '<?php app(\Javaabu\Forms\FormsDataBinder::class)->pop(); ?>';
         });
+
+        $prefix = config('form-components.prefix');
+
+        Collection::make(config('forms.components'))->each(
+            fn ($component, $alias) => Blade::component($alias, $component['class'], $prefix)
+        );
     }
 
     /**

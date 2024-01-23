@@ -22,8 +22,14 @@ class Form extends Component
      *
      * @return void
      */
-    public function __construct(string $method = 'POST', $model = null)
+    public function __construct(
+        string $method = 'POST',
+        $model = null,
+        string $framework = ''
+    )
     {
+        parent::__construct($framework);
+
         $this->bindModel($model);
 
         $this->method = strtoupper($method);

@@ -32,3 +32,13 @@ php artisan vendor:publish --provider="Javaabu\Forms\FormsServiceProvider" --tag
 ```
 
 The view files will be available in the `resources/views/vendor/forms` directory after you publish them.
+
+# Publishing translations
+
+If you want to override the required * in labels, you can publish the language files and modify them:
+
+```php
+php artisan vendor:publish --provider="Javaabu\Forms\FormsServiceProvider" --tag="forms-translations"
+```
+
+The language files will be available in the `lang/vendor/forms` directory after you publish them.

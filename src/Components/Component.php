@@ -16,6 +16,27 @@ abstract class Component extends BaseComponent
     private $id;
 
     /**
+     * Framework used for this component
+     *
+     * @var string
+     */
+    public string $framework;
+
+    /**
+     * Create a new component instance.
+     *
+     * @return void
+     */
+    public function __construct(string $framework = '')
+    {
+        if (! $framework) {
+            $framework = config('forms.framework');
+        }
+
+        $this->framework = $framework;
+    }
+
+    /**
      * {@inheritDoc}
      */
     public function render()
@@ -24,23 +45,9 @@ abstract class Component extends BaseComponent
 
         $config = config("forms.components.{$alias}");
 
-        $framework = $this->getFramework();
+        $framework = $this->framework;
 
         return str_replace('{framework}', $framework, $config['view']);
-    }
-
-    /**
-     * Returns the current framework being used
-     *
-     * @return string
-     */
-    public function getFramework(): string
-    {
-        if ($this->framework) {
-            return $this->framework;
-        }
-
-        return config('forms.framework');
     }
 
     /**
