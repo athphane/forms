@@ -1,0 +1,44 @@
+{
+    "name": "javaabu/forms",
+    "description": "Laravel Blade components for form elements",
+    "homepage": "https://github.com/Javaabu/forms",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Arushad Ahmed",
+            "email": "arushad@javaabu.com"
+        }
+    ],
+    "require": {
+        "php": "^8.1",
+        "illuminate/support": "^9.0 || ^10.0",
+    },
+    "require-dev": {
+        "orchestra/testbench": "^4.0",
+        "phpunit/phpunit": "^9.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Javaabu\\Forms\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Javaabu\\Forms\\Test\\": "tests/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-main": "1.0-dev"
+        },
+        "laravel": {
+            "providers": [
+                "Javaabu\\Forms\\FormsServiceProvider"
+            ],
+            "aliases": {
+                "Forms": "Javaabu\\Forms\\Facades\\Forms"
+            }
+        }
+    },
+    "minimum-stability": "stable"
+}
