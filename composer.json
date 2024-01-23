@@ -34,10 +34,7 @@
         "laravel": {
             "providers": [
                 "Javaabu\\Forms\\FormsServiceProvider"
-            ],
-            "aliases": {
-                "Forms": "Javaabu\\Forms\\Facades\\Forms"
-            }
+            ]
         }
     },
     "minimum-stability": "stable"
