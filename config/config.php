@@ -31,11 +31,7 @@ return [
     */
 
     'inputs' => [
-        'floating_labels' => false,
-
         'inline' => false,
-
-        'show_errors' => true,
 
         'required_text' => 'forms::strings.required_text'
     ],
@@ -61,6 +57,56 @@ return [
             'class' => Components\FormHelp::class,
         ],
 
+        'form-group' => [
+            'view'  => 'forms::{framework}.form-group',
+            'class' => Components\FormGroup::class,
+        ],
+
+        'form-errors' => [
+            'view'  => 'forms::{framework}.form-errors',
+            'class' => Components\FormErrors::class,
+        ],
+
+        'form-input' => [
+            'view'  => 'forms::{framework}.form-input',
+            'class' => Components\FormInput::class,
+        ],
+
+        'form-text' => [
+            'view'  => 'forms::{framework}.form-input',
+            'class' => Components\FormText::class,
+        ],
+
+        'form-number' => [
+            'view'  => 'forms::{framework}.form-input',
+            'class' => Components\FormNumber::class,
+        ],
+
+        'form-tel' => [
+            'view'  => 'forms::{framework}.form-input',
+            'class' => Components\FormTel::class,
+        ],
+
+        'form-password' => [
+            'view'  => 'forms::{framework}.form-input',
+            'class' => Components\FormPassword::class,
+        ],
+
+        'form-email' => [
+            'view'  => 'forms::{framework}.form-input',
+            'class' => Components\FormEmail::class,
+        ],
+
+        'form-url' => [
+            'view'  => 'forms::{framework}.form-input',
+            'class' => Components\FormUrl::class,
+        ],
+
+        'form-hidden' => [
+            'view'  => 'forms::{framework}.form-input',
+            'class' => Components\FormHidden::class,
+        ],
+
         /*
 
 
@@ -69,20 +115,11 @@ return [
             'class' => Components\FormCheckbox::class,
         ],
 
-        'form-errors' => [
-            'view'  => 'forms::{framework}.form-errors',
-            'class' => Components\FormErrors::class,
-        ],
 
-        'form-group' => [
-            'view'  => 'forms::{framework}.form-group',
-            'class' => Components\FormGroup::class,
-        ],
 
-        'form-input' => [
-            'view'  => 'forms::{framework}.form-input',
-            'class' => Components\FormInput::class,
-        ],
+
+
+
 
         'form-input-group' => [
             'view'  => 'forms::{framework}.form-input-group',

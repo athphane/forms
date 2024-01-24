@@ -1,3 +1,3 @@
-@if($text)
-    <small {!! $attributes->merge(['class' => 'form-text text-muted']) !!}>{{ $text }}</small>
-@endif
+<small {!! $attributes->merge(['class' => 'form-text text-muted']) !!}>
+    {!! $slot !!}
+</small>

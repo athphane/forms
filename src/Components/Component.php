@@ -75,7 +75,7 @@ abstract class Component extends BaseComponent
      */
     protected function generateIdByName(): string
     {
-        return $this->name;
+        return str_replace(['[', ']'], ['-', ''], Str::before($this->name, '[]'));
     }
 
     /**

@@ -2,6 +2,7 @@
 
 namespace Javaabu\Forms\Tests;
 
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\View;
 use Orchestra\Testbench\BrowserKit\TestCase as BaseTestCase;
@@ -32,6 +33,13 @@ abstract class TestCase extends BaseTestCase
     protected function getPackageProviders($app)
     {
         return [FormsServiceProvider::class];
+    }
+
+    protected function setFramework(string $framework): self
+    {
+        Config::set('forms.framework', $framework);
+
+        return $this;
     }
 
     protected function registerTestRoute($uri, callable $post = null): self
