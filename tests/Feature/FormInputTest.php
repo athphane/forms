@@ -31,6 +31,25 @@ class FormInputTest extends TestCase
     }
 
     /** @test */
+    public function it_can_set_form_inputs_as_required()
+    {
+        $this->setFramework('bootstrap-5');
+        $this->registerTestRoute('form-input-required');
+
+        $this->visit('/form-input-required')
+            ->seeElement('div.mb-4')
+            ->within('div.mb-4', function () {
+                $this->seeElement('input[name="title"][value="Lorem ipsum"][id="title"][required].form-control')
+                    ->seeElement('label.form-label[for="title"]')
+                    ->seeInElement('label.form-label[for="title"]', 'Title')
+                    ->within('label.form-label[for="title"]', function () {
+                        $this->seeElement('span.required')
+                             ->seeInElement('span.required', '*');
+                    });
+            });
+    }
+
+    /** @test */
     public function it_can_generate_bootstrap_5_inline_form_inputs()
     {
         $this->setFramework('bootstrap-5');

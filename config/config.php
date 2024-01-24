@@ -107,6 +107,11 @@ return [
             'class' => Components\FormHidden::class,
         ],
 
+        'form-textarea' => [
+            'view'  => 'forms::{framework}.form-textarea',
+            'class' => Components\FormTextarea::class,
+        ],
+
         /*
 
 
@@ -153,10 +158,7 @@ return [
             'class' => Components\FormSubmit::class,
         ],
 
-        'form-textarea' => [
-            'view'  => 'forms::{framework}.form-textarea',
-            'class' => Components\FormTextarea::class,
-        ],
+
         */
     ],
 ];

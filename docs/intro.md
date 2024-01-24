@@ -19,7 +19,7 @@ Here's a quick example of what this package can offer.
 
 ```html
 <x-form :model="$page">
-    <x-form-input type="text" name="title" :label="__('Title')" />
-    <x-form-input type="textarea" name="content" :label="__('Content')" />
+    <x-form-input name="title" :label="__('Title')" />
+    <x-form-textarea name="content" :label="__('Content')" />
 </x-form>
 ```
