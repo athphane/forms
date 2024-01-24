@@ -112,6 +112,20 @@ return [
             'class' => Components\FormTextarea::class,
         ],
 
+        'form-select' => [
+            'view'  => 'forms::{framework}.form-select',
+            'class' => Components\FormSelect::class,
+        ],
+
+        'form-button' => [
+            'view'  => 'forms::{framework}.form-button',
+            'class' => Components\FormButton::class,
+        ],
+
+        'form-submit' => [
+            'view'  => 'forms::{framework}.form-button',
+            'class' => Components\FormSubmit::class,
+        ],
         /*
 
 
@@ -148,15 +162,7 @@ return [
             'class' => Components\FormRange::class,
         ],
 
-        'form-select' => [
-            'view'  => 'forms::{framework}.form-select',
-            'class' => Components\FormSelect::class,
-        ],
 
-        'form-submit' => [
-            'view'  => 'forms::{framework}.form-submit',
-            'class' => Components\FormSubmit::class,
-        ],
 
 
         */
