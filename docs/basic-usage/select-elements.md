@@ -1,6 +1,5 @@
 ---
 title: Select elements
-sidebar_position: 3
 ---
 
 Besides the `name` attribute, the select element has a required `options` attribute, which should be a simple key-value array.

@@ -1,6 +1,5 @@
 ---
 title: Select2
-sidebar_position: 4
 ---
 
 This package supports [Select2](https://select2.org/) JS library and Javaabu's `select2-custom` data attributes.

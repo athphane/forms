@@ -1,6 +1,5 @@
 ---
 title: Input and textarea elements
-sidebar_position: 1
 ---
 
 The minimum requirement for an `input` or `textarea` is the `name` attribute.
