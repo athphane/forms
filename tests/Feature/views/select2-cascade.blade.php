@@ -9,7 +9,7 @@
 
     <x-form-select2 name="state" :options="State::whereCountryId($address->country?->id ?? null)" ajax-url="/api/states" child="#city" filter-field="country" />
 
-    <x-form-select2 name="city" :options="City::whereStateId($address->state?->id ?? null)" ajax-url="/api/cities" filter-field="state" />
+    <x-form-select2 name="city" :options="City::whereStateId($address->state?->id ?? null)" ajax-url="/api/cities" filter-field="state" relation />
 
     <x-form-submit>Submit</x-form-submit>
 </x-form>

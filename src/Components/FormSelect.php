@@ -36,16 +36,16 @@ class FormSelect extends Component
         string $name,
         string $label = '',
         string $placeholder = '',
-        $options = [],
-        $model = null,
-        $default = null,
-        bool $multiple = false,
-        bool $manyRelation = false,
-        bool $showErrors = true,
-        bool $required = false,
-        ?bool $inline = null,
-        bool $floating = false,
-        bool $isSelect2 = false,
+               $options = [],
+               $model = null,
+               $default = null,
+        bool   $multiple = false,
+        bool   $relation = false,
+        bool   $showErrors = true,
+        bool   $required = false,
+        ?bool  $inline = null,
+        bool   $floating = false,
+        bool   $isSelect2 = false,
         string $nameField = '',
         string $idField = '',
         string $framework = ''
@@ -57,15 +57,19 @@ class FormSelect extends Component
         $this->label = $label;
         $this->nameField = $nameField;
         $this->idField = $idField;
-        $this->options = $options instanceof BuilderContract ? $this->getOptionsFromQueryBuilder($options) : $options;
-        $this->manyRelation = $manyRelation;
-        $this->placeholder = $placeholder;
         $this->isSelect2 = $isSelect2;
+        $this->options = $options instanceof BuilderContract ? $this->getOptionsFromQueryBuilder($options) : $options;
+        $this->relation = $relation;
+        $this->placeholder = $placeholder;
 
         $inputName = static::convertBracketsToDots(Str::before($name, '[]'));
 
         if (is_null($default)) {
             $default = $this->getBoundValue($model, $inputName);
+        }
+
+        if ($default instanceof Model) {
+            $default = $default->getKey();
         }
 
         $this->selectedKey = old($inputName, $default);

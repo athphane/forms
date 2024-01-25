@@ -4,6 +4,7 @@ namespace Javaabu\Forms\Components;
 
 use DateTimeInterface;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Support\Carbon;
@@ -23,7 +24,7 @@ trait HandlesBoundValues
      *
      * @var boolean
      */
-    protected $manyRelation = false;
+    protected $relation = false;
 
     /**
      * Get an instance of FormDataBinder.
@@ -74,7 +75,7 @@ trait HandlesBoundValues
 
         $bind = $bind ?: $this->getBoundTarget();
 
-        if ($this->manyRelation) {
+        if ($this->relation) {
             return $this->getAttachedKeysFromRelation($bind, $name);
         }
 
@@ -82,10 +83,6 @@ trait HandlesBoundValues
 
         if ($bind instanceof Model && $boundValue instanceof DateTimeInterface) {
             return $this->formatDateTime($bind, $name, $boundValue);
-        }
-
-        if ($boundValue instanceof Model) {
-            return $boundValue->getKey();
         }
 
         return $boundValue;
@@ -139,15 +136,23 @@ trait HandlesBoundValues
      *
      * @param mixed $bind
      * @param string $name
-     * @return void
+     * @return mixed
      */
-    private function getAttachedKeysFromRelation($bind, string $name): ?array
+    private function getAttachedKeysFromRelation($bind, string $name)
     {
         if (!$bind instanceof Model) {
             return data_get($bind, $name);
         }
 
+        $name = Str::camel($name);
+
         $relation = $bind->{$name}();
+
+        if ($relation instanceof BelongsTo) {
+            $foreignKey = $relation->getForeignKeyName();
+
+            return $bind->{$foreignKey};
+        }
 
         if ($relation instanceof BelongsToMany) {
             $relatedKeyName = $relation->getRelatedKeyName();
