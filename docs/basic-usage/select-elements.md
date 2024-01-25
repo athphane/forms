@@ -71,7 +71,7 @@ In the example below, you can attach one or more tags to the bound video. By usi
 ```
 
 Without using `relation` attribute, if the bound value is a `Model`, the select will automatically use the `Model` key to choose the selected option.
-In the example below the `country_id` from the `Address` model would be used to choose the selected option from the country select.
+In the example below the `$country->id` would be used to choose the selected option from the country select.
 
 ```php
 class Address extends Model
