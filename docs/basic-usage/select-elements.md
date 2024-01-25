@@ -60,7 +60,7 @@ Rendered HTML:
 
 # Using Eloquent relationships
 
-This package has built-in support for `BelongsTo`, `BelongsToMany`, `MorphMany`, and `MorphToMany` relationships. To utilize this feature, you must add both the `relation` attribute to the select element.
+This package has built-in support for `BelongsTo`, `BelongsToMany`, `MorphMany`, and `MorphToMany` relationships. To utilize this feature, you must add the `relation` attribute to the select element.
 
 In the example below, you can attach one or more tags to the bound video. By using the `relation` attribute, it will correctly retrieve the selected options (attached tags) from the database.
 
