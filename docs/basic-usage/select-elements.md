@@ -66,7 +66,7 @@ In the example below, you can attach one or more tags to the bound video. By usi
 
 ```html
 <x-form :model="$video">
-    <x-form-select name="tags[]" :options="$tags" multiple many-relation />
+    <x-form-select name="tags[]" :options="$tags" multiple relation />
 </x-form>
 ```
 
