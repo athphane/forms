@@ -3,8 +3,11 @@
 namespace Javaabu\Forms\Components;
 
 use Illuminate\Contracts\Support\Arrayable;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
+use Illuminate\Contracts\Database\Eloquent\Builder as BuilderContract;
 
 class FormSelect extends Component
 {
@@ -20,6 +23,9 @@ class FormSelect extends Component
     public bool $inline;
     public bool $floating;
     public string $placeholder;
+    public bool $isSelect2;
+    public string $nameField;
+    public string $idField;
 
     /**
      * Create a new component instance.
@@ -39,6 +45,9 @@ class FormSelect extends Component
         bool $required = false,
         ?bool $inline = null,
         bool $floating = false,
+        bool $isSelect2 = false,
+        string $nameField = '',
+        string $idField = '',
         string $framework = ''
     )
     {
@@ -46,9 +55,12 @@ class FormSelect extends Component
 
         $this->name = $name;
         $this->label = $label;
-        $this->options = $options;
+        $this->nameField = $nameField;
+        $this->idField = $idField;
+        $this->options = $options instanceof BuilderContract ? $this->getOptionsFromQueryBuilder($options) : $options;
         $this->manyRelation = $manyRelation;
         $this->placeholder = $placeholder;
+        $this->isSelect2 = $isSelect2;
 
         $inputName = static::convertBracketsToDots(Str::before($name, '[]'));
 
@@ -67,6 +79,32 @@ class FormSelect extends Component
         $this->floating = $floating;
         $this->required = $required;
         $this->inline = is_null($inline) ? config('forms.inputs.inline') : $inline;
+    }
+
+    public function getOptionsFromQueryBuilder(BuilderContract $query): array
+    {
+        $model = $query->getModel();
+
+        $name_field = $this->nameField ?: 'name';
+        $id_field = $this->idField ?: ($model instanceof Model && $model->getKeyName() ? $model->getKeyName() : 'id');
+        $is_accessor = false;
+
+        if ($model instanceof Model) {
+
+            $is_accessor = $model->hasAttributeMutator($name_field) ||
+                           $model->hasGetMutator($name_field) ||
+
+                           $model->hasAttributeMutator($id_field) ||
+                           $model->hasGetMutator($id_field);
+        }
+
+        if ($is_accessor) {
+            return $query->get()
+                         ->pluck($name_field, $id_field)
+                         ->all();
+        }
+
+        return $query->pluck($name_field, $id_field)->all();
     }
 
     public function isSelected($key): bool

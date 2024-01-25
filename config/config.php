@@ -33,7 +33,9 @@ return [
     'inputs' => [
         'inline' => false,
 
-        'required_text' => 'forms::strings.required_text'
+        'required_text' => 'forms::strings.required_text',
+
+        'nothing_selected_text' => 'forms::strings.nothing_selected'
     ],
 
     'components' => [
@@ -115,6 +117,11 @@ return [
         'form-select' => [
             'view'  => 'forms::{framework}.form-select',
             'class' => Components\FormSelect::class,
+        ],
+
+        'form-select2' => [
+            'view'  => 'forms::{framework}.form-select',
+            'class' => Components\FormSelect2::class,
         ],
 
         'form-button' => [

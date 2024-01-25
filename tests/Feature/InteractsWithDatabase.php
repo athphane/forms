@@ -21,10 +21,18 @@ trait InteractsWithDatabase
         include_once __DIR__ . '/database/create_comments_table.php';
         include_once __DIR__ . '/database/create_comment_post_table.php';
         include_once __DIR__ . '/database/create_commentables_table.php';
+        include_once __DIR__ . '/database/create_countries_table.php';
+        include_once __DIR__ . '/database/create_states_table.php';
+        include_once __DIR__ . '/database/create_cities_table.php';
+        include_once __DIR__ . '/database/create_addresses_table.php';
 
         (new \CreatePostsTable)->up();
         (new \CreateCommentsTable)->up();
         (new \CreateCommentPostTable)->up();
         (new \CreateCommentablesTable)->up();
+        (new \CreateCountriesTable)->up();
+        (new \CreateStatesTable)->up();
+        (new \CreateCitiesTable)->up();
+        (new \CreateAddressesTable())->up();
     }
 }

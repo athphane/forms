@@ -1,7 +1,7 @@
 <x-form-group :wrap="$label && $type != 'hidden'" :label="$label" :name="$attributes->get('id') ?: $id()" :framework="$framework" :inline="$inline" :required="$required" :floating="$floating">
     <select
         {!! $attributes->merge([
-            'class' => 'form-control' . ($hasError($name) ? ' is-invalid' : ''),
+            'class' => 'form-control' . ($hasError($name) ? ' is-invalid' : '') . ($isSelect2 ? ' select2-' . ($isAjax ? 'ajax' : 'basic') : ''),
             'required' => $required
         ]) !!}
         name="{{ $name }}"
@@ -10,15 +10,65 @@
             multiple
         @endif
 
-        @if($placeholder)
-            placeholder="{{ $placeholder }}"
+        @if($isSelect2)
+            @if($isFirst)
+                data-first="true"
+            @endif
+
+            @if($child)
+                data-select-child="{{ $child }}"
+            @endif
+
+            @if($ajaxUrl)
+                data-select-ajax-url="{{ $ajaxUrl }}"
+            @endif
+
+            @if($nameField)
+                data-name-field="{{ $nameField }}"
+            @endif
+
+            @if($idField)
+                data-id-field="{{ $idField }}"
+            @endif
+
+            @if($filterField)
+                data-filter-field="{{ $filterField }}"
+            @endif
+
+            @if($tags)
+                data-tags="true"
+            @endif
+
+            @if($allowClear)
+                data-allow-clear="true"
+            @endif
+
+            @if($hideSearch)
+                data-minimum-results-for-search="Infinity"
+            @endif
+
+            @if($parentModal)
+                data-dropdown-parent-elem="{{ $parentModal }}"
+            @endif
+
+            @if($fallback)
+                data-fallback="{{ $fallback }}"
+            @endif
         @endif
 
-        @if($label && ! $attributes->get('id'))
+        @if($placeholder)
+            @if($isSelect2)
+            data-placeholder="{{ $placeholder }}"
+            @else
+            placeholder="{{ $placeholder }}"
+            @endif
+        @endif
+
+        @if(($label || $isSelect2) && ! $attributes->get('id'))
             id="{{ $id() }}"
         @endif
     >
-        @if($placeholder)
+        @if($placeholder && ! ($isSelect2 && $multiple))
             <option value="" @if($nothingSelected()) selected="selected" @endif>{{ $placeholder }}</option>
         @endif
 

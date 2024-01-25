@@ -84,6 +84,10 @@ trait HandlesBoundValues
             return $this->formatDateTime($bind, $name, $boundValue);
         }
 
+        if ($boundValue instanceof Model) {
+            return $boundValue->getKey();
+        }
+
         return $boundValue;
     }
 
