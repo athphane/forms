@@ -1,7 +1,7 @@
 # Forms
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/javaabu/forms.svg?style=flat-square)](https://packagist.org/packages/javaabu/forms)
-[![Build Status](https://img.shields.io/travis/javaabu/forms/master.svg?style=flat-square)](https://travis-ci.org/javaabu/forms)
+[![Test Status](../../actions/workflows/run-tests.yml/badge.svg)](../../actions/workflows/run-tests.yml)
 [![Quality Score](https://img.shields.io/scrutinizer/g/javaabu/forms.svg?style=flat-square)](https://scrutinizer-ci.com/g/javaabu/forms)
 [![Total Downloads](https://img.shields.io/packagist/dt/javaabu/forms.svg?style=flat-square)](https://packagist.org/packages/javaabu/forms)
 
