@@ -1,4 +1,4 @@
-name: Tests
+name: tests
 
 on:
   pull_request:
@@ -18,8 +18,8 @@ jobs:
 
       -   name: Install SQLite 3
           run: |
-            apt-get update
-            apt-get install sqlite3 -y
+            sudo apt-get update
+            sudo apt-get install sqlite3 -y
 
       -   name: Setup PHP
           uses: shivammathur/setup-php@v2
