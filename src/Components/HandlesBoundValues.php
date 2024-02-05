@@ -19,7 +19,7 @@ trait HandlesBoundValues
     public $model;
 
     /**
-     * Wether to retrieve the default value as a single
+     * Whether to retrieve the default value as a single
      * attribute or as a collection from the database.
      *
      * @var boolean

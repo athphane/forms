@@ -133,13 +133,13 @@ return [
             'view'  => 'forms::{framework}.form-button',
             'class' => Components\FormSubmit::class,
         ],
-        /*
-
-
         'form-checkbox' => [
             'view'  => 'forms::{framework}.form-checkbox',
             'class' => Components\FormCheckbox::class,
         ],
+        /*
+
+
 
 
 
