@@ -137,6 +137,11 @@ return [
             'view'  => 'forms::{framework}.form-checkbox',
             'class' => Components\FormCheckbox::class,
         ],
+
+        'form-card' => [
+            'view'  => 'forms::{framework}.form-card',
+            'class' => Components\FormCard::class,
+        ],
         /*
 
 
