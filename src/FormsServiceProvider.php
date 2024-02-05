@@ -43,6 +43,8 @@ class FormsServiceProvider extends ServiceProvider
 
         $prefix = config('form-components.prefix');
 
+        Blade::component('form', Components\Form::class, $prefix);
+        
         Collection::make(config('forms.components'))->each(
             fn ($component, $alias) => Blade::component($alias, $component['class'], $prefix)
         );

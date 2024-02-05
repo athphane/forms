@@ -39,10 +39,10 @@ return [
     ],
 
     'components' => [
-        'form' => [
+        /*'form' => [
             'view'  => 'forms::{framework}.form',
             'class' => Components\Form::class,
-        ],
+        ],*/
 
         'form-required' => [
             'view'  => 'forms::{framework}.form-required',
