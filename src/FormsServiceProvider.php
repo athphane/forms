@@ -41,7 +41,7 @@ class FormsServiceProvider extends ServiceProvider
             return '<?php app(\Javaabu\Forms\FormsDataBinder::class)->pop(); ?>';
         });
 
-        $prefix = config('form-components.prefix');
+        $prefix = config('forms.prefix');
 
         Collection::make(config('forms.components'))->each(
             fn ($component, $alias) => Blade::component($alias, $component['class'], $prefix)
