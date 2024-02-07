@@ -1,5 +1,5 @@
 <table
-    {{ $attributes->merge(['class' => 'table']) }}
+    {{ $attributes->merge(['class' => 'table' . ($striped ? ' striped' : null)]) }}
 >
     <thead>
     <tr>
