@@ -49,5 +49,25 @@
     </x-table>
 </div>
 
+<div id="material">
+    <x-table>
+        <x-slot:headers>
+            <x-table-cell heading>No</x-table-cell>
+            <x-table-cell heading>First Name</x-table-cell>
+            <x-table-cell heading>Last Name</x-table-cell>
+            <x-table-cell heading>Username</x-table-cell>
+        </x-slot:headers>
+
+        <x-slot:rows>
+            <x-table-row>
+                <x-table-cell>1</x-table-cell>
+                <x-table-cell>Mark</x-table-cell>
+                <x-table-cell>Otto</x-table-cell>
+                <x-table-cell>@mdo</x-table-cell>
+            </x-table-row>
+        </x-slot:rows>
+    </x-table>
+</div>
+
 
 
