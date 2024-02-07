@@ -18,7 +18,7 @@ class FormFilterTest extends TestCase
     /** @test */
     public function it_can_generate_bootstrap_5_form_filter_hidden_fields()
     {
-        $this->setFramework('bootstrap-5');
+        $this->setFrameworkBootstrap5();
         $this->registerTestRoute('form-filter');
 
         $this->visit('/form-filter')

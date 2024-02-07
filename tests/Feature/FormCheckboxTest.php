@@ -18,7 +18,7 @@ class FormCheckboxTest extends TestCase
     /** @test */
     public function it_can_generate_bootstrap_5_form_checkbox()
     {
-        $this->setFramework('bootstrap-5');
+        $this->setFrameworkBootstrap5();
         $this->registerTestRoute('form-checkbox');
 
         $this->visit('/form-checkbox')
@@ -34,7 +34,7 @@ class FormCheckboxTest extends TestCase
     /** @test */
     public function it_can_generate_bootstrap_5_form_checkbox_that_is_required()
     {
-        $this->setFramework('bootstrap-5');
+        $this->setFrameworkBootstrap5();
         $this->registerTestRoute('form-checkbox-required');
 
         $this->visit('/form-checkbox-required')
@@ -54,7 +54,7 @@ class FormCheckboxTest extends TestCase
     /** @test */
     public function it_can_generate_material_admin_26_form_checkbox()
     {
-        $this->setFramework('material-admin-26');
+        $this->setFrameworkMaterialAdmin26();
         $this->registerTestRoute('form-checkbox');
 
         $this->visit('/form-checkbox')
@@ -70,7 +70,7 @@ class FormCheckboxTest extends TestCase
     /** @test */
     public function it_can_generate_material_admin_26_form_checkbox_that_is_required()
     {
-        $this->setFramework('material-admin-26');
+        $this->setFrameworkMaterialAdmin26();
         $this->registerTestRoute('form-checkbox-required');
 
         $this->visit('/form-checkbox-required')

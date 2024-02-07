@@ -18,7 +18,7 @@ class FormTextareaTest extends TestCase
     /** @test */
     public function it_can_generate_bootstrap_5_form_textarea()
     {
-        $this->setFramework('bootstrap-5');
+        $this->setFrameworkBootstrap5();
         $this->registerTestRoute('form-textarea');
 
         $this->visit('/form-textarea')
@@ -34,7 +34,7 @@ class FormTextareaTest extends TestCase
     /** @test */
     public function it_can_generate_material_admin_26_form_textarea()
     {
-        $this->setFramework('material-admin-26');
+        $this->setFrameworkMaterialAdmin26();
         $this->registerTestRoute('form-textarea');
 
         $this->visit('/form-textarea')

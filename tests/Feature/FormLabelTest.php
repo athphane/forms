@@ -17,7 +17,7 @@ class FormLabelTest extends TestCase
     /** @test */
     public function it_can_generate_bootstrap_5_standard_form_labels()
     {
-        $this->setFramework('bootstrap-5');
+        $this->setFrameworkBootstrap5();
         $this->registerTestRoute('form-label');
 
         $page = $this->visit('/form-label')
@@ -32,7 +32,7 @@ class FormLabelTest extends TestCase
     /** @test */
     public function it_can_generate_bootstrap_5_required_string_for_form_labels()
     {
-        $this->setFramework('bootstrap-5');
+        $this->setFrameworkBootstrap5();
         $this->registerTestRoute('form-label-required');
 
         $this->visit('/form-label-required')
@@ -47,7 +47,7 @@ class FormLabelTest extends TestCase
     /** @test */
     public function it_can_float_bootstrap_5_labels()
     {
-        $this->setFramework('bootstrap-5');
+        $this->setFrameworkBootstrap5();
         $this->registerTestRoute('form-label-floating');
 
         $page = $this->visit('/form-label-floating')
@@ -62,7 +62,7 @@ class FormLabelTest extends TestCase
     /** @test */
     public function it_can_generate_bootstrap_5_inline_form_labels()
     {
-        $this->setFramework('bootstrap-5');
+        $this->setFrameworkBootstrap5();
         $this->registerTestRoute('form-label-inline');
 
         $page = $this->visit('/form-label-inline')
@@ -77,7 +77,7 @@ class FormLabelTest extends TestCase
     /** @test */
     public function it_can_display_bootstrap_5_form_help_text()
     {
-        $this->setFramework('bootstrap-5');
+        $this->setFrameworkBootstrap5();
         $this->registerTestRoute('form-help');
 
         $this->visit('/form-help')
@@ -88,7 +88,7 @@ class FormLabelTest extends TestCase
     /** @test */
     public function it_can_generate_material_admin_26_standard_form_labels()
     {
-        $this->setFramework('material-admin-26');
+        $this->setFrameworkMaterialAdmin26();
         $this->registerTestRoute('form-label');
 
         $page = $this->visit('/form-label')
@@ -103,7 +103,7 @@ class FormLabelTest extends TestCase
     /** @test */
     public function it_can_generate_material_admin_26_required_string_for_form_labels()
     {
-        $this->setFramework('material-admin-26');
+        $this->setFrameworkMaterialAdmin26();
         $this->registerTestRoute('form-label-required');
 
         $this->visit('/form-label-required')
@@ -118,7 +118,7 @@ class FormLabelTest extends TestCase
     /** @test */
     public function it_can_float_material_admin_26_labels()
     {
-        $this->setFramework('material-admin-26');
+        $this->setFrameworkMaterialAdmin26();
         $this->registerTestRoute('form-label-floating');
 
         $page = $this->visit('/form-label-floating')
@@ -133,7 +133,7 @@ class FormLabelTest extends TestCase
     /** @test */
     public function it_can_generate_material_admin_26_inline_form_labels()
     {
-        $this->setFramework('material-admin-26');
+        $this->setFrameworkMaterialAdmin26();
         $this->registerTestRoute('form-label-inline');
 
         $page = $this->visit('/form-label-inline')
@@ -148,7 +148,7 @@ class FormLabelTest extends TestCase
     /** @test */
     public function it_can_display_material_admin_26_form_help_text()
     {
-        $this->setFramework('material-admin-26');
+        $this->setFrameworkMaterialAdmin26();
         $this->registerTestRoute('form-help');
 
         $this->visit('/form-help')

@@ -15,7 +15,7 @@ class TableTest extends TestCase
     /** @test */
     public function it_can_generate_bootstrap_5_table()
     {
-        $this->setFramework('bootstrap-5');
+        $this->setFrameworkBootstrap5();
         $this->registerTestRoute('table');
 
         $this->visit('table')
@@ -53,13 +53,51 @@ class TableTest extends TestCase
     /** @test */
     public function it_can_generate_bootstrap_5_striped_table()
     {
-        $this->setFramework('bootstrap-5');
+        $this->setFrameworkBootstrap5();
         $this->registerTestRoute('table');
 
         $this->visit('table')
             ->seeElement('#striped')
             ->within('#striped', function () {
                 $this->seeElement('table.table.striped');
+            });
+    }
+
+    /** @test */
+    public function it_can_generate_material_26_table()
+    {
+        $this->setFrameworkMaterialAdmin26();
+        $this->registerTestRoute('table');
+
+        $this->visit('table')
+            ->seeElement('#material')
+            ->within('#material', function () {
+                $this->seeElement('div.table-responsive')
+                    ->within('div.table-responsive', function () {
+                        $this->seeElement('thead')
+                            ->within('thead', function () {
+                                $this->seeElement('tr')
+                                    ->within('tr', function () {
+                                        $this->seeElement('th')
+                                            ->seeInElement('th', 'No')
+                                            ->seeInElement('th', 'First Name')
+                                            ->seeInElement('th', 'Last Name')
+                                            ->seeInElement('th', 'Username');
+                                    });
+                            });
+
+                        $this->seeElement('tbody')
+                            ->within('tbody', function () {
+                                $this->seeElement('tr')
+                                    ->within('tr', function () {
+                                        $this
+                                            ->seeInElement('td', '1')
+                                            ->seeInElement('td', 'Mark')
+                                            ->seeInElement('td', 'Otto')
+                                            ->seeInElement('td', '@mdo');
+                                    });
+                            });
+                    });
             });
     }
 

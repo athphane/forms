@@ -18,7 +18,7 @@ class CardTest extends TestCase
     /** @test */
     public function it_can_generate_bootstrap_5_card()
     {
-        $this->setFramework('bootstrap-5');
+        $this->setFrameworkBootstrap5();
         $this->registerTestRoute('form-card');
 
         $this->visit('/form-card')
@@ -40,7 +40,7 @@ class CardTest extends TestCase
     /** @test */
     public function it_can_generate_bootstrap_5_card_with_header()
     {
-        $this->setFramework('bootstrap-5');
+        $this->setFrameworkBootstrap5();
         $this->registerTestRoute('form-card');
 
         $this->visit('/form-card')
@@ -58,7 +58,7 @@ class CardTest extends TestCase
     /** @test */
     public function it_can_generate_bootstrap_5_card_with_subtitle()
     {
-        $this->setFramework('bootstrap-5');
+        $this->setFrameworkBootstrap5();
         $this->registerTestRoute('form-card');
 
         $this->visit('/form-card')
@@ -76,7 +76,7 @@ class CardTest extends TestCase
     /** @test */
     public function it_can_generate_bootstrap_5_card_with_image_top()
     {
-        $this->setFramework('bootstrap-5');
+        $this->setFrameworkBootstrap5();
         $this->registerTestRoute('form-card');
 
         $this->visit('/form-card')
@@ -93,7 +93,7 @@ class CardTest extends TestCase
     /** @test */
     public function it_can_generate_bootstrap_5_card_with_footer()
     {
-        $this->setFramework('bootstrap-5');
+        $this->setFrameworkBootstrap5();
         $this->registerTestRoute('form-card');
 
         $this->visit('/form-card')
@@ -112,7 +112,7 @@ class CardTest extends TestCase
     /** @test */
     public function it_can_generate_material_admin_26_card()
     {
-        $this->setFramework('material-admin-26');
+        $this->setFrameworkMaterialAdmin26();
         $this->registerTestRoute('form-card');
 
         $this->visit('/form-card')
@@ -134,7 +134,7 @@ class CardTest extends TestCase
     /** @test */
     public function it_can_generate_material_admin_26_card_with_header()
     {
-        $this->setFramework('material-admin-26');
+        $this->setFrameworkMaterialAdmin26();
         $this->registerTestRoute('form-card');
 
         $this->visit('/form-card')
@@ -152,7 +152,7 @@ class CardTest extends TestCase
     /** @test */
     public function it_can_generate_material_admin_26_card_with_subtitle()
     {
-        $this->setFramework('material-admin-26');
+        $this->setFrameworkMaterialAdmin26();
         $this->registerTestRoute('form-card');
 
         $this->visit('/form-card')
@@ -170,7 +170,7 @@ class CardTest extends TestCase
     /** @test */
     public function it_can_generate_material_admin_26_card_with_image_top()
     {
-        $this->setFramework('material-admin-26');
+        $this->setFrameworkMaterialAdmin26();
         $this->registerTestRoute('form-card');
 
         $this->visit('/form-card')
@@ -187,7 +187,7 @@ class CardTest extends TestCase
     /** @test */
     public function it_can_generate_material_admin_26_card_with_footer()
     {
-        $this->setFramework('material-admin-26');
+        $this->setFrameworkMaterialAdmin26();
         $this->registerTestRoute('form-card');
 
         $this->visit('/form-card')
