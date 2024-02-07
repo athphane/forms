@@ -157,6 +157,11 @@ return [
             'view'  => 'forms::{framework}.table.cell',
             'class' => Components\TableCell::class,
         ],
+
+        'form-filter' => [
+            'view'  => 'forms::{framework}.form-filter',
+            'class' => Components\FormFilter::class,
+        ]
         /*
 
 
