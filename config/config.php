@@ -142,6 +142,21 @@ return [
             'view'  => 'forms::{framework}.form-card',
             'class' => Components\FormCard::class,
         ],
+
+        'table' => [
+            'view'  => 'forms::{framework}.table',
+            'class' => Components\Table::class,
+        ],
+
+        'table-row' => [
+            'view'  => 'forms::{framework}.table.row',
+            'class' => Components\TableRow::class,
+        ],
+
+        'table-cell' => [
+            'view'  => 'forms::{framework}.table.cell',
+            'class' => Components\TableCell::class,
+        ],
         /*
 
 
