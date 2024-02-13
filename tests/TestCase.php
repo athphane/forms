@@ -42,6 +42,16 @@ abstract class TestCase extends BaseTestCase
         return $this;
     }
 
+    protected function setFrameworkBootstrap5(): self
+    {
+        return $this->setFramework('bootstrap-5');
+    }
+
+    protected function setFrameworkMaterialAdmin26(): self
+    {
+        return $this->setFramework('material-admin-26');
+    }
+
     protected function registerTestRoute($uri, callable $post = null): self
     {
         Route::middleware('web')->group(function () use ($uri, $post) {

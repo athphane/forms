@@ -84,7 +84,7 @@ abstract class Component extends BaseComponent
      * @param string $name
      * @return string
      */
-    protected static function convertBracketsToDots($name): string
+    protected static function convertBracketsToDots(string $name): string
     {
         return str_replace(['[', ']'], ['.', ''], $name);
     }

@@ -11,7 +11,7 @@ class FormsServiceProvider extends ServiceProvider
     /**
      * Bootstrap the application services.
      */
-    public function boot()
+    public function boot(): void
     {
         // declare publishes
         if ($this->app->runningInConsole()) {
@@ -51,7 +51,7 @@ class FormsServiceProvider extends ServiceProvider
     /**
      * Register the application services.
      */
-    public function register()
+    public function register(): void
     {
         // merge package config with user defined config
         $this->mergeConfigFrom(__DIR__ . '/../config/config.php', 'forms');

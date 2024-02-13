@@ -9,11 +9,11 @@ use Illuminate\Support\ViewErrorBag;
 
 trait HandlesValidationErrors
 {
-    public $showErrors = true;
+    public bool $showErrors = true;
 
     /**
-     * Returns a boolean wether the given attribute has an error
-     * and the should be shown.
+     * Returns a boolean whether the given attribute has an error,
+     * and they should be shown.
      *
      * @param string $name
      * @param string $bag
@@ -40,7 +40,7 @@ trait HandlesValidationErrors
     }
 
     /**
-     * Returns a boolean wether the given attribute has an error.
+     * Returns a boolean whether the given attribute has an error.
      *
      * @param string $name
      * @param string $bag

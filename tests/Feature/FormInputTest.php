@@ -18,7 +18,7 @@ class FormInputTest extends TestCase
     /** @test */
     public function it_can_generate_bootstrap_5_form_inputs()
     {
-        $this->setFramework('bootstrap-5');
+        $this->setFrameworkBootstrap5();
         $this->registerTestRoute('form-input');
 
         $this->visit('/form-input')
@@ -33,7 +33,7 @@ class FormInputTest extends TestCase
     /** @test */
     public function it_can_set_form_inputs_as_required()
     {
-        $this->setFramework('bootstrap-5');
+        $this->setFrameworkBootstrap5();
         $this->registerTestRoute('form-input-required');
 
         $this->visit('/form-input-required')
@@ -52,7 +52,7 @@ class FormInputTest extends TestCase
     /** @test */
     public function it_can_generate_bootstrap_5_inline_form_inputs()
     {
-        $this->setFramework('bootstrap-5');
+        $this->setFrameworkBootstrap5();
         $this->registerTestRoute('form-input-inline');
 
         $this->visit('/form-input-inline')
@@ -70,7 +70,7 @@ class FormInputTest extends TestCase
     /** @test */
     public function it_can_generate_bootstrap_5_floating_form_inputs()
     {
-        $this->setFramework('bootstrap-5');
+        $this->setFrameworkBootstrap5();
         $this->registerTestRoute('form-input-floating');
 
         $this->visit('/form-input-floating')
@@ -85,7 +85,7 @@ class FormInputTest extends TestCase
     /** @test */
     public function it_can_display_form_input_help_texts()
     {
-        $this->setFramework('bootstrap-5');
+        $this->setFrameworkBootstrap5();
         $this->registerTestRoute('form-input-help');
 
         $this->visit('/form-input-help')
@@ -102,7 +102,7 @@ class FormInputTest extends TestCase
     /** @test */
     public function it_can_generate_material_admin_26_form_inputs()
     {
-        $this->setFramework('material-admin-26');
+        $this->setFrameworkMaterialAdmin26();
         $this->registerTestRoute('form-input');
 
         $this->visit('/form-input')

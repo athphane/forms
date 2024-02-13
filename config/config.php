@@ -133,13 +133,38 @@ return [
             'view'  => 'forms::{framework}.form-button',
             'class' => Components\FormSubmit::class,
         ],
-        /*
-
-
         'form-checkbox' => [
             'view'  => 'forms::{framework}.form-checkbox',
             'class' => Components\FormCheckbox::class,
         ],
+
+        'form-card' => [
+            'view'  => 'forms::{framework}.form-card',
+            'class' => Components\FormCard::class,
+        ],
+
+        'table' => [
+            'view'  => 'forms::{framework}.table',
+            'class' => Components\Table::class,
+        ],
+
+        'table-row' => [
+            'view'  => 'forms::{framework}.table.row',
+            'class' => Components\TableRow::class,
+        ],
+
+        'table-cell' => [
+            'view'  => 'forms::{framework}.table.cell',
+            'class' => Components\TableCell::class,
+        ],
+
+        'form-filter' => [
+            'view'  => 'forms::{framework}.form-filter',
+            'class' => Components\FormFilter::class,
+        ]
+        /*
+
+
 
 
 
