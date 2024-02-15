@@ -18,8 +18,8 @@
     <i class="form-group__bar"></i>
 
     @if(! empty($help))
-        <x-forms::input-help :framework="$framework">
-            {!! $help !!}
+        <x-forms::input-help :framework="$framework" :attributes="$help->attributes">
+            {{ $help }}
         </x-forms::input-help>
     @endif
 

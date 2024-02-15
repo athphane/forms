@@ -14,7 +14,7 @@ class Card extends Component
      * @return void
      */
     public function __construct(
-        string $title,
+        string $title = '',
         string $framework = ''
     )
     {

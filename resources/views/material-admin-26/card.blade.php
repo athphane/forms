@@ -5,17 +5,31 @@
 >
     {{ $image_top ?? '' }}
 
-    {{ $header ?? '' }}
+    @if(! empty($header))
+        <x-forms::card.header :framework="$framework" :attributes="$header->attributes">
+            {{ $header }}
+        </x-forms::card.header>
+    @endif
 
     <div class="card-body">
-        <h4 class="card-title">
-            {{ $title }}
-        </h4>
+        @if(! empty($title))
+            <x-forms::card.title :framework="$framework">
+                {{ $title }}
+            </x-forms::card.title>
+        @endif
 
-        {{ $subtitle ?? '' }}
+        @if(! empty($subtitle))
+            <x-forms::card.subtitle :framework="$framework" :attributes="$subtitle->attributes">
+                {{ $subtitle }}
+            </x-forms::card.subtitle>
+        @endif
 
         {!! $slot !!}
     </div>
 
-    {{ $footer ?? '' }}
+    @if(! empty($footer))
+        <x-forms::card.footer :framework="$framework" :attributes="$footer->attributes">
+            {{ $footer }}
+        </x-forms::card.footer>
+    @endif
 </div>

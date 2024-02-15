@@ -6,9 +6,9 @@
 
 <div id="header">
     <x-forms::card title="Card Title">
-        <x-slot name="header">
-            <h5 class="card-header">Card Header</h5>
-        </x-slot>
+        <x-slot:header class="text-primary">
+            This is in the header
+        </x-slot:header>
         This is a card
     </x-forms::card>
 </div>
@@ -16,9 +16,9 @@
 
 <div id="footer">
     <x-forms::card title="Card Title">
-        <x-slot name="footer">
-            <div class="card-footer">Card Footer</div>
-        </x-slot>
+        <x-slot:footer>
+            Card Footer
+        </x-slot:footer>
         This is a card
     </x-forms::card>
 </div>
@@ -34,9 +34,9 @@
 
 <div id="subtitle">
     <x-forms::card title="Card Title">
-        <x-slot name="subtitle">
-            <h6 class="card-subtitle mb-2 text-muted">Card Subtitle</h6>
-        </x-slot>
+        <x-slot:subtitle class="mb-2 text-muted">
+            Card Subtitle
+        </x-slot:subtitle>
         This is a card
     </x-forms::card>
 </div>
