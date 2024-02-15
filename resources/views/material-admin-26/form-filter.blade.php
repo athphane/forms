@@ -27,6 +27,4 @@
         name="order"
         :value="Request::input('order', old('order'))"
     />
-
-    {{ $hiddenFields ?? ''}}
 </div>
