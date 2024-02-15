@@ -4,6 +4,8 @@ namespace Javaabu\Forms\Components;
 
 class FormCard extends Component
 {
+    protected string $view = 'form-card';
+
     public string $title;
 
     /**

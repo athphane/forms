@@ -6,6 +6,8 @@ class Form extends Component
 {
     use HandlesBoundValues;
 
+    protected string $view = 'form';
+
     /**
      * Request method.
      */

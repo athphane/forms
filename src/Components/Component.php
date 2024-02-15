@@ -23,6 +23,13 @@ abstract class Component extends BaseComponent
     public string $framework;
 
     /**
+     * The view to be used
+     *
+     * @var string
+     */
+    protected string $view;
+
+    /**
      * Create a new component instance.
      *
      * @return void
@@ -36,18 +43,21 @@ abstract class Component extends BaseComponent
         $this->framework = $framework;
     }
 
+    public function getView(): string
+    {
+        return 'forms::{framework}.' . $this->view;
+    }
+
     /**
      * {@inheritDoc}
      */
     public function render()
     {
-        $alias = Str::kebab(class_basename($this));
-
-        $config = config("forms.components.{$alias}");
+        $view = $this->getView();
 
         $framework = $this->framework;
 
-        return str_replace('{framework}', $framework, $config['view']);
+        return str_replace('{framework}', $framework, $view);
     }
 
     /**

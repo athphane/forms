@@ -4,6 +4,8 @@ namespace Javaabu\Forms\Components;
 
 class FormTextarea extends FormInput
 {
+    protected string $view = 'form-textarea';
+
     /**
      * Create a new component instance.
      *

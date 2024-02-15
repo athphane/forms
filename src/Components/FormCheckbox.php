@@ -7,6 +7,7 @@ class FormCheckbox extends Component
     use HandlesValidationErrors;
     use HandlesDefaultAndOldValue;
 
+    protected string $view = 'form-checkbox';
     public string $name;
     public string $label;
     public string $type;

@@ -4,6 +4,8 @@ namespace Javaabu\Forms\Components;
 
 class TableCell extends Component
 {
+    protected string $view = 'table.cell';
+
     public bool $heading;
 
     /**

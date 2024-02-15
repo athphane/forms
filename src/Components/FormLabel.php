@@ -4,6 +4,8 @@ namespace Javaabu\Forms\Components;
 
 class FormLabel extends Component
 {
+    protected string $view = 'form-label';
+
     public string $label;
     public bool $required;
     public bool $inline;

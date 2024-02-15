@@ -4,6 +4,8 @@ namespace Javaabu\Forms\Components;
 
 class FormRequired extends Component
 {
+    protected string $view = 'form-required';
+
     public string $text;
 
     /**

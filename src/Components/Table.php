@@ -4,6 +4,8 @@ namespace Javaabu\Forms\Components;
 
 class Table extends Component
 {
+    protected string $view = 'table';
+
     public bool $striped;
     public bool $no_bulk;
 

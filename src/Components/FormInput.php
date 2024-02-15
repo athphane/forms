@@ -7,6 +7,7 @@ class FormInput extends Component
     use HandlesValidationErrors;
     use HandlesDefaultAndOldValue;
 
+    protected string $view = 'form-input';
     public string $name;
     public string $label;
     public string $type;

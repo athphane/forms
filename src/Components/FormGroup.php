@@ -4,6 +4,7 @@ namespace Javaabu\Forms\Components;
 
 class FormGroup extends Component
 {
+    protected string $view = 'form-group';
     public string $name;
     public string $label;
     public bool $required;

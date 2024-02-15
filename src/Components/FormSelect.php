@@ -14,6 +14,8 @@ class FormSelect extends Component
     use HandlesValidationErrors;
     use HandlesDefaultAndOldValue;
 
+    protected string $view = 'form-select';
+
     public string $name;
     public string $label;
     public $options;

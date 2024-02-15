@@ -4,6 +4,8 @@ namespace Javaabu\Forms\Components;
 
 class FormButton extends Component
 {
+    protected string $view = 'form-button';
+
     public string $type;
     public string $color;
 

@@ -6,6 +6,7 @@ use Illuminate\Support\Str;
 
 class FormErrors extends Component
 {
+    protected string $view = 'form-errors';
     public string $name;
     public string $bag;
 

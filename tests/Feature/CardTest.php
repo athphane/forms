@@ -7,13 +7,51 @@ use Javaabu\Forms\Tests\TestCase;
 
 class CardTest extends TestCase
 {
-    public function setUp(): void
+    /** @test */
+    public function it_can_generate_bootstrap_5_card_title()
     {
-        parent::setUp();
+        $this->setFrameworkBootstrap5();
+        $this->registerTestRoute('form-card-title');
 
-        Config::set('forms.inputs.required_text', 'forms::strings.required_text');
-        Config::set('forms.inputs.inline', false);
+        $this->visit('/form-card-title')
+            ->seeElement('h5.card-title')
+            ->seeInElement('h5.card-title', 'Card title');
     }
+
+    /** @test */
+    public function it_can_generate_material_admin_26_card_title()
+    {
+        $this->setFrameworkMaterialAdmin26();
+        $this->registerTestRoute('form-card-title');
+
+        $this->visit('/form-card-title')
+            ->seeElement('h4.card-title')
+            ->seeInElement('h4.card-title', 'Card title');
+    }
+
+    /** @test */
+    public function it_can_generate_bootstrap_5_card_header()
+    {
+        $this->setFrameworkBootstrap5();
+        $this->registerTestRoute('form-card-header');
+
+        $this->visit('/form-card-header')
+            ->seeElement('div.card-header')
+            ->seeInElement('div.card-header', 'Card header');
+    }
+
+    /** @test */
+    public function it_can_generate_material_admin_26_card_header()
+    {
+        $this->setFrameworkMaterialAdmin26();
+        $this->registerTestRoute('form-card-header');
+
+        $this->visit('/form-card-header')
+            ->seeElement('div.card-header')
+            ->seeInElement('div.card-header', 'Card header');
+    }
+
+
 
     /** @test */
     public function it_can_generate_bootstrap_5_card()
