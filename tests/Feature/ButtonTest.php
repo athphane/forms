@@ -8,6 +8,32 @@ use Javaabu\Forms\Tests\TestCase;
 class ButtonTest extends TestCase
 {
     /** @test */
+    public function it_can_generate_bootstrap_5_button_group()
+    {
+        $this->setFrameworkBootstrap5();
+        $this->registerTestRoute('button-group');
+
+        $this->visit('/button-group')
+            ->seeElement('div.btn-group')
+            ->within('div.btn-group', function () {
+                $this->seeElement('button.btn');
+            });
+    }
+
+    /** @test */
+    public function it_can_generate_material_admin_26_group()
+    {
+        $this->setFrameworkMaterialAdmin26();
+        $this->registerTestRoute('button-group');
+
+        $this->visit('/button-group')
+            ->seeElement('div.button-group.inline-btn-group')
+            ->within('div.button-group', function () {
+                $this->seeElement('button.btn');
+            });
+    }
+
+    /** @test */
     public function it_can_generate_bootstrap_5_button()
     {
         $this->setFrameworkBootstrap5();
