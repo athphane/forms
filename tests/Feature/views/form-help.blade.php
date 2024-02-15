@@ -1,1 +1,1 @@
-<x-form-help :inline="false">This is a help text</x-form-help>
+<x-forms::input-help :inline="false">This is a help text</x-forms::input-help>

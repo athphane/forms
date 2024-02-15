@@ -1,4 +1,4 @@
-<x-form>
-    <x-form-select name="select" :options="['a', 'b', 'c']" />
-    <x-form-submit>Submit</x-form-submit>
-</x-form>
+<x-forms::form>
+    <x-forms::select name="select" :options="['a', 'b', 'c']" />
+    <x-forms::submit>Submit</x-forms::submit>
+</x-forms::form>

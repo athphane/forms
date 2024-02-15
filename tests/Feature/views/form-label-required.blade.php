@@ -1,1 +1,1 @@
-<x-form-label label="Title" required />
+<x-forms::label label="Title" required />

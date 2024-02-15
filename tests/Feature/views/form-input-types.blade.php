@@ -1,15 +1,15 @@
-<x-form-input type="number" name="number_input" />
+<x-forms::input type="number" name="number_input" />
 
-<x-form-text name="text" />
+<x-forms::text name="text" />
 
-<x-form-password name="password" />
+<x-forms::password name="password" />
 
-<x-form-number name="number" />
+<x-forms::number name="number" />
 
-<x-form-hidden name="hidden" />
+<x-forms::hidden name="hidden" />
 
-<x-form-email name="email" />
+<x-forms::email name="email" />
 
-<x-form-url name="url" />
+<x-forms::url name="url" />
 
-<x-form-tel name="tel" />
+<x-forms::tel name="tel" />

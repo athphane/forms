@@ -1,5 +1,5 @@
-<x-form>
-    <x-form-select name="select" placeholder="Choose..." :options="['a' => 'a', 'b' => 'b']"></x-form-select>
+<x-forms::form>
+    <x-forms::select name="select" placeholder="Choose..." :options="['a' => 'a', 'b' => 'b']"></x-forms::select>
 
-    <x-form-submit>Submit</x-form-submit>
-</x-form>
+    <x-forms::submit>Submit</x-forms::submit>
+</x-forms::form>

@@ -1,72 +1,72 @@
 <div id="normal">
-    <x-table>
+    <x-forms::table>
         <x-slot:headers>
-            <x-table-cell>No</x-table-cell>
-            <x-table-cell>First Name</x-table-cell>
-            <x-table-cell>Last Name</x-table-cell>
-            <x-table-cell>Username</x-table-cell>
+            <x-forms::table.cell>No</x-forms::table.cell>
+            <x-forms::table.cell>First Name</x-forms::table.cell>
+            <x-forms::table.cell>Last Name</x-forms::table.cell>
+            <x-forms::table.cell>Username</x-forms::table.cell>
         </x-slot:headers>
 
         <x-slot:rows>
-            <x-table-row>
-                <x-table-cell>1</x-table-cell>
-                <x-table-cell>Mark</x-table-cell>
-                <x-table-cell>Otto</x-table-cell>
-                <x-table-cell>@mdo</x-table-cell>
-            </x-table-row>
-            <x-table-row>
-                <x-table-cell>2</x-table-cell>
-                <x-table-cell>Jacob</x-table-cell>
-                <x-table-cell>Thornton</x-table-cell>
-                <x-table-cell>@fat</x-table-cell>
-            </x-table-row>
-            <x-table-row>
-                <x-table-cell>3</x-table-cell>
-                <x-table-cell colspan="2">Larry the Bird</x-table-cell>
-                <x-table-cell>@twitter</x-table-cell>
-            </x-table-row>
+            <x-forms::table.row>
+                <x-forms::table.cell>1</x-forms::table.cell>
+                <x-forms::table.cell>Mark</x-forms::table.cell>
+                <x-forms::table.cell>Otto</x-forms::table.cell>
+                <x-forms::table.cell>@mdo</x-forms::table.cell>
+            </x-forms::table.row>
+            <x-forms::table.row>
+                <x-forms::table.cell>2</x-forms::table.cell>
+                <x-forms::table.cell>Jacob</x-forms::table.cell>
+                <x-forms::table.cell>Thornton</x-forms::table.cell>
+                <x-forms::table.cell>@fat</x-forms::table.cell>
+            </x-forms::table.row>
+            <x-forms::table.row>
+                <x-forms::table.cell>3</x-forms::table.cell>
+                <x-forms::table.cell colspan="2">Larry the Bird</x-forms::table.cell>
+                <x-forms::table.cell>@twitter</x-forms::table.cell>
+            </x-forms::table.row>
         </x-slot:rows>
-    </x-table>
+    </x-forms::table>
 </div>
 
 <div id="striped">
-    <x-table striped>
+    <x-forms::table striped>
         <x-slot:headers>
-            <x-table-cell>No</x-table-cell>
-            <x-table-cell>First Name</x-table-cell>
-            <x-table-cell>Last Name</x-table-cell>
-            <x-table-cell>Username</x-table-cell>
+            <x-forms::table.cell>No</x-forms::table.cell>
+            <x-forms::table.cell>First Name</x-forms::table.cell>
+            <x-forms::table.cell>Last Name</x-forms::table.cell>
+            <x-forms::table.cell>Username</x-forms::table.cell>
         </x-slot:headers>
 
         <x-slot:rows>
-            <x-table-row>
-                <x-table-cell>1</x-table-cell>
-                <x-table-cell>Mark</x-table-cell>
-                <x-table-cell>Otto</x-table-cell>
-                <x-table-cell>@mdo</x-table-cell>
-            </x-table-row>
+            <x-forms::table.row>
+                <x-forms::table.cell>1</x-forms::table.cell>
+                <x-forms::table.cell>Mark</x-forms::table.cell>
+                <x-forms::table.cell>Otto</x-forms::table.cell>
+                <x-forms::table.cell>@mdo</x-forms::table.cell>
+            </x-forms::table.row>
         </x-slot:rows>
-    </x-table>
+    </x-forms::table>
 </div>
 
 <div id="material">
-    <x-table>
+    <x-forms::table>
         <x-slot:headers>
-            <x-table-cell heading>No</x-table-cell>
-            <x-table-cell heading>First Name</x-table-cell>
-            <x-table-cell heading>Last Name</x-table-cell>
-            <x-table-cell heading>Username</x-table-cell>
+            <x-forms::table.cell heading>No</x-forms::table.cell>
+            <x-forms::table.cell heading>First Name</x-forms::table.cell>
+            <x-forms::table.cell heading>Last Name</x-forms::table.cell>
+            <x-forms::table.cell heading>Username</x-forms::table.cell>
         </x-slot:headers>
 
         <x-slot:rows>
-            <x-table-row>
-                <x-table-cell>1</x-table-cell>
-                <x-table-cell>Mark</x-table-cell>
-                <x-table-cell>Otto</x-table-cell>
-                <x-table-cell>@mdo</x-table-cell>
-            </x-table-row>
+            <x-forms::table.row>
+                <x-forms::table.cell>1</x-forms::table.cell>
+                <x-forms::table.cell>Mark</x-forms::table.cell>
+                <x-forms::table.cell>Otto</x-forms::table.cell>
+                <x-forms::table.cell>@mdo</x-forms::table.cell>
+            </x-forms::table.row>
         </x-slot:rows>
-    </x-table>
+    </x-forms::table>
 </div>
 
 

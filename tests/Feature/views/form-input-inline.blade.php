@@ -1,1 +1,1 @@
-<x-form-input label="Title" default="Lorem ipsum" name="title" inline />
+<x-forms::input label="Title" default="Lorem ipsum" name="title" inline />

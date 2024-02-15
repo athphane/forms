@@ -1,1 +1,1 @@
-<x-form-textarea label="Title" default="Lorem ipsum" name="title" />
+<x-forms::textarea label="Title" default="Lorem ipsum" name="title" />

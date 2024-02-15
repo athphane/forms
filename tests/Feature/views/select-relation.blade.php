@@ -1,5 +1,5 @@
-<x-form :model="$post">
-    <x-form-input name="content" />
-    <x-form-select name="comments" :options="$options" multiple relation />
-    <x-form-submit>Submit</x-form-submit>
-</x-form>
+<x-forms::form :model="$post">
+    <x-forms::input name="content" />
+    <x-forms::select name="comments" :options="$options" multiple relation />
+    <x-forms::submit>Submit</x-forms::submit>
+</x-forms::form>

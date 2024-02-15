@@ -1,4 +1,4 @@
-<x-form :model="$post">
-    <x-form-select2 name="author" :options="$options" />
-    <x-form-submit>Submit</x-form-submit>
-</x-form>
+<x-forms::form :model="$post">
+    <x-forms::select2 name="author" :options="$options" />
+    <x-forms::submit>Submit</x-forms::submit>
+</x-forms::form>

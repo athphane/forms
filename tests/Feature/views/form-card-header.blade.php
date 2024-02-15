@@ -1,3 +1,3 @@
-<x-form-card-header>
+<x-forms::card.header>
     Card header
-</x-form-card-header>
+</x-forms::card.header>

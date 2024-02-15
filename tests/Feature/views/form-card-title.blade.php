@@ -1,3 +1,3 @@
-<x-form-card-title>
+<x-forms::card.title>
     Card title
-</x-form-card-title>
+</x-forms::card.title>

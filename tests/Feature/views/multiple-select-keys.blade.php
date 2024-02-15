@@ -1,7 +1,7 @@
-<x-form>
-    <x-form-select multiple name="select[]" :default="(old() ? null : ['be', 'nl'])"
+<x-forms::form>
+    <x-forms::select multiple name="select[]" :default="(old() ? null : ['be', 'nl'])"
                    :options="['be' => 'Belgium', 'nl' => 'The Netherlands']" />
 
-    <x-form-input name="another_field" />
-    <x-form-submit>Submit</x-form-submit>
-</x-form>
+    <x-forms::input name="another_field" />
+    <x-forms::submit>Submit</x-forms::submit>
+</x-forms::form>

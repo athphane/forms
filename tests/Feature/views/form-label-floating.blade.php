@@ -1,1 +1,1 @@
-<x-form-label label="Title" floating />
+<x-forms::label label="Title" floating />

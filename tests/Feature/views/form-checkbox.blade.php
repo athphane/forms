@@ -1,1 +1,1 @@
-<x-form-checkbox label="Check Me" name="check_me" />
+<x-forms::checkbox label="Check Me" name="check_me" />

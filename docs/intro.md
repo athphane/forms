@@ -18,8 +18,8 @@ This package was inspired from [protonemedia/laravel-form-components](https://gi
 Here's a quick example of what this package can offer.
 
 ```html
-<x-form :model="$page">
-    <x-form-input name="title" :label="__('Title')" />
-    <x-form-textarea name="content" :label="__('Content')" />
-</x-form>
+<x-forms::form :model="$page">
+    <x-forms::input name="title" :label="__('Title')" />
+    <x-forms::textarea name="content" :label="__('Content')" />
+</x-forms::form>
 ```
