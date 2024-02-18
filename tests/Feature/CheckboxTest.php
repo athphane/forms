@@ -5,7 +5,7 @@ namespace Javaabu\Forms\Tests\Feature;
 use Illuminate\Support\Facades\Config;
 use Javaabu\Forms\Tests\TestCase;
 
-class FormCheckboxTest extends TestCase
+class CheckboxTest extends TestCase
 {
     public function setUp(): void
     {

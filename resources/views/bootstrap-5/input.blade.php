@@ -1,14 +1,18 @@
 <x-forms::form-group :wrap="$label && $type != 'hidden'" :label="$label" :name="$attributes->get('id') ?: $id()" :framework="$framework" :inline="$inline" :required="$required" :floating="$floating">
-    @if((! empty($prepend)) || (! empty($append)))
+    @if($isDateInput() || (! empty($prepend)) || (! empty($append)))
         <div class="input-group">
-            @if(! empty($prepend))
+            @if($isDateInput())
+                <span class="input-group-text">
+                    <i class="{{ $icon ?? 'zmdi zmdi-calendar' }}"></i>
+                </span>
+            @elseif(! empty($prepend))
                 {{ $prepend }}
             @endif
     @endif
 
     <input
         {!! $attributes->merge([
-            'class' => 'form-control' . ($type === 'color' ? ' form-control-color' : '') . ($hasError($name) ? ' is-invalid' : ''),
+            'class' => 'form-control' . ($type === 'color' ? ' form-control-color' : '') . ($hasError($name) ? ' is-invalid' : '') . ($isDateInput() ? ' ' . $datePickerClass() : ''),
             'required' => $required
         ]) !!}
         type="{{ $type }}"
@@ -23,8 +27,12 @@
         @endif
     />
 
-    @if((! empty($prepend)) || (! empty($append)))
-        @if(! empty($append))
+    @if($isDateInput() || (! empty($prepend)) || (! empty($append)))
+        @if($isDateInput())
+            <a href="#" data-date-clear="#{{ $attributes->get('id') ?: $id() }}" class="btn btn-link disable-w-input" title="{{ __('Clear') }}">
+                <i class="{{ $clearIcon ?? 'zmdi zmdi-close' }}"></i>
+            </a>
+        @elseif(! empty($append))
             {{ $append }}
         @endif
         </div>

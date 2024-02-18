@@ -1,16 +1,22 @@
 <x-forms::form-group :wrap="$label && $type != 'hidden'" :label="$label" :name="$attributes->get('id') ?: $id()" :framework="$framework" :inline="$inline" :required="$required" :floating="$floating">
-    @if((! empty($prepend)) || (! empty($append)))
+    @if($isDateInput() || (! empty($prepend)) || (! empty($append)))
     <div class="input-group mb-0">
         @if(! empty($prepend))
             <div class="input-group-prepend">
-            {{ $prepend }}
+                @if($isDateInput())
+                    <span class="input-group-text">
+                    <i class="{{ $icon ?? 'zmdi zmdi-calendar' }}"></i>
+                </span>
+                @elseif(! empty($prepend))
+                    {{ $prepend }}
+                @endif
             </div>
         @endif
     @endif
 
     <input
         {!! $attributes->merge([
-            'class' => 'form-control' . ($type === 'color' ? ' form-control-color' : '') . ($hasError($name) ? ' is-invalid' : ''),
+            'class' => 'form-control' . ($type === 'color' ? ' form-control-color' : '') . ($hasError($name) ? ' is-invalid' : '') . ($isDateInput() ? ' ' . $datePickerClass() : ''),
             'required' => $required
         ]) !!}
         type="{{ $type }}"
@@ -26,10 +32,18 @@
     />
     <i class="form-group__bar"></i>
 
-    @if((! empty($prepend)) || (! empty($append)))
+    @if($isDateInput() || (! empty($prepend)) || (! empty($append)))
         @if(! empty($append))
             <div class="input-group-append">
-                {{ $append }}
+                @if($isDateInput())
+                    <div class="input-group-text input-group-text-link">
+                        <a href="#" data-date-clear="#{{ $attributes->get('id') ?: $id() }}" class="text-body disable-w-input" title="{{ __('Clear') }}">
+                            <i class="{{ $clearIcon ?? 'zmdi zmdi-close' }}"></i>
+                        </a>
+                    </div>
+                @elseif(! empty($append))
+                    {{ $append }}
+                @endif
             </div>
         @endif
     </div>

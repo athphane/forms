@@ -5,7 +5,7 @@ namespace Javaabu\Forms\Tests\Feature;
 use Illuminate\Support\Facades\Config;
 use Javaabu\Forms\Tests\TestCase;
 
-class FormTextareaTest extends TestCase
+class TextareaTest extends TestCase
 {
     public function setUp(): void
     {

@@ -49,4 +49,14 @@ class Input extends Component
 
         $this->setValue($name, $model, $default);
     }
+
+    public function datePickerClass(): string
+    {
+        return '';
+    }
+
+    public function isDateInput(): bool
+    {
+        return false;
+    }
 }

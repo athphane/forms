@@ -5,7 +5,7 @@ namespace Javaabu\Forms\Tests\Feature;
 use Illuminate\Support\Facades\Config;
 use Javaabu\Forms\Tests\TestCase;
 
-class FormLabelTest extends TestCase
+class LabelTest extends TestCase
 {
     public function setUp(): void
     {

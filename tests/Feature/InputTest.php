@@ -5,7 +5,7 @@ namespace Javaabu\Forms\Tests\Feature;
 use Illuminate\Support\Facades\Config;
 use Javaabu\Forms\Tests\TestCase;
 
-class FormInputTest extends TestCase
+class InputTest extends TestCase
 {
     public function setUp(): void
     {
