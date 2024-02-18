@@ -16,6 +16,28 @@ class FormInputTest extends TestCase
     }
 
     /** @test */
+    public function it_can_generate_bootstrap_5_form_inputs_with_input_group()
+    {
+        $this->setFrameworkBootstrap5();
+        $this->registerTestRoute('form-input-prepend-append');
+
+        $this->visit('/form-input-prepend-append')
+            ->seeElement('div.mb-4')
+            ->within('div.mb-4', function () {
+                $this->seeElement('div.input-group')
+                    ->seeElement('label.form-label')
+                    ->seeInElement('label.form-label[for="title"]', 'Title')
+                    ->within('div.input-group', function () {
+                        $this->seeElement('div.input-group-text.prepend')
+                            ->seeInElement('div.input-group-text.prepend', 'MVR')
+                            ->seeElement('input[name="title"][value="Lorem ipsum"].form-control')
+                            ->seeElement('div.input-group-text.append')
+                            ->seeInElement('div.input-group-text.append', 'New Link');
+                    });
+            });
+    }
+
+    /** @test */
     public function it_can_generate_bootstrap_5_form_inputs()
     {
         $this->setFrameworkBootstrap5();
