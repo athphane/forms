@@ -2,9 +2,9 @@
 
 namespace Javaabu\Forms\Views\Components;
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\View\Component as BaseComponent;
-use Javaabu\Forms\FormsDataBinder;
 
 abstract class Component extends BaseComponent
 {
@@ -36,7 +36,7 @@ abstract class Component extends BaseComponent
      */
     public function __construct(string $framework = '')
     {
-        if (! $framework) {
+        if (!$framework) {
             $framework = config('forms.framework');
         }
 
@@ -91,7 +91,7 @@ abstract class Component extends BaseComponent
     /**
      * Converts a bracket-notation to a dotted-notation
      *
-     * @param string $name
+     * @param  string  $name
      * @return string
      */
     protected static function convertBracketsToDots(string $name): string
