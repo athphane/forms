@@ -119,4 +119,17 @@ class TableTest extends TestCase
                 $this->seeInElement('div', 'Previous');
             });
     }
+
+    /** @test */
+    public function it_displays_empty_table_message_when_no_matching_rows()
+    {
+        $this->setFrameworkMaterialAdmin26();
+        $this->registerTestRoute('table');
+
+        $this->visit('table')
+            ->seeElement('#material-empty')
+            ->within('#material-empty', function () {
+                $this->see('No matching things');
+            });
+    }
 }

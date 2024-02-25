@@ -120,5 +120,39 @@
     </x-forms::table>
 </div>
 
+<div id="material-empty">
+    <x-forms::table
+        model="users"
+        :no-bulk="!empty($no_bulk)"
+        :no-checkbox="!empty($no_checkbox)"
+        :no-pagination="!empty($no_pagination)"
+    >
+        <x-slot:bulk-form
+            action="/users"
+            method="PUT"
+        >
+            @include('form-input')
+        </x-slot:bulk-form>
+
+        <x-slot:headers>
+            <x-forms::table.heading label="No"/>
+            <x-forms::table.heading label="Date A"/>
+            <x-forms::table.heading label="Date B"/>
+            <x-forms::table.heading label="Date C"/>
+            <x-forms::table.heading label="Date D"/>
+            <x-forms::table.heading label="Date E"/>
+        </x-slot:headers>
+
+        <x-slot:rows>
+            <x-forms::table.empty-table-row
+                columns="4"
+                :no-checkbox="!empty($no_checkbox)"
+            >
+                No matching things
+            </x-forms::table.empty-table-row>
+        </x-slot:rows>
+    </x-forms::table>
+</div>
+
 
 
