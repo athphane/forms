@@ -22,7 +22,10 @@ class FormFilterTest extends TestCase
         $this->registerTestRoute('form-filter');
 
         $this->visit('/form-filter')
-            ->seeElement('input[type="hidden"][name="test"]')
+            // search field not hidden
+            ->seeElement('input[type="text"][name="search"]')
+            ->seeElement('select[name="select"]')
+            ->seeElement('select[name="per_page"]')
             ->seeElement('input[type="hidden"][name="orderby"]')
             ->seeElement('input[type="hidden"][name="order"]');
     }

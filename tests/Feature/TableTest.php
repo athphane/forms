@@ -2,14 +2,20 @@
 
 namespace Javaabu\Forms\Tests\Feature;
 
-use Illuminate\Support\Facades\Config;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Javaabu\Forms\Tests\Feature\models\Activity;
 use Javaabu\Forms\Tests\TestCase;
 
 class TableTest extends TestCase
 {
+    use RefreshDatabase;
+    use \Javaabu\Forms\Tests\InteractsWithDatabase;
+
     public function setUp(): void
     {
         parent::setUp();
+
+        $this->runMigrations();
     }
 
     /** @test */
@@ -80,25 +86,50 @@ class TableTest extends TestCase
                                     ->within('tr', function () {
                                         $this->seeElement('th')
                                             ->seeInElement('th', 'No')
-                                            ->seeInElement('th', 'First Name')
-                                            ->seeInElement('th', 'Last Name')
-                                            ->seeInElement('th', 'Username');
+                                            ->seeInElement('th', 'Date A')
+                                            ->seeInElement('th', 'Date B')
+                                            ->seeInElement('th', 'Date C')
+                                            ->seeInElement('th', 'Date D')
+                                            ->seeInElement('th', 'Date E');
                                     });
                             });
 
                         $this->seeElement('tbody')
                             ->within('tbody', function () {
-                                $this->seeElement('tr')
-                                    ->within('tr', function () {
-                                        $this
-                                            ->seeInElement('td', '1')
-                                            ->seeInElement('td', 'Mark')
-                                            ->seeInElement('td', 'Otto')
-                                            ->seeInElement('td', '@mdo');
-                                    });
+                                $activities = Activity::query()->take(2)->get();
+                                foreach ($activities as $activity) {
+                                    $this->seeElement('tr')
+                                        ->within('tr', function () use ($activity) {
+                                            $this
+                                                ->seeInElement('td', $activity->id)
+                                                ->seeInElement('td', $activity->date_a->diffForHumans())
+                                                ->seeInElement('td', $activity->date_b->diffForHumans())
+                                                ->seeInElement('td', $activity->date_c->diffForHumans())
+                                                ->seeInElement('td', $activity->date_d->diffForHumans())
+                                                ->seeInElement('td', $activity->date_e->diffForHumans());
+                                        });
+                                }
                             });
+
                     });
+
+                // Pagination check
+                $this->seeElement('div.dataTables_info');
+                $this->seeInElement('div.dataTables_info', 'Showing 2 from total 20 entries');
+                $this->seeInElement('div', 'Previous');
             });
     }
 
+    /** @test */
+    public function it_displays_empty_table_message_when_no_matching_rows()
+    {
+        $this->setFrameworkMaterialAdmin26();
+        $this->registerTestRoute('table');
+
+        $this->visit('table')
+            ->seeElement('#material-empty')
+            ->within('#material-empty', function () {
+                $this->see('No matching things');
+            });
+    }
 }

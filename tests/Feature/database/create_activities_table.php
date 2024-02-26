@@ -14,11 +14,13 @@ class CreateActivitiesTable extends Migration
     public function up()
     {
         Schema::create('activities', function (Blueprint $table) {
+            $table->id();
             $table->date('date_a');
             $table->date('date_b');
             $table->dateTime('date_c');
             $table->date('date_d');
             $table->dateTime('date_e');
+            $table->timestamps();
         });
     }
     /**

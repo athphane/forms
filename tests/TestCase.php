@@ -5,6 +5,7 @@ namespace Javaabu\Forms\Tests;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\View;
+use Javaabu\Settings\SettingsServiceProvider;
 use Orchestra\Testbench\BrowserKit\TestCase as BaseTestCase;
 use Javaabu\Forms\FormsServiceProvider;
 
@@ -32,7 +33,10 @@ abstract class TestCase extends BaseTestCase
 
     protected function getPackageProviders($app)
     {
-        return [FormsServiceProvider::class];
+        return [
+            SettingsServiceProvider::class,
+            FormsServiceProvider::class
+        ];
     }
 
     protected function setFramework(string $framework): self
