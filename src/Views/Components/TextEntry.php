@@ -11,6 +11,7 @@ class TextEntry extends Component
 
     protected string $view = 'text-entry';
     public bool $inline;
+    public bool $multiline;
     public string $label;
     public string $name;
     public $value;
@@ -27,6 +28,7 @@ class TextEntry extends Component
         $value = null,
         $model = null,
         ?bool $inline = null,
+        bool $multiline = false,
         string $framework = ''
     )
     {
@@ -35,6 +37,7 @@ class TextEntry extends Component
         $this->label = $label;
         $this->inline = is_null($inline) ? config('forms.inputs.inline') : $inline;
         $this->name = $name;
+        $this->multiline = $multiline;
         $this->value = $value ?: ($name ? $this->getBoundValue($model, $name) : '');
     }
 

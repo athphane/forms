@@ -7,6 +7,22 @@ use Javaabu\Forms\Tests\TestCase;
 class TextEntryTest extends TestCase
 {
     /** @test */
+    public function it_can_render_multiline_text_entries()
+    {
+        $this->setFrameworkBootstrap5();
+        $this->registerTestRoute('text-entry-multiline');
+
+        $this->visit('/text-entry-multiline')
+            ->seeElement('dl')
+            ->within('dl', function () {
+                $this->seeElement('dt')
+                    ->seeInElement('dt', 'Name')
+                    ->seeElement('dd')
+                    ->seeInElement('dd', "Javaabu<br>\nCompany");
+            });
+    }
+
+    /** @test */
     public function it_can_set_the_text_entry_from_model()
     {
         $this->setFrameworkBootstrap5();

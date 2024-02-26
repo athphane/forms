@@ -14,8 +14,14 @@
     >
         @if($isAdminModel())
             {!! $value->admin_link !!}
+        @elseif($value)
+            @if($multiline)
+                {!! nl2br(e($value)) !!}
+            @else
+                {{ $value }}
+            @endif
         @else
-            {{ $value ?: $slot }}
+            {{ $slot }}
         @endif
     </dd>
 </dl>
