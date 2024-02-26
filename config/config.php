@@ -35,7 +35,7 @@ return [
 
         'required_text' => 'forms::strings.required_text',
 
-        'nothing_selected_text' => 'forms::strings.nothing_selected'
+        'nothing_selected_text' => 'forms::strings.nothing_selected',
     ],
 
     'components' => [

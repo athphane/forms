@@ -7,6 +7,22 @@ use Javaabu\Forms\Tests\TestCase;
 class TextEntryTest extends TestCase
 {
     /** @test */
+    public function it_can_render_boolean_entries()
+    {
+        $this->setFrameworkBootstrap5();
+        $this->registerTestRoute('boolean-entry');
+
+        $this->visit('/boolean-entry')
+            ->seeElement('dl')
+            ->within('dl', function () {
+                $this->seeElement('dt')
+                    ->seeInElement('dt', 'Is Open')
+                    ->seeElement('dd')
+                    ->seeInElement('dd', 'Yes');
+            });
+    }
+
+    /** @test */
     public function it_can_render_multiline_text_entries()
     {
         $this->setFrameworkBootstrap5();
