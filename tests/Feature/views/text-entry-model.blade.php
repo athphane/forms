@@ -4,6 +4,6 @@
     ];
 @endphp
 
-@model($org)
-<x-forms::text-entry label="Name" name="name" />
-@endmodel
+<x-forms::infolist :model="$org">
+    <x-forms::text-entry label="Name" name="name" />
+</x-forms::infolist>

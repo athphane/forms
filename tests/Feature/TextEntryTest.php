@@ -45,12 +45,15 @@ class TextEntryTest extends TestCase
         $this->registerTestRoute('text-entry-model');
 
         $this->visit('/text-entry-model')
-            ->seeElement('dl')
-            ->within('dl', function () {
-                $this->seeElement('dt')
-                    ->seeInElement('dt', 'Name')
-                    ->seeElement('dd')
-                    ->seeInElement('dd', 'Javaabu');
+            ->seeElement('.card')
+            ->within('.card', function () {
+                $this->seeElement('dl')
+                    ->within('dl', function () {
+                        $this->seeElement('dt')
+                            ->seeInElement('dt', 'Name')
+                            ->seeElement('dd')
+                            ->seeInElement('dd', 'Javaabu');
+                    });
             });
     }
 
