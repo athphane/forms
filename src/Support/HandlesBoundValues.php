@@ -31,7 +31,7 @@ trait HandlesBoundValues
      *
      * @return FormsDataBinder
      */
-    private function getFormsDataBinder(): FormsDataBinder
+    protected function getFormsDataBinder(): FormsDataBinder
     {
         return app(FormsDataBinder::class);
     }
@@ -55,7 +55,7 @@ trait HandlesBoundValues
      *
      * @return mixed
      */
-    private function getBoundTarget()
+    protected function getBoundTarget()
     {
         return $this->getFormsDataBinder()->get();
     }
@@ -67,7 +67,7 @@ trait HandlesBoundValues
      * @param string $name
      * @return mixed
      */
-    private function getBoundValue($bind, string $name)
+    protected function getBoundValue($bind, string $name)
     {
         if ($bind === false) {
             return null;
@@ -96,7 +96,7 @@ trait HandlesBoundValues
      * @param DateTimeInterface $date
      * @return void
      */
-    private function formatDateTime(Model $model, string $key, DateTimeInterface $date)
+    protected function formatDateTime(Model $model, string $key, DateTimeInterface $date)
     {
         if (! config('forms.use_eloquent_date_casting')) {
             return $date;
@@ -138,7 +138,7 @@ trait HandlesBoundValues
      * @param string $name
      * @return mixed
      */
-    private function getAttachedKeysFromRelation($bind, string $name)
+    protected function getAttachedKeysFromRelation($bind, string $name)
     {
         if (!$bind instanceof Model) {
             return data_get($bind, $name);
