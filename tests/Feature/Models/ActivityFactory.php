@@ -1,6 +1,6 @@
 <?php
 
-namespace Javaabu\Forms\Tests\Feature\models;
+namespace Javaabu\Forms\Tests\Feature\Models;
 
 class ActivityFactory extends \Illuminate\Database\Eloquent\Factories\Factory
 {

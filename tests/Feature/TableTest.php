@@ -2,7 +2,7 @@
 
 namespace Javaabu\Forms\Tests\Feature;
 
-use Javaabu\Forms\Tests\Feature\models\Activity;
+use Javaabu\Forms\Tests\Feature\Models\Activity;
 use Javaabu\Forms\Tests\TestCase;
 
 class TableTest extends TestCase

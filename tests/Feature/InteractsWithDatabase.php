@@ -34,7 +34,7 @@ trait InteractsWithDatabase
         (new \CreateCountriesTable)->up();
         (new \CreateStatesTable)->up();
         (new \CreateCitiesTable)->up();
-        (new \CreateAddressesTable())->up();
-        (new \CreateActivitiesTable())->up();
+        (new \CreateAddressesTable)->up();
+        (new \CreateActivitiesTable)->up();
     }
 }
