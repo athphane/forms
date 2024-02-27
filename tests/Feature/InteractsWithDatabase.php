@@ -25,6 +25,7 @@ trait InteractsWithDatabase
         include_once __DIR__ . '/database/create_states_table.php';
         include_once __DIR__ . '/database/create_cities_table.php';
         include_once __DIR__ . '/database/create_addresses_table.php';
+        include_once __DIR__ . '/database/create_activities_table.php';
 
         (new \CreatePostsTable)->up();
         (new \CreateCommentsTable)->up();
@@ -34,5 +35,6 @@ trait InteractsWithDatabase
         (new \CreateStatesTable)->up();
         (new \CreateCitiesTable)->up();
         (new \CreateAddressesTable())->up();
+        (new \CreateActivitiesTable())->up();
     }
 }

@@ -2,20 +2,18 @@
 
 namespace Javaabu\Forms\Tests\Feature;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Javaabu\Forms\Tests\Feature\models\Activity;
 use Javaabu\Forms\Tests\TestCase;
 
 class TableTest extends TestCase
 {
-    use RefreshDatabase;
-    use \Javaabu\Forms\Tests\InteractsWithDatabase;
+    use InteractsWithDatabase;
 
     public function setUp(): void
     {
         parent::setUp();
 
-        $this->runMigrations();
+        $this->setupDatabase();
     }
 
     /** @test */
