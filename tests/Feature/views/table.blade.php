@@ -1,7 +1,7 @@
 @php
-    $activities = \Javaabu\Forms\Tests\Feature\models\Activity::factory(10)->create();
+    $activities = \Javaabu\Forms\Tests\Feature\Models\Activity::factory(10)->create();
 
-    $activities = \Javaabu\Forms\Tests\Feature\models\Activity::query()->paginate(2);
+    $activities = \Javaabu\Forms\Tests\Feature\Models\Activity::query()->paginate(2);
 @endphp
 <div id="normal">
     <x-forms::table>
