@@ -3,11 +3,13 @@
 namespace Javaabu\Forms\Views\Components;
 
 use Illuminate\Database\Eloquent\Model;
+use Javaabu\Forms\Support\FormatsValues;
 use Javaabu\Forms\Support\HandlesBoundValues;
 
 class TextEntry extends Component
 {
     use HandlesBoundValues;
+    use FormatsValues;
 
     protected string $view = 'text-entry';
     public bool $inline;
@@ -15,7 +17,6 @@ class TextEntry extends Component
     public string $label;
     public string $name;
     public $value;
-    public $model;
 
     /**
      * Create a new component instance.
@@ -39,10 +40,5 @@ class TextEntry extends Component
         $this->name = $name;
         $this->multiline = $multiline;
         $this->value = $value ?: ($name ? $this->getBoundValue($model, $name) : '');
-    }
-
-    public function isAdminModel(): bool
-    {
-        return $this->value instanceof Model && method_exists($this->value, 'getAdminLinkAttribute');
     }
 }

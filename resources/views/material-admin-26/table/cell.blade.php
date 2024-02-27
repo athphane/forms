@@ -1,15 +1,14 @@
-@if($heading)
-    <th
-@else
-    <td
-@endif
-
-    {{ $attributes->merge([]) }}
->
-    {{ $slot }}
-
-@if($heading)
-</th>
-@else
+<td {{ $attributes->merge([]) }}>
+    @if($isAdminModel())
+        {!! $value->admin_link !!}
+    @elseif($value)
+        @if($multiline)
+            {!! nl2br(e($value)) !!}
+        @else
+            {{ $formatValue() }}
+        @endif
+    @else
+        {{ $slot }}
+    @endif
 </td>
-@endif
+

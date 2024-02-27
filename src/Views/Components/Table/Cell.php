@@ -2,13 +2,20 @@
 
 namespace Javaabu\Forms\Views\Components\Table;
 
+use Javaabu\Forms\Support\FormatsValues;
+use Javaabu\Forms\Support\HandlesBoundValues;
 use Javaabu\Forms\Views\Components\Component;
 
 class Cell extends Component
 {
-    protected string $view = 'table.cell';
+    use HandlesBoundValues;
+    use FormatsValues;
 
-    public bool $heading;
+    protected string $view = 'table.cell';
+    public bool $multiline;
+    public string $label;
+    public string $name;
+    public $value;
 
     /**
      * Create a new component instance.
@@ -16,11 +23,19 @@ class Cell extends Component
      * @return void
      */
     public function __construct(
-        bool $heading = false,
-        string $framework = '',
+        string $name = '',
+        string $label = '',
+               $value = null,
+               $model = null,
+        bool $multiline = false,
+        string $framework = ''
     )
     {
         parent::__construct($framework);
-        $this->heading = $heading;
+
+        $this->label = $label;
+        $this->name = $name;
+        $this->multiline = $multiline;
+        $this->value = $value ?: ($name ? $this->getBoundValue($model, $name) : '');
     }
 }
