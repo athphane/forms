@@ -78,12 +78,12 @@
         </x-slot:headers>
 
         {{--        <x-slot:rows>--}}
-        {{--            <x-forms::table.empty-table-row--}}
+        {{--            <x-forms::table.empty-row--}}
         {{--                columns="4"--}}
         {{--                :no-checkbox="!empty($no_checkbox)"--}}
         {{--            >--}}
         {{--                No matching things--}}
-        {{--            </x-forms::table.empty-table-row>--}}
+        {{--            </x-forms::table.empty-row>--}}
         {{--        </x-slot:rows>--}}
         <x-slot:rows>
             @foreach($activities as $activity)
@@ -144,12 +144,12 @@
         </x-slot:headers>
 
         <x-slot:rows>
-            <x-forms::table.empty-table-row
+            <x-forms::table.empty-row
                 columns="4"
                 :no-checkbox="!empty($no_checkbox)"
             >
                 No matching things
-            </x-forms::table.empty-table-row>
+            </x-forms::table.empty-row>
         </x-slot:rows>
     </x-forms::table>
 </div>

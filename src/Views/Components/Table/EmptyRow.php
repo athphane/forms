@@ -4,9 +4,9 @@ namespace Javaabu\Forms\Views\Components\Table;
 
 use Javaabu\Forms\Views\Components\Component;
 
-class EmptyTableRow extends Component
+class EmptyRow extends Component
 {
-    protected string $view = 'table.empty-table-row';
+    protected string $view = 'table.empty-row';
 
     public int $colspan;
     public bool $noCheckbox;
