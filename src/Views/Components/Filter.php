@@ -2,6 +2,8 @@
 
 namespace Javaabu\Forms\Views\Components;
 
+use Illuminate\Support\Str;
+
 class Filter extends Component
 {
     protected string $view = 'filter';

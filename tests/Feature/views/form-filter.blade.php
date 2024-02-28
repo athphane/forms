@@ -1,5 +1,5 @@
 <x-forms::form :model="request()->all()">
-    <x-forms::filter>
+    <x-forms::filter id="something">
         <div class="row">
             <div class="col-md-3">
                 <x-forms::text name="search" label="Search" :show-errors="false" />

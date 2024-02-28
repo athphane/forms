@@ -2,16 +2,12 @@
     <div class="card-body">
         {{ $slot }}
 
-        <x-forms::input
-            type="hidden"
+        <x-forms::hidden
             name="orderby"
-            :value="Request::input('orderby', old('orderby'))"
         />
 
-        <x-forms::input
-            type="hidden"
+        <x-forms::hidden
             name="order"
-            :value="Request::input('order', old('order'))"
         />
     </div>
 </div>

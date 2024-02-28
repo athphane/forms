@@ -71,7 +71,7 @@ abstract class Component extends BaseComponent
             return $this->id;
         }
 
-        if ($this->name) {
+        if (property_exists($this, 'name') && $this->name) {
             return $this->id = $this->generateIdByName();
         }
 
