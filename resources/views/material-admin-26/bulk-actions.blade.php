@@ -1,5 +1,7 @@
 @php
     $select_classes = 'select2-basic form-control mb-4 ' . $hasError('action') ? 'is-invalid' : '';
+    $model_error_classes = $hasError($model) ? 'is-invalid' : '';
+    $select_classes = $select_classes . ' ' . $model_error_classes;
 @endphp
 
 @unless( empty($actions) )

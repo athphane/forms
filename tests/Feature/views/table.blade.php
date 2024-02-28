@@ -88,28 +88,17 @@
         <x-slot:rows>
             @foreach($activities as $activity)
                 <x-forms::table.row
-                    model="activities"
+                    :model="$activity"
+                    name="activities"
                     :model-id="$activity->id"
                     :no-checkbox="!empty($no_checkbox)"
                 >
-                    <x-forms::table.cell label="Index">
-                        {{ $activity->id }}
-                    </x-forms::table.cell>
-                    <x-forms::table.cell label="Date A">
-                        {{ $activity->date_a->diffForHumans() }}
-                    </x-forms::table.cell>
-                    <x-forms::table.cell label="Date B">
-                        {{ $activity->date_b->diffForHumans() }}
-                    </x-forms::table.cell>
-                    <x-forms::table.cell label="Date C">
-                        {{ $activity->date_c->diffForHumans() }}
-                    </x-forms::table.cell>
-                    <x-forms::table.cell label="Date D">
-                        {{ $activity->date_d->diffForHumans() }}
-                    </x-forms::table.cell>
-                    <x-forms::table.cell label="Date E">
-                        {{ $activity->date_e->diffForHumans() }}
-                    </x-forms::table.cell>
+                    <x-forms::table.cell label="Index" name="id" />
+                    <x-forms::table.cell label="Date A" name="date_a" />
+                    <x-forms::table.cell label="Date B" name="date_b" />
+                    <x-forms::table.cell label="Date C" name="date_c" />
+                    <x-forms::table.cell label="Date D" name="date_d" />
+                    <x-forms::table.cell label="Date E" name="date_e" />
                 </x-forms::table.row>
             @endforeach
         </x-slot:rows>

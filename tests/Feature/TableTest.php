@@ -99,12 +99,14 @@ class TableTest extends TestCase
                                     $this->seeElement('tr')
                                         ->within('tr', function () use ($activity) {
                                             $this
+                                                ->seeElement('.td-checkbox')
+                                                ->seeElement('input[type="checkbox"][id="activities-'. $activity->id . '-row-check"]')
                                                 ->seeInElement('td', $activity->id)
-                                                ->seeInElement('td', $activity->date_a->diffForHumans())
-                                                ->seeInElement('td', $activity->date_b->diffForHumans())
-                                                ->seeInElement('td', $activity->date_c->diffForHumans())
-                                                ->seeInElement('td', $activity->date_d->diffForHumans())
-                                                ->seeInElement('td', $activity->date_e->diffForHumans());
+                                                ->seeInElement('td', $activity->date_a)
+                                                ->seeInElement('td', $activity->date_b)
+                                                ->seeInElement('td', $activity->date_c)
+                                                ->seeInElement('td', $activity->date_d)
+                                                ->seeInElement('td', $activity->date_e);
                                         });
                                 }
                             });
