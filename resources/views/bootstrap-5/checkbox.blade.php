@@ -5,7 +5,7 @@
         {!! $attributes->merge([
             'class' => 'form-check-input' . ($hasErrorAndShow($name) ? ' is-invalid' : ''),
         ]) !!}
-        required="{{ $required }}"
+        @required($required)
         class="form-check-input"
         value="{{ $value }}"
         name="{{ $name }}"
