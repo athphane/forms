@@ -1,9 +1,10 @@
 <div class="table-responsive">
     @if(empty($no_bulk))
-        {{ $bulk_form_open ?? '' }}
-        <div class="p-4">
-            {{ $bulk_form ?? '' }}
-        </div>
+        @if($bulkForm->hasActualContent())
+            <div class="p-4">
+                <x-forms::form :action="$bulkForm->attributes->get('action')" >
+                    {{ $bulkForm }}
+        @endif
     @endif
     {{ $before_table ?? '' }}
     <div class="dataTables_wrapper mt-0">
@@ -43,7 +44,7 @@
     </div>
 
     @if( empty($no_bulk) )
-        {{ $bulk_form_close ?? "</form>" }}
+        </x-forms::form>
     @endif
 </div>
 
