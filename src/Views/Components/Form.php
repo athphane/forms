@@ -22,13 +22,19 @@ class Form extends Component
     public bool $spoofMethod = false;
 
     /**
+     * Whether the form should have files.
+     */
+    public bool $files = false;
+
+    /**
      * Create a new component instance.
      *
      * @return void
      */
     public function __construct(
         string $method = 'POST',
-        $model = null,
+               $model = null,
+        bool $files = false,
         string $framework = ''
     )
     {
@@ -39,5 +45,7 @@ class Form extends Component
         $this->method = strtoupper($method);
 
         $this->spoofMethod = in_array($this->method, ['PUT', 'PATCH', 'DELETE']);
+
+        $this->files = $files;
     }
 }
