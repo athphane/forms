@@ -1,6 +1,6 @@
 <div class="table-responsive">
     @if(empty($no_bulk))
-        @if($bulkForm->hasActualContent())
+        @if(isset($bulkForm) && $bulkForm->hasActualContent())
             <div class="p-4">
                 <x-forms::form :action="$bulkForm->attributes->get('action')" >
                     {{ $bulkForm }}
@@ -44,7 +44,9 @@
     </div>
 
     @if( empty($no_bulk) )
-        </x-forms::form>
+        @if(isset($bulkForm) && $bulkForm->hasActualContent())
+            </x-forms::form>
+        @endif
     @endif
 </div>
 
