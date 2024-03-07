@@ -60,7 +60,7 @@
 
     {{ $after ?? '' }}
 
-    <x-forms::link-button color="light" class="btn--icon-text">
+    <x-forms::link-button :url="$cancelUrl" color="light" class="btn--icon-text">
         <i class="zmdi zmdi-close-circle"></i> {{ __('Clear') }}
     </x-forms::link-button>
 

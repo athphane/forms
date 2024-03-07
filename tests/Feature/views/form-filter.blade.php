@@ -11,7 +11,7 @@
                 <x-forms::per-page />
             </div>
             <div class="col-md-3">
-                <x-forms::filter-submit filter-url="/"/>
+                <x-forms::filter-submit cancel-url="/"/>
             </div>
         </div>
     </x-forms::filter>
