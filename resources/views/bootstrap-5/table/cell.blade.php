@@ -1,5 +1,7 @@
-<td
-    {{ $attributes->merge([]) }}
+<td {{ $attributes->merge([]) }}
+    @if($showLabel && $name)
+    data-col="{{ $label ?: $label() }}"
+    @endif
 >
     @if($isAdminModel())
         {!! $value->admin_link !!}
@@ -13,3 +15,4 @@
         {{ $slot }}
     @endif
 </td>
+
