@@ -30,7 +30,9 @@
             placeholder="&nbsp;"
         @endif
     />
+    @if($showLabel)
     <i class="form-group__bar"></i>
+    @endif
 
     @if($isDateInput() || (! empty($prepend)) || (! empty($append)))
         @if(! empty($append))
