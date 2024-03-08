@@ -2,16 +2,18 @@
 
 namespace Javaabu\Forms\Views\Components\Table;
 
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 use Javaabu\Forms\Support\HandlesBoundValues;
 use Javaabu\Forms\Views\Components\Component;
 
 class Row extends Component
 {
     protected string $view = 'table.row';
-    public ?string $rowId;
-    public ?string $name;
-    public ?int $modelId;
-    public bool $noCheckbox = false;
+    public string $rowId;
+    public string $name;
+    public string $modelId;
+    public bool $noCheckbox;
 
     use HandlesBoundValues;
 
@@ -21,34 +23,35 @@ class Row extends Component
      * @return void
      */
     public function __construct(
-        $name = null,
-        $rowId = null,
+        string $name = '',
+        string $rowId = '',
         $model = null,
-        $modelId = null,
-        $noCheckbox = false,
+        string $modelId = '',
+        bool $noCheckbox = false,
         string $framework = '',
     )
     {
         parent::__construct($framework);
 
-        $this->name = $name;
         $this->rowId = $rowId;
-        $this->modelId = $modelId;
         $this->noCheckbox = $noCheckbox;
 
         $this->bindModel($model);
+
+        $this->name = $name ?: ($this->model instanceof Model ? Str::plural($this->model->getMorphClass()) : '');
+        $this->modelId = $modelId ?: ($this->model instanceof Model ? (string) $this->model->getKey() : '');
     }
 
     public function generateRowId(): void
     {
-        if (!$this->rowId) {
-            $this->rowId = ($this->name ?? '') . '-' . ($this->modelId ?? rand()) . '-row';
+        if (! $this->rowId) {
+            $this->rowId = ($this->name ? $this->name . '-' : '') . ($this->modelId ?: rand()) . '-row';
         }
     }
 
     public function getRowId(): string
     {
-        if (!$this->rowId) {
+        if (! $this->rowId) {
             $this->generateRowId();
         }
 
