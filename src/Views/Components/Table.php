@@ -23,19 +23,19 @@ class Table extends Component
     public function __construct(
         string $framework = '',
         bool   $striped = false,
-        bool   $no_bulk = false,
+        bool   $noBulk = false,
         string $model = '',
-        string $table_class = '',
-        string $filter_id = null,
-        bool $no_pagination = false,
+        string $tableClass = '',
+        string $filterId = null,
+        bool $noPagination = false,
     )
     {
         parent::__construct($framework);
         $this->striped = $striped;
-        $this->no_bulk = $no_bulk;
+        $this->no_bulk = $noBulk;
         $this->model = $model;
-        $this->table_class = $table_class;
-        $this->filter_id = $filter_id;
-        $this->no_pagination = $no_pagination;
+        $this->table_class = $tableClass;
+        $this->filter_id = $filterId;
+        $this->no_pagination = $noPagination;
     }
 }

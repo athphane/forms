@@ -1,12 +1,16 @@
 <div class="table-responsive">
+
     @if(empty($no_bulk))
         @if(isset($bulkForm) && $bulkForm->hasActualContent())
-            <div class="p-4">
-                <x-forms::form :action="$bulkForm->attributes->get('action')" >
+            <x-forms::form :action="$bulkForm->attributes->get('action')" >
+                <div class="p-4">
                     {{ $bulkForm }}
+                </div>
         @endif
     @endif
-    {{ $before_table ?? '' }}
+
+    {{ $beforeTable ?? '' }}
+
     <div class="dataTables_wrapper mt-0">
         @if(empty($no_checkbox))
             <div class="p-4 hidden-lg-up bg-light">
@@ -31,10 +35,10 @@
                 </tr>
             </thead>
 
-            @if(empty($tbody_open))
+            @if(empty($tbodyOpen))
             <tbody>
             @else
-            {{ $tbody_open }}
+            {{ $tbodyOpen }}
             @endif
 
                 {{ $rows ?? '' }}
@@ -43,13 +47,13 @@
         </table>
     </div>
 
-    @if( empty($no_bulk) )
+    @if(empty($no_bulk))
         @if(isset($bulkForm) && $bulkForm->hasActualContent())
             </x-forms::form>
         @endif
     @endif
 </div>
 
-@if( empty($no_pagination) )
+@if(empty($no_pagination))
     {{ $pagination ?? '' }}
 @endif
