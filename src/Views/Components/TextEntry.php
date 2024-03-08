@@ -16,6 +16,7 @@ class TextEntry extends Component
     public bool $multiline;
     public string $label;
     public string $name;
+    public bool $showLabel;
     public $value;
 
     /**
@@ -28,7 +29,8 @@ class TextEntry extends Component
         string $label = '',
         $value = null,
         $model = null,
-        ?bool $inline = null,
+        bool $showLabel = true,
+        bool $inline = false,
         bool $multiline = false,
         string $framework = ''
     )
@@ -36,7 +38,8 @@ class TextEntry extends Component
         parent::__construct($framework);
 
         $this->label = $label;
-        $this->inline = is_null($inline) ? config('forms.inputs.inline') : $inline;
+        $this->showLabel = $showLabel;
+        $this->inline = $inline;
         $this->name = $name;
         $this->multiline = $multiline;
         $this->value = $value ?: ($name ? $this->getBoundValue($model, $name) : '');

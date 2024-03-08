@@ -27,7 +27,7 @@ By default, every element shows validation errors, but you can hide them if you 
 <x-forms::textarea name="description" :show-errors="false" />
 ```
 
-When you add a `label`, the input will be rendered inside a form group.
+By default, the input will be rendered inside a form group.
 You can display the `label` either inline or as a floating label using the `inline` and `floating` attributes. 
 
 ```html
@@ -35,14 +35,10 @@ You can display the `label` either inline or as a floating label using the `inli
 <x-forms::input name="company_name" label="Company name" floating />
 ```
 
-If you want inputs to be displayed inline by default, you can set the `inline` option to `true` in the package config file.
+If you want to hide the label and not wrap the input inside a form group, you can hide the label:
 
-```php
-...
-'inputs' => [
-        'inline' => true,        
-    ],
-...
+```html
+<x-forms::textarea name="description" :show-label="false" />
 ```
 
 You can mark an input as required using the `required` attribute.

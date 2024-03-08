@@ -1,10 +1,10 @@
 <dl {!! $attributes->merge(['class' => 'mb-1'.($inline ? ' row' : '')]) !!}>
-    @if($label)
+    @if($showLabel)
         <dt
             @if($inline)
             class="col-sm-6 col-md-4"
             @endif
-        >{{ $label }}</dt>
+        >{{ $label ?: $label() }}</dt>
     @endif
 
     <dd

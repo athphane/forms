@@ -33,6 +33,7 @@ class Select2 extends Select
         bool   $multiple = false,
         bool   $relation = false,
         bool   $showErrors = true,
+        bool   $showLabel = true,
         bool   $required = false,
         bool   $isAjax = false,
         bool   $isFirst = false,
@@ -46,7 +47,7 @@ class Select2 extends Select
         string $filterField = '',
         string $fallback = '',
         string $parentModal = '',
-        ?bool $inline = null,
+        bool $inline = false,
         bool $floating = false,
         string $framework = ''
     )
@@ -57,21 +58,22 @@ class Select2 extends Select
 
         parent::__construct(
             $name,
-            $label,
-            $placeholder,
-            $options,
-            $model,
-            $default,
-            $multiple,
-            $relation,
-            $showErrors,
-            $required,
-            $inline,
-            $floating,
-            true,
-            $nameField,
-            $idField,
-            $framework
+            label: $label,
+            placeholder: $placeholder,
+            options: $options,
+            model: $model,
+            default: $default,
+            multiple: $multiple,
+            relation: $relation,
+            showErrors: $showErrors,
+            showLabel: $showLabel,
+            required: $required,
+            inline: $inline,
+            floating: $floating,
+            isSelect2: true,
+            nameField: $nameField,
+            idField: $idField,
+            framework: $framework
         );
 
         $this->isAjax = $isAjax;

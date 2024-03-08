@@ -17,23 +17,25 @@ class Textarea extends Input
         $model = null,
         $default = null,
         bool $showErrors = true,
+        bool $showLabel = true,
         bool $required = false,
-        ?bool $inline = null,
+        bool $inline = false,
         bool $floating = false,
         string $framework = ''
     )
     {
         parent::__construct(
             $name,
-            $label,
-            'textarea',
-            $model,
-            $default,
-            $showErrors,
-            $required,
-            $inline,
-            $floating,
-            $framework
+            label: $label,
+            type: 'textarea',
+            model: $model,
+            default: $default,
+            showErrors: $showErrors,
+            showLabel: $showLabel,
+            required:$required,
+            inline: $inline,
+            floating: $floating,
+            framework: $framework
         );
     }
 }

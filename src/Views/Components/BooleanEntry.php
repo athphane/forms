@@ -17,18 +17,20 @@ class BooleanEntry extends TextEntry
         string $label = '',
         $value = null,
         $model = null,
-        ?bool $inline = null,
+        bool $showLabel = true,
+        bool $inline = false,
         string $framework = ''
     )
     {
         parent::__construct(
             $name,
-            $label,
-            $value,
-            $model,
-            $inline,
-            false,
-            $framework
+            label: $label,
+            value: $value,
+            model: $model,
+            showLabel: $showLabel,
+            inline: $inline,
+            multiline: false,
+            framework: $framework
         );
 
         if (is_null($this->value)) {

@@ -17,25 +17,27 @@ class Datetime extends Date
         string $icon = 'zmdi zmdi-calendar',
         string $clearIcon = 'zmdi zmdi-close',
         bool $showErrors = true,
+        bool $showLabel = true,
         bool $required = false,
-        ?bool $inline = null,
+        bool $inline = false,
         bool $floating = false,
         string $framework = ''
     )
     {
         parent::__construct(
             $name,
-            $label,
-            'datetime',
-            $model,
-            $default,
-            $icon,
-            $clearIcon,
-            $showErrors,
-            $required,
-            $inline,
-            $floating,
-            $framework
+            label: $label,
+            type: 'datetime',
+            model: $model,
+            default: $default,
+            icon: $icon,
+            clearIcon: $clearIcon,
+            showErrors: $showErrors,
+            showLabel: $showLabel,
+            required:$required,
+            inline: $inline,
+            floating: $floating,
+            framework: $framework
         );
     }
 

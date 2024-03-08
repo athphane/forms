@@ -89,6 +89,35 @@ abstract class Component extends BaseComponent
     }
 
     /**
+     * Generates a label, once, for this component.
+     *
+     * @return string
+     */
+    public function label(): string
+    {
+        if ($this->label) {
+            return $this->label;
+        }
+
+        return $this->label = $this->generateLabelByName();
+    }
+
+    /**
+     * Generates a label by the name attribute.
+     *
+     * @return string
+     */
+    protected function generateLabelByName(): string
+    {
+        return Str::of(str_replace(['[', ']'], ['_', ''], Str::before($this->name, '[]')))
+                    ->camel()
+                    ->snake()
+                    ->replace('_', ' ')
+                    ->title()
+                    ->toString();
+    }
+
+    /**
      * Converts a bracket-notation to a dotted-notation
      *
      * @param  string  $name

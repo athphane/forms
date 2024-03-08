@@ -5,19 +5,10 @@ namespace Javaabu\Forms\Views\Components;
 use Javaabu\Forms\Support\HandlesDefaultAndOldValue;
 use Javaabu\Forms\Support\HandlesValidationErrors;
 
-class Checkbox extends Component
+class Checkbox extends Input
 {
-    use HandlesValidationErrors;
-    use HandlesDefaultAndOldValue;
-
     protected string $view = 'checkbox';
-    public string $name;
-    public string $label;
-    public string $type;
-    public bool $required;
-    public bool $floating;
     public bool $checked;
-    public $value;
 
     /**
      * Create a new component instance.
@@ -27,26 +18,31 @@ class Checkbox extends Component
     public function __construct(
         string $name,
         string $label = '',
-        string $type = 'checkbox',
         $model = null,
         $default = null,
         bool $showErrors = true,
+        bool $showLabel = true,
         bool $required = false,
+        bool $inline = false,
         bool $floating = false,
         bool $checked = false,
         string $framework = ''
     )
     {
-        parent::__construct($framework);
+        parent::__construct(
+            $name,
+            label: $label,
+            type: 'checkbox',
+            model: $model,
+            default: $default,
+            showErrors: $showErrors,
+            showLabel: $showLabel,
+            required:$required,
+            inline: $inline,
+            floating: $floating,
+            framework: $framework
+        );
 
-        $this->name = $name;
-        $this->label = $label;
-        $this->type = $type;
-        $this->showErrors = $showErrors;
-        $this->floating = $floating;
-        $this->required = $required;
         $this->checked = $checked;
-
-        $this->setValue($name, $model, $default);
     }
 }

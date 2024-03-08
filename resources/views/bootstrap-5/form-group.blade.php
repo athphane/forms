@@ -1,7 +1,7 @@
 @if($wrap)
 <div {!! $attributes->merge(['class' => 'mb-4'.($floating ? ' form-floating' : ($inline ? ' row' : ''))]) !!}>
     @if(! $floating)
-        <x-forms::label :label="$label" :for="$name" :framework="$framework" :inline="$inline" :required="$required" :floating="false" />
+        <x-forms::label :label="$label ?: $label()" :for="$name" :framework="$framework" :inline="$inline" :required="$required" :floating="false" />
     @endif
 
     @if($inline && (! $floating))
@@ -17,7 +17,7 @@
     @endif
 
     @if($floating)
-        <x-forms::label :label="$label" :for="$name" :framework="$framework" :required="$required" floating />
+        <x-forms::label :label="$label ?: $label()" :for="$name" :framework="$framework" :required="$required" floating />
     @endif
 </div>
 @endif

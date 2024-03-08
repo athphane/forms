@@ -30,6 +30,7 @@ class Select extends Component
     public bool $isSelect2;
     public string $nameField;
     public string $idField;
+    public bool $showLabel;
 
     /**
      * Create a new component instance.
@@ -46,8 +47,9 @@ class Select extends Component
         bool   $multiple = false,
         bool   $relation = false,
         bool   $showErrors = true,
+        bool   $showLabel = true,
         bool   $required = false,
-        ?bool  $inline = null,
+        bool    $inline = false,
         bool   $floating = false,
         bool   $isSelect2 = false,
         string $nameField = '',
@@ -84,9 +86,10 @@ class Select extends Component
 
         $this->multiple   = $multiple;
         $this->showErrors = $showErrors;
+        $this->showLabel = $showLabel;
         $this->floating = $floating;
         $this->required = $required;
-        $this->inline = is_null($inline) ? config('forms.inputs.inline') : $inline;
+        $this->inline = $inline;
     }
 
     public function getOptionsFromQueryBuilder(BuilderContract $query): array

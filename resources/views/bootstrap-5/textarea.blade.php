@@ -1,4 +1,4 @@
-<x-forms::form-group :wrap="$label && $type != 'hidden'" :label="$label" :name="$attributes->get('id') ?: $id()" :framework="$framework" :inline="$inline" :required="$required" :floating="$floating">
+<x-forms::form-group :wrap="$showLabel && $type != 'hidden'" :label="$label ?: $label()" :name="$attributes->get('id') ?: $id()" :framework="$framework" :inline="$inline" :required="$required" :floating="$floating">
     <textarea
         {!! $attributes->merge([
             'class' => 'form-control' . ($hasError($name) ? ' is-invalid' : ''),

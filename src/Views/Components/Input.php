@@ -17,6 +17,7 @@ class Input extends Component
     public bool $required;
     public bool $inline;
     public bool $floating;
+    public bool $showLabel;
     public $value;
 
     /**
@@ -31,8 +32,9 @@ class Input extends Component
         $model = null,
         $default = null,
         bool $showErrors = true,
+        bool $showLabel = true,
         bool $required = false,
-        ?bool $inline = null,
+        bool $inline = false,
         bool $floating = false,
         string $framework = ''
     )
@@ -43,9 +45,10 @@ class Input extends Component
         $this->label = $label;
         $this->type = $type;
         $this->showErrors = $showErrors;
+        $this->showLabel = $showLabel;
         $this->floating = $floating;
         $this->required = $required;
-        $this->inline = is_null($inline) ? config('forms.inputs.inline') : $inline;
+        $this->inline = $inline;
 
         $this->setValue($name, $model, $default);
     }

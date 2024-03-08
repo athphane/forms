@@ -1,7 +1,5 @@
 <?php
 
-use Javaabu\Forms\Components;
-
 return [
     'prefix' => '',
 
@@ -31,43 +29,8 @@ return [
     */
 
     'inputs' => [
-        'inline' => false,
-
         'required_text' => 'forms::strings.required_text',
 
         'nothing_selected_text' => 'forms::strings.nothing_selected',
-    ],
-
-    'components' => [
-
-
-        /*
-
-        'form-input-group' => [
-            'view'  => 'forms::{framework}.form-input-group',
-            'class' => Components\FormInputGroup::class,
-        ],
-
-        'form-input-group-text' => [
-            'view'  => 'forms::{framework}.form-input-group-text',
-            'class' => Components\FormInputGroupText::class,
-        ],
-
-
-
-        'form-radio' => [
-            'view'  => 'forms::{framework}.form-radio',
-            'class' => Components\FormRadio::class,
-        ],
-
-        'form-range' => [
-            'view'  => 'forms::{framework}.form-range',
-            'class' => Components\FormRange::class,
-        ],
-
-
-
-
-        */
     ],
 ];
