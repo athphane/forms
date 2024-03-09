@@ -12,6 +12,7 @@
                 <x-forms::select2
                     name="action"
                     :class="$select_classes"
+                    :show-label="false"
                     :options="['' => ''] + $actions"
                     :placeholder="__('Bulk Action')"
                     hide-search
