@@ -29,13 +29,13 @@ class Input extends Component
         string $name,
         string $label = '',
         string $type = 'text',
-        $model = null,
-        $default = null,
-        bool $showErrors = true,
-        bool $showLabel = true,
-        bool $required = false,
-        bool $inline = false,
-        bool $floating = false,
+               $model = null,
+               $default = null,
+        bool   $showErrors = true,
+        bool   $showLabel = true,
+        bool   $required = false,
+        bool   $inline = false,
+        bool   $floating = false,
         string $framework = ''
     )
     {
@@ -50,7 +50,9 @@ class Input extends Component
         $this->required = $required;
         $this->inline = $inline;
 
-        $this->setValue($name, $model, $default);
+        if ($type !== 'password') {
+            $this->setValue($name, $model, $default);
+        }
     }
 
     public function datePickerClass(): string
