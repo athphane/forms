@@ -25,7 +25,7 @@ class Row extends Component
     public function __construct(
         string $name = '',
         string $rowId = '',
-        $model = null,
+               $model = null,
         string $modelId = '',
         bool $noCheckbox = false,
         string $framework = '',
@@ -62,5 +62,4 @@ class Row extends Component
     {
         return $this->getRowId() . '-check';
     }
-
 }
