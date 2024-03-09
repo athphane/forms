@@ -15,7 +15,7 @@ class FilterSubmit extends Component
      */
     public function __construct(
         string $cancelUrl,
-        bool|array $export = false,
+        bool|array|string $export = false,
         string $framework = '',
 
     )
