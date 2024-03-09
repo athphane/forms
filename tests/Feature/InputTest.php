@@ -38,6 +38,30 @@ class InputTest extends TestCase
     }
 
     /** @test */
+    public function it_can_generate_bootstrap_5_form_inputs_without_form_group()
+    {
+        $this->setFrameworkBootstrap5();
+        $this->registerTestRoute('form-input-without-label');
+
+        $this->visit('/form-input-without-label')
+            ->seeElement('input[name="title"][value="Lorem ipsum"].form-control')
+            ->dontSeeElement('label')
+            ->dontSeeElement('div.mb-4');
+    }
+
+    /** @test */
+    public function it_can_generate_material_admin_26_form_inputs_without_form_group()
+    {
+        $this->setFrameworkMaterialAdmin26();
+        $this->registerTestRoute('form-input-without-label');
+
+        $this->visit('/form-input-without-label')
+            ->seeElement('input[name="title"][value="Lorem ipsum"].form-control')
+            ->dontSeeElement('label')
+            ->dontSeeElement('div.form-group');
+    }
+
+    /** @test */
     public function it_can_generate_bootstrap_5_form_inputs()
     {
         $this->setFrameworkBootstrap5();
