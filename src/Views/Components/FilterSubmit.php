@@ -6,6 +6,7 @@ class FilterSubmit extends Component
 {
     protected string $view = 'filter-submit';
     public string $cancelUrl;
+    public bool|array $export;
 
     /**
      * Create a new component instance.
@@ -14,11 +15,14 @@ class FilterSubmit extends Component
      */
     public function __construct(
         string $cancelUrl,
+        bool|array $export = false,
         string $framework = '',
 
     )
     {
         parent::__construct($framework);
+
+        $this->export = is_string($export) ? [$export] : $export;
         $this->cancelUrl = $cancelUrl;
     }
 
