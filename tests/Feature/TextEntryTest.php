@@ -7,6 +7,22 @@ use Javaabu\Forms\Tests\TestCase;
 class TextEntryTest extends TestCase
 {
     /** @test */
+    public function it_can_render_array_entries()
+    {
+        $this->setFrameworkBootstrap5();
+        $this->registerTestRoute('text-entry-array');
+
+        $this->visit('/text-entry-array')
+            ->seeElement('dl')
+            ->within('dl', function () {
+                $this->seeElement('dt')
+                    ->seeInElement('dt', 'Name')
+                    ->seeElement('dd')
+                    ->seeInElement('dd>ul>li', 'orange');
+            });
+    }
+
+    /** @test */
     public function it_can_render_boolean_entries()
     {
         $this->setFrameworkBootstrap5();

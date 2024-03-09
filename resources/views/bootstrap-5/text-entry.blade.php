@@ -17,6 +17,12 @@
         @elseif($value)
             @if($multiline)
                 {!! nl2br(e($value)) !!}
+            @elseif(is_array($value))
+                <ul>
+                    @foreach($value as $item)
+                        <li>{{ $item }}</li>
+                    @endforeach
+                </ul>
             @else
                 {{ $value }}
             @endif

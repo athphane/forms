@@ -6,4 +6,5 @@ return [
     'blank' => '-',
     'yes' => 'އާނ',
     'no' => 'ނޫން',
+    'table_array_separator' => '،',
 ];

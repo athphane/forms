@@ -18,6 +18,17 @@ class TableCellTest extends TestCase
     }
 
     /** @test */
+    public function it_can_render_array_text_table_cells()
+    {
+        $this->setFrameworkBootstrap5();
+        $this->registerTestRoute('table-cell-array');
+
+        $this->visit('/table-cell-array')
+            ->seeElement('td')
+            ->seeInElement('td', 'orange');
+    }
+
+    /** @test */
     public function it_can_render_multiline_text_table_cells()
     {
         $this->setFrameworkBootstrap5();

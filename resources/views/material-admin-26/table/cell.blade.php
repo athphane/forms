@@ -8,6 +8,8 @@
     @elseif($value)
         @if($multiline)
             {!! nl2br(e($value)) !!}
+        @elseif(is_array($value))
+            {{ implode(trans('forms::table_array_separator'), $value) }}
         @else
             {{ $formatValue() }}
         @endif
