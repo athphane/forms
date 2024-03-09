@@ -6,11 +6,13 @@
 
     @if($inline && (! $floating))
     <div class="col-sm-9 col-lg-10">
+        <div class="form-group">
     @endif
 @endif
         {!! $slot !!}
 @if($wrap)
     @if($inline && (! $floating))
+        </div>
     </div>
     @endif
 

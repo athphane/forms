@@ -20,7 +20,7 @@
                 </div>
             </div>
         @endif
-        <table class="table mt-0 {{ $table_class ?? '' }}" data-form-sortable="#{{ $filter_id ?? 'filter' }}">
+        <table class="table mt-0 {{ $table_class ?? '' }}{{ $striped ? ' table-striped' : '' }}" data-form-sortable="#{{ $filter_id ?? 'filter' }}">
             <thead class="thead-default">
                 <tr>
                     @if(empty($no_checkbox))

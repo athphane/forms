@@ -63,7 +63,7 @@ class TableTest extends TestCase
         $this->visit('table')
             ->seeElement('#striped')
             ->within('#striped', function () {
-                $this->seeElement('table.table.striped');
+                $this->seeElement('table.table-striped');
             });
     }
 
