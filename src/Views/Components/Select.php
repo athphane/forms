@@ -75,7 +75,7 @@ class Select extends Component
         }
 
         if ($default instanceof Model) {
-            $default = $default->getKey();
+            $default = $idField ? $default->{$idField} : $default->getKey();
         }
 
         $this->selectedKey = old($inputName, $default);
