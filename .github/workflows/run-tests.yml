@@ -49,13 +49,10 @@ jobs:
           with:
             php-version: ${{ matrix.php }}
             extensions: curl, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite, iconv
-            coverage: none
-          env:
-              COMPOSER_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            coverage: none\
 
       -   name: Install dependencies
           run: |
-              composer config repositories.testbench-browser-kit vcs https://github.com/Javaabu/testbench-browser-kit.git
               composer require "laravel/framework:${{ matrix.laravel }}" "orchestra/testbench-browser-kit:${{ matrix.testbench }}" "nesbot/carbon:${{ matrix.carbon }}" --no-interaction --no-update
               composer update --${{ matrix.stability }} --prefer-dist --no-interaction
 
