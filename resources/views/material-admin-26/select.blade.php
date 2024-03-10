@@ -29,6 +29,10 @@
                 data-select-child="{{ $child }}"
             @endif
 
+            @if($ajaxChild)
+                data-ajax-child="{{ $ajaxChild }}"
+            @endif
+
             @if($ajaxUrl)
                 data-select-ajax-url="{{ $ajaxUrl }}"
             @endif
