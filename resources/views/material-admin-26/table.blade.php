@@ -2,7 +2,7 @@
 
     @if(empty($no_bulk))
         @if(isset($bulkForm) && $bulkForm->isNotEmpty())
-            <x-forms::form :action="$bulkForm->attributes->get('action')" >
+            <x-forms::form :action="$bulkForm->attributes->get('action')" method="PUT" class="delete-form" >
                 <div class="p-4">
                     {{ $bulkForm }}
                 </div>
