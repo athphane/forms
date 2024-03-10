@@ -1,4 +1,7 @@
-<div class="checkbox mb-2">
+<div {{ $attributes->merge([
+        'class' => 'checkbox mb-2'
+    ])}}
+>
     <input
         id="{{ $attributes->get('id') ?: $id() }}"
         type="checkbox"
