@@ -13,6 +13,7 @@
             'class' => 'form-control' . ($hasError($name) ? ' is-invalid' : '') . ($isSelect2 ? ' select2-' . ($isAjax ? 'ajax' : 'basic') : ''),
             'required' => $required
         ]) !!}
+
         name="{{ $name }}"
 
         @if($multiple)
@@ -30,6 +31,10 @@
 
             @if($ajaxUrl)
                 data-select-ajax-url="{{ $ajaxUrl }}"
+            @endif
+
+            @if($selectedUrl)
+                data-selected-url="{{ $selectedUrl }}"
             @endif
 
             @if($nameField)
