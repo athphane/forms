@@ -8,7 +8,7 @@ class EmptyRow extends Component
 {
     protected string $view = 'table.empty-row';
 
-    public int $colspan;
+    public int $columns;
     public bool $noCheckbox;
 
     /**
@@ -17,13 +17,13 @@ class EmptyRow extends Component
      * @return void
      */
     public function __construct(
-        int $colspan = 1,
+        int $columns = 1,
         bool $noCheckbox = false,
         string $framework = '',
     )
     {
         parent::__construct($framework);
-        $this->colspan = $colspan;
+        $this->columns = $columns;
         $this->noCheckbox = $noCheckbox;
     }
 }

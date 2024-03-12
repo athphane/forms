@@ -1,7 +1,7 @@
 <tr>
     <td
-        @if ($colspan !== null)
-            colspan="{{ (!$noCheckbox) ? $colspan : ($colspan + 1) }}"
+        @if ($columns !== null)
+            colspan="{{ (!$noCheckbox) ? $columns : ($columns + 1) }}"
         @endif
     >
         {{ $slot }}
