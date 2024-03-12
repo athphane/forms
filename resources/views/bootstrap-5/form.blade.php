@@ -1,6 +1,10 @@
 <form
     method="{{ $spoofMethod ? 'POST' : $method }}"
-    {!! $attributes !!}
+    @if($files)
+        enctype="multipart/form-data"
+    @endif
+
+    {{ $attributes }}
 >
     @unless(in_array($method, ['HEAD', 'GET', 'OPTIONS']))
         @csrf

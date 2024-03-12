@@ -5,7 +5,7 @@
         enctype="multipart/form-data"
     @endif
 
-    {!! $attributes !!}
+    {{ $attributes }}
 >
     @unless(in_array($method, ['HEAD', 'GET', 'OPTIONS']))
         @csrf
