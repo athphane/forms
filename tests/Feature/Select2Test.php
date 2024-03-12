@@ -3,10 +3,40 @@
 namespace Javaabu\Forms\Tests\Feature;
 
 use Illuminate\Support\Facades\Route;
+use Javaabu\Forms\Tests\Feature\Models\Article;
+use Javaabu\Forms\Tests\Feature\Models\ArticleStatuses;
 use Javaabu\Forms\Tests\TestCase;
 
 class Select2Test extends TestCase
 {
+    /** @test */
+    public function it_can_render_a_select_2_basic_element_whose_value_comes_from_an_enum_cast()
+    {
+        // create an article
+        $article = new Article([
+            'status' => ArticleStatuses::Draft,
+        ]);
+
+        // create options
+        $options = [
+            'draft' => 'Draft',
+            'published' => 'Published',
+        ];
+
+        Route::get('select2-enum', function () use ($article, $options) {
+            return view('select2-enum')
+                ->with('article', $article)
+                ->with('options', $options);
+        })->middleware('web');
+
+        $this->visit('/select2-enum')
+            ->seeElement('select.select2-basic[id="status"][data-allow-clear="true"][data-placeholder="Nothing Selected"]')
+            ->seeElement('option[value=""]')
+            ->seeElement('option[value="draft"]:selected')
+            ->seeElement('option[value="published"]');
+
+    }
+
     /** @test */
     public function it_can_render_a_select2_basic_element()
     {
