@@ -14,7 +14,9 @@ class Select2 extends Select
     public bool $isFirst;
     public bool $hideSearch;
     public string $child;
+    public string $ajaxChild;
     public string $ajaxUrl;
+    public string $selectedUrl;
     public string $filterField;
     public string $fallback;
     public string $parentModal;
@@ -41,7 +43,9 @@ class Select2 extends Select
         bool   $hideSearch = false,
         bool   $allowClear = true,
         string $child = '',
+        string $ajaxChild = '',
         string $ajaxUrl = '',
+        string $selectedUrl = '',
         string $nameField = '',
         string $idField = '',
         string $filterField = '',
@@ -79,7 +83,9 @@ class Select2 extends Select
         $this->isAjax = $isAjax;
         $this->isFirst = $isFirst;
         $this->child = $child;
+        $this->ajaxChild = $ajaxChild;
         $this->ajaxUrl = $ajaxUrl;
+        $this->selectedUrl = $selectedUrl;
         $this->filterField = $filterField;
         $this->tags = $tags;
         $this->hideSearch = $hideSearch;

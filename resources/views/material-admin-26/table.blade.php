@@ -1,18 +1,17 @@
 <div class="table-responsive">
-
-    @if(empty($no_bulk))
+    @if(empty($noBulk))
         @if(isset($bulkForm) && $bulkForm->isNotEmpty())
-            <x-forms::form :action="$bulkForm->attributes->get('action')" >
-                <div class="p-4">
-                    {{ $bulkForm }}
-                </div>
+            <x-forms::form-open :action="$bulkForm->attributes->get('action')" method="PUT" class="delete-form" />
+            <div class="p-4">
+                {{ $bulkForm }}
+            </div>
         @endif
     @endif
 
     {{ $beforeTable ?? '' }}
 
     <div class="dataTables_wrapper mt-0">
-        @if(empty($no_checkbox))
+        @if(empty($noCheckbox))
             <div class="p-4 hidden-lg-up bg-light">
                 <div class="checkbox">
                     <input id="{{ ($model ?? '').'-select-all-resp' }}" data-all="{{ $model ?? '' }}" value="1" type="checkbox" />
@@ -22,34 +21,34 @@
         @endif
         <table class="table dataTable mt-0 {{ $table_class ?? '' }}{{ $striped ? ' table-striped' : '' }}" data-form-sortable="#{{ $filter_id ?? 'filter' }}">
             <thead class="thead-default">
-                <tr>
-                    @if(empty($no_checkbox))
-                        <th class="td-checkbox">
-                            <div class="checkbox">
-                                <input id="{{ ($model ?? '').'-select-all' }}" data-all="{{ $model ?? '' }}" value="1" type="checkbox" />
-                                <label for="{{ ($model ?? '').'-select-all' }}" class="checkbox__label"></label>
-                            </div>
-                        </th>
-                    @endif
-                    {{ $headers ?? '' }}
-                </tr>
+            <tr>
+                @if(empty($noCheckbox))
+                    <th class="td-checkbox">
+                        <div class="checkbox">
+                            <input id="{{ ($model ?? '').'-select-all' }}" data-all="{{ $model ?? '' }}" value="1" type="checkbox" />
+                            <label for="{{ ($model ?? '').'-select-all' }}" class="checkbox__label"></label>
+                        </div>
+                    </th>
+                @endif
+                {{ $headers ?? '' }}
+            </tr>
             </thead>
 
             @if(empty($tbodyOpen))
-            <tbody>
-            @else
-            {{ $tbodyOpen }}
-            @endif
+                <tbody>
+                @else
+                    {{ $tbodyOpen }}
+                @endif
 
                 {{ $rows ?? '' }}
 
-            </tbody>
+                </tbody>
         </table>
     </div>
 
-    @if(empty($no_bulk))
+    @if(empty($noBulk))
         @if(isset($bulkForm) && $bulkForm->isNotEmpty())
-            </x-forms::form>
+            <x-forms::form-close />
         @endif
     @endif
 </div>
