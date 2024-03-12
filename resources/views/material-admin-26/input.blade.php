@@ -1,7 +1,7 @@
 <x-forms::form-group :wrap="$showLabel && $type != 'hidden'" :label="$label ?: $label()" :name="$attributes->get('id') ?: $id()" :framework="$framework" :inline="$inline" :required="$required" :floating="$floating">
     @if($isDateInput() || (! empty($prepend)) || (! empty($append)))
     <div class="input-group mb-0">
-        @if(! empty($prepend))
+        @if($isDateInput() || (! empty($prepend)))
             <div class="input-group-prepend">
                 @if($isDateInput())
                     <span class="input-group-text">
@@ -35,7 +35,7 @@
     @endif
 
     @if($isDateInput() || (! empty($prepend)) || (! empty($append)))
-        @if(! empty($append))
+        @if($isDateInput() || (! empty($append)))
             <div class="input-group-append">
                 @if($isDateInput())
                     <div class="input-group-text input-group-text-link">
