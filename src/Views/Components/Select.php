@@ -2,6 +2,7 @@
 
 namespace Javaabu\Forms\Views\Components;
 
+use BackedEnum;
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Arr;
@@ -76,6 +77,10 @@ class Select extends Component
 
         if ($default instanceof Model) {
             $default = $idField ? $default->{$idField} : $default->getKey();
+        }
+
+        if ($default instanceof BackedEnum) {
+            $default = $default->value;
         }
 
         $this->selectedKey = old($inputName, $default);

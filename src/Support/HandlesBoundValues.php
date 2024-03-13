@@ -2,7 +2,6 @@
 
 namespace Javaabu\Forms\Support;
 
-use BackedEnum;
 use DateTimeInterface;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -84,11 +83,6 @@ trait HandlesBoundValues
 
         if ($bind instanceof Model && $boundValue instanceof DateTimeInterface) {
             return $this->formatDateTime($bind, $name, $boundValue);
-        }
-
-        // Handle automatic enum bindings
-        if ($bind instanceof Model && $boundValue instanceof BackedEnum) {
-            return $boundValue->value;
         }
 
         return $boundValue;
