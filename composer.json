@@ -39,11 +39,5 @@
         }
     },
     "minimum-stability": "dev",
-    "prefer-stable": true,
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/javaabu/laravel-settings.git"
-        }
-    ]
+    "prefer-stable": true
 }
