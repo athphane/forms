@@ -13,9 +13,7 @@
         @if($floating && !$attributes->get('placeholder'))
             placeholder="&nbsp;"
         @endif
-    >
-        {{ $value }}
-    </textarea>
+    >{{ $value }}</textarea>
     <i class="form-group__bar"></i>
 
     @if(! empty($help))
