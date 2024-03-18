@@ -2,6 +2,7 @@
 
 namespace Javaabu\Forms\Views\Components;
 
+use Illuminate\Support\Str;
 use Javaabu\Forms\Support\HandlesDefaultAndOldValue;
 use Javaabu\Forms\Support\HandlesValidationErrors;
 
@@ -20,6 +21,7 @@ class Checkbox extends Input
         string $label = '',
         $model = null,
         $default = null,
+        $value = 1,
         bool $showErrors = true,
         bool $showLabel = true,
         bool $required = false,
@@ -44,5 +46,15 @@ class Checkbox extends Input
         );
 
         $this->checked = $checked;
+
+        $inputName = static::convertBracketsToDots(Str::before($name, '[]'));
+
+        if (!$this->checked) {
+            if (is_null($default)) {
+                $default = $this->getBoundValue($model, $inputName);
+            }
+
+            $this->checked = $default ?? false;
+        }
     }
 }

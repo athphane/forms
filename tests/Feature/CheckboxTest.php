@@ -3,6 +3,7 @@
 namespace Javaabu\Forms\Tests\Feature;
 
 use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\Route;
 use Javaabu\Forms\Tests\TestCase;
 
 class CheckboxTest extends TestCase
@@ -48,6 +49,46 @@ class CheckboxTest extends TestCase
                         $this->seeElement('span.text-danger')
                             ->seeInElement('span.text-danger', '*');
                     });
+            });
+    }
+
+    /** @test */
+    public function it_can_generate_bootstrap_5_form_checkbox_that_is_selected()
+    {
+        $this->setFrameworkBootstrap5();
+        $this->registerTestRoute('form-checkbox-selected');
+
+        $this->visit('/form-checkbox-selected')
+            ->seeElement('div.form-check')
+            ->within('div.form-check', function () {
+                $this
+                    ->seeElement('input[name="check_me"][id="check_me"][type="checkbox"][checked].form-check-input')
+                    ->seeElement('label.form-check-label')
+                    ->seeInElement('label.form-check-label[for="check_me"]', 'Check Me');
+            });
+    }
+
+    /** @test */
+    public function it_can_generate_bootstrap_5_form_checkbox_that_is_selected_from_model_binding()
+    {
+        $this->setFrameworkBootstrap5();
+
+        $address = [
+            'check_me' => '1',
+        ];
+
+        Route::get('form-checkbox-selected-model-binding', function () use ($address) {
+            return view('form-checkbox-selected-model-binding')
+                ->with('address', $address);
+        })->middleware('web');
+
+        $this->visit('/form-checkbox-selected-model-binding')
+            ->seeElement('div.form-check')
+            ->within('div.form-check', function () {
+                $this
+                    ->seeElement('input[name="check_me"][id="check_me"][type="checkbox"][checked].form-check-input')
+                    ->seeElement('label.form-check-label')
+                    ->seeInElement('label.form-check-label[for="check_me"]', 'Check Me');
             });
     }
 
