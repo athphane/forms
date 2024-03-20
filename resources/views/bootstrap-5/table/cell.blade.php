@@ -3,9 +3,11 @@
     data-col="{{ $label ?: $label() }}"
     @endif
 >
-    @if($isAdminModel())
+    @if($slot->isNotEmpty())
+        {{ $slot }}
+    @elseif($isAdminModel())
         {!! $value->admin_link !!}
-    @elseif($value)
+    @else
         @if($multiline)
             {!! nl2br(e($value ?: trans('forms::string.blank'))) !!}
         @elseif(is_array($value))
@@ -13,8 +15,6 @@
         @else
             {{ $formatValue() }}
         @endif
-    @else
-        {{ $slot }}
     @endif
 </td>
 
