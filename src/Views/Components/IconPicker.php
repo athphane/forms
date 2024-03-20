@@ -2,9 +2,12 @@
 
 namespace Javaabu\Forms\Views\Components;
 
+use Javaabu\Forms\Support\Icons\Icons;
+
 class IconPicker extends Select
 {
     public string|null $iconPrefix;
+    public Icons $iconClass;
 
     /**
      * Create a new component instance.
@@ -13,6 +16,7 @@ class IconPicker extends Select
      */
     public function __construct(
         string $name,
+        Icons $iconClass,
         string|null $iconPrefix = null,
         string $label = '',
         string $placeholder = '',
@@ -56,7 +60,10 @@ class IconPicker extends Select
             framework: $framework
         );
 
+        $this->iconClass = $iconClass;
         $this->iconPrefix = $iconPrefix;
+
+        $this->setIcons();
     }
 
     /**
@@ -65,5 +72,16 @@ class IconPicker extends Select
     public function getNothingSelectedText(): string
     {
         return trans(config('forms.inputs.nothing_selected_text'));
+    }
+
+    public function setIcons()
+    {
+        if (empty($this->options)) {
+            $this->options = $this->iconClass::getIcons();
+        }
+
+        if (empty($this->iconPrefix)) {
+            $this->iconPrefix = $this->iconClass::getIconPrefix();
+        }
     }
 }
