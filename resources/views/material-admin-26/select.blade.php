@@ -14,7 +14,6 @@
             'form-control',
             $hasError($name) ? 'is-invalid' : '',
             $isSelect2 ? 'select2-' . ($isAjax ? 'ajax' : 'basic') : '',
-            isset($iconPrefix) ? 'select2-b-icon' : '',
         ]),
             'required' => $required
         ]) !!}
@@ -76,10 +75,6 @@
 
             @if($fallback)
                 data-fallback="{{ $fallback }}"
-            @endif
-
-            @if(isset($iconPrefix))
-                data-icon-prefix="{{ $iconPrefix }}"
             @endif
         @endif
 
