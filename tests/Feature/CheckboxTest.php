@@ -46,8 +46,8 @@ class CheckboxTest extends TestCase
                     ->seeElement('label.form-check-label[for="check_me"]')
                     ->seeInElement('label.form-check-label[for="check_me"]', 'Check Me')
                     ->within('label.form-check-label[for="check_me"]', function () {
-                        $this->seeElement('span.text-danger')
-                            ->seeInElement('span.text-danger', '*');
+                        $this->seeElement('span.required')
+                            ->seeInElement('span.required', '*');
                     });
             });
     }
@@ -122,9 +122,49 @@ class CheckboxTest extends TestCase
                     ->seeElement('label.checkbox__label[for="check_me"]')
                     ->seeInElement('label.checkbox__label[for="check_me"]', 'Check Me')
                     ->within('label.checkbox__label[for="check_me"]', function () {
-                        $this->seeElement('span.text-danger')
-                            ->seeInElement('span.text-danger', '*');
+                        $this->seeElement('span.required')
+                            ->seeInElement('span.required', '*');
                     });
+            });
+    }
+
+
+    /** @test */
+    public function it_can_generate_material_admin_26_inline_form_checkbox_that_is_required()
+    {
+        $this->setFrameworkMaterialAdmin26();
+        $this->registerTestRoute('form-checkbox-inline-required');
+
+        $this->visit('/form-checkbox-inline-required')
+            ->seeElement('div.checkbox')
+            ->within('div.checkbox', function () {
+                $this
+                    ->seeElement('input[name="check_me"][id="check_me"][type="checkbox"][required].form-check-input')
+                    ->seeElement('label.checkbox__label[for="check_me"]')
+                    ->dontSeeInElement('label.checkbox__label[for="check_me"]', 'Check Me')
+                    ->within('label.checkbox__label[for="check_me"]', function () {
+                        $this->dontSeeElement('span.required')
+                            ->dontSeeInElement('span.required', '*');
+                    });
+                ;
+            });
+    }
+
+    /** @test */
+    public function it_can_generate_material_admin_26_form_checkbox_with_helper_text()
+    {
+        $this->setFrameworkMaterialAdmin26();
+        $this->registerTestRoute('form-checkbox-helper-text');
+
+        $this->visit('/form-checkbox-helper-text')
+            ->seeElement('div.checkbox')
+            ->within('div.checkbox', function () {
+                $this
+                    ->seeElement('input[name="check_me"][id="check_me"][type="checkbox"][required].form-check-input')
+                    ->seeElement('label.checkbox__label[for="check_me"]')
+                    ->seeElement('small.form-text.text-muted')
+                    ->seeInElement('small.form-text.text-muted', 'This is some help text.');
+                ;
             });
     }
 

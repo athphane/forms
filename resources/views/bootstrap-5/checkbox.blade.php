@@ -1,23 +1,37 @@
-<div class="form-check">
-    <input
-        id="{{ $attributes->get('id') ?: $id() }}"
-        type="checkbox"
-        {!! $attributes->merge([
-            'class' => 'form-check-input' . ($hasErrorAndShow($name) ? ' is-invalid' : ''),
-        ]) !!}
-        @required($required)
-        class="form-check-input"
-        value="{{ $value }}"
-        name="{{ $name }}"
-        @if($checked)
-            checked="checked"
-        @endif
-    >
-    <label class="form-check-label" for="{{ $attributes->get('id') ?: $id() }}">
-        {{ $label }} @if($required) <span class="text-danger">*</span> @endif
-    </label>
-</div>
+<x-forms::form-group :wrap="$showLabel && $type != 'hidden'" :label="$label ?: $label()" :name="$attributes->get('id') ?: $id()" :framework="$framework" :inline="$inline" :required="$required" :floating="$floating">
+    <div class="form-check">
+        <input
+            {!! $attributes->merge([
+                'class' => 'form-check-input ' . ($hasErrorAndShow($name) ? 'is-invalid' : '')
+            ]) !!}
+            id="{{ $attributes->get('id') ?: $id() }}"
+            name="{{ $name }}"
+            type="checkbox"
+            value="{{ $value }}"
+            @required($required)
+            @checked($checked)
+        >
+        <x-forms::label
+            :label="$label"
+            :for="$attributes->get('id') ?: $id()"
+            class="form-check-label"
+            :required="$inline ? false : $required"
+        >
+            @if($inline)
+                <x-slot:label>
+                </x-slot:label>
+            @endif
+        </x-forms::label>
+    </div>
 
-@if($hasErrorAndShow($name))
-    <x-forms::errors :framework="$framework" :name="$name" />
-@endif
+    @if(! empty($help))
+        <x-forms::input-help :framework="$framework" :attributes="$help->attributes">
+            {{ $help }}
+        </x-forms::input-help>
+    @endif
+
+    @if($hasErrorAndShow($name))
+        <x-forms::errors :framework="$framework" :name="$name" />
+    @endif
+</x-forms::form-group>
+
