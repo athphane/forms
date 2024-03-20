@@ -74,7 +74,7 @@ class IconPicker extends Select
         return trans(config('forms.inputs.nothing_selected_text'));
     }
 
-    public function setIcons()
+    public function setIcons(): void
     {
         if (empty($this->options)) {
             $this->options = $this->iconClass::getIcons();
