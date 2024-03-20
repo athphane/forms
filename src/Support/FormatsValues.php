@@ -20,10 +20,10 @@ trait FormatsValues
 
     public function formatValue()
     {
-        if (is_null($this->value)) {
-            return trans('forms::strings.blank');
-        } elseif (is_bool($this->value)) {
+        if (is_bool($this->value)) {
             return $this->value ? trans('forms::strings.yes') : trans('forms::strings.no');
+        } elseif (empty($this->value)) {
+            return trans('forms::strings.blank');
         }
 
         return $this->value;

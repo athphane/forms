@@ -16,7 +16,7 @@
             {!! $value->admin_link !!}
         @elseif($value)
             @if($multiline)
-                {!! nl2br(e($value)) !!}
+                {!! nl2br(e($value ?: trans('forms::string.blank'))) !!}
             @elseif(is_array($value))
                 <ul>
                     @foreach($value as $item)
@@ -24,7 +24,7 @@
                     @endforeach
                 </ul>
             @else
-                {{ $value }}
+                {{ $value ?: trans('forms::string.blank') }}
             @endif
         @else
             {{ $slot }}
