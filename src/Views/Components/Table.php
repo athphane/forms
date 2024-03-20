@@ -14,6 +14,7 @@ class Table extends Component
     public ?string $filter_id;
 
     public bool $no_pagination;
+    public bool $noCheckbox;
 
     /**
      * Create a new component instance.
@@ -28,6 +29,7 @@ class Table extends Component
         string $tableClass = '',
         string $filterId = null,
         bool $noPagination = false,
+        bool $noCheckbox = false,
     )
     {
         parent::__construct($framework);
@@ -37,5 +39,6 @@ class Table extends Component
         $this->table_class = $tableClass;
         $this->filter_id = $filterId;
         $this->no_pagination = $noPagination;
+        $this->noCheckbox = $noCheckbox;
     }
 }

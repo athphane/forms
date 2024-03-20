@@ -12,11 +12,13 @@
         class="col-sm-6 col-md-8"
         @endif
     >
-        @if($isAdminModel())
+        @if($slot->isNotEmpty())
+            {{ $slot }}
+        @elseif($isAdminModel())
             {!! $value->admin_link !!}
-        @elseif($value)
+        @else
             @if($multiline)
-                {!! nl2br(e($value)) !!}
+                {!! nl2br(e($value ?: trans('forms::string.blank'))) !!}
             @elseif(is_array($value))
                 <ul>
                     @foreach($value as $item)
@@ -24,10 +26,8 @@
                     @endforeach
                 </ul>
             @else
-                {{ $value }}
+                {{ $value ?: trans('forms::string.blank') }}
             @endif
-        @else
-            {{ $slot }}
         @endif
     </dd>
 </dl>
