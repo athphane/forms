@@ -16,7 +16,7 @@ class OverrideFormsDefaults
      * @param  string   $framework
      * @return Response
      */
-    public function handle(Request $request, Closure $next, string $framework): Response
+    public function handle(Request $request, Closure $next, string $framework)
     {
         config([
             'forms.framework' => $framework,
