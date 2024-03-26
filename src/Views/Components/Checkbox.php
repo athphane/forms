@@ -2,6 +2,8 @@
 
 namespace Javaabu\Forms\Views\Components;
 
+use Illuminate\Contracts\Support\Arrayable;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 use Javaabu\Forms\Support\HandlesDefaultAndOldValue;
 use Javaabu\Forms\Support\HandlesValidationErrors;
@@ -9,7 +11,8 @@ use Javaabu\Forms\Support\HandlesValidationErrors;
 class Checkbox extends Input
 {
     protected string $view = 'checkbox';
-    public bool $checked;
+
+    public bool $checked = false;
 
     /**
      * Create a new component instance.
@@ -20,14 +23,13 @@ class Checkbox extends Input
         string $name,
         string $label = '',
         $model = null,
-        $default = null,
+        $default = false,
         $value = 1,
         bool $showErrors = true,
         bool $showLabel = true,
         bool $required = false,
         bool $inline = false,
         bool $floating = false,
-        bool $checked = false,
         string $framework = ''
     )
     {
@@ -45,16 +47,27 @@ class Checkbox extends Input
             framework: $framework
         );
 
-        $this->checked = $checked;
+        $this->value = $value;
 
         $inputName = static::convertBracketsToDots(Str::before($name, '[]'));
 
-        if (!$this->checked) {
-            if (is_null($default)) {
-                $default = $this->getBoundValue($model, $inputName);
+        if ($oldData = old($inputName)) {
+            $this->checked = in_array($value, Arr::wrap($oldData));
+        }
+
+        if (!session()->hasOldInput()) {
+            $boundValue = $this->getBoundValue($model, $inputName);
+
+            if ($boundValue instanceof Arrayable) {
+                $boundValue = $boundValue->toArray();
             }
 
-            $this->checked = $default ?? false;
+            if (is_array($boundValue)) {
+                $this->checked = in_array($value, $boundValue);
+                return;
+            }
+
+            $this->checked = is_null($boundValue) ? $default : $boundValue;
         }
     }
 }

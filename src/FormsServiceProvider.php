@@ -2,9 +2,9 @@
 
 namespace Javaabu\Forms;
 
-use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
+use Javaabu\Forms\Http\Middleware\OverrideFormsDefaults;
 
 class FormsServiceProvider extends ServiceProvider
 {
@@ -54,5 +54,7 @@ class FormsServiceProvider extends ServiceProvider
 
         // register the data binder
         $this->app->singleton(FormsDataBinder::class, fn () => new FormsDataBinder());
+
+        app('router')->aliasMiddleware('forms', OverrideFormsDefaults::class);
     }
 }
