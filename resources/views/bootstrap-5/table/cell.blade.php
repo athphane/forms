@@ -9,7 +9,7 @@
         {!! $value->admin_link !!}
     @else
         @if($multiline)
-            {!! nl2br(e($value ?: trans('forms::string.blank'))) !!}
+            {!! nl2br(e($value ?: trans('forms::strings.blank'))) !!}
         @elseif(is_array($value))
             {{ implode(trans('forms::table_array_separator'), $value) }}
         @else
