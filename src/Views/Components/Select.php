@@ -79,6 +79,10 @@ class Select extends Component
             $default = $idField ? $default->{$idField} : $default->getKey();
         }
 
+        if ($default instanceof Collection && $idField) {
+            $default = $default->pluck($idField);
+        }
+
         if ($default instanceof BackedEnum) {
             $default = $default->value;
         }

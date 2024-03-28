@@ -43,6 +43,12 @@ If you want a select element where multiple options can be selected, add the mul
 <x-forms::select name="country_code[]" :options="$countries" multiple :default="['be', 'nl']" />
 ```
 
+For multi-selects, if the bound value is a collection, use the `id-field` to specify which attribute to pluck for the selected values.
+
+```html
+<x-forms::select name="categories[]" :options="\App\Models\Category::withDepth()->inDefaultOrder()" name-field="depth_name" id-field="id" />
+```
+
 You may add a `placeholder` attribute to the select element. This will prepend a blank option.
 
 ```html

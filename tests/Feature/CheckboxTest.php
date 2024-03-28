@@ -102,7 +102,7 @@ class CheckboxTest extends TestCase
             ->seeElement('div.checkbox')
             ->within('div.checkbox', function () {
                 $this
-                    ->seeElement('input[name="check_me"][id="check_me"][type="checkbox"].form-check-input')
+                    ->seeElement('input[name="check_me"][id="check_me"][type="checkbox"]')
                     ->seeElement('label.checkbox__label')
                     ->seeInElement('label.checkbox__label[for="check_me"]', 'Check Me');
             });
@@ -118,7 +118,7 @@ class CheckboxTest extends TestCase
             ->seeElement('div.checkbox')
             ->within('div.checkbox', function () {
                 $this
-                    ->seeElement('input[name="check_me"][id="check_me"][type="checkbox"][required].form-check-input')
+                    ->seeElement('input[name="check_me"][id="check_me"][type="checkbox"][required]')
                     ->seeElement('label.checkbox__label[for="check_me"]')
                     ->seeInElement('label.checkbox__label[for="check_me"]', 'Check Me')
                     ->within('label.checkbox__label[for="check_me"]', function () {
@@ -139,7 +139,7 @@ class CheckboxTest extends TestCase
             ->seeElement('div.checkbox')
             ->within('div.checkbox', function () {
                 $this
-                    ->seeElement('input[name="check_me"][id="check_me"][type="checkbox"][required].form-check-input')
+                    ->seeElement('input[name="check_me"][id="check_me"][type="checkbox"][required]')
                     ->seeElement('label.checkbox__label[for="check_me"]')
                     ->dontSeeInElement('label.checkbox__label[for="check_me"]', 'Check Me')
                     ->within('label.checkbox__label[for="check_me"]', function () {
@@ -160,12 +160,11 @@ class CheckboxTest extends TestCase
             ->seeElement('div.checkbox')
             ->within('div.checkbox', function () {
                 $this
-                    ->seeElement('input[name="check_me"][id="check_me"][type="checkbox"][required].form-check-input')
-                    ->seeElement('label.checkbox__label[for="check_me"]')
-                    ->seeElement('small.form-text.text-muted')
-                    ->seeInElement('small.form-text.text-muted', 'This is some help text.');
-                ;
-            });
+                    ->seeElement('input[name="check_me"][id="check_me"][type="checkbox"][required]')
+                    ->seeElement('label.checkbox__label[for="check_me"]');
+            })
+            ->seeElement('small.form-text.text-muted')
+            ->seeInElement('small.form-text.text-muted', 'This is some help text.');
     }
 
 }

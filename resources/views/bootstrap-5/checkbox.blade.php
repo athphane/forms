@@ -1,4 +1,4 @@
-<x-forms::form-group :wrap="$showLabel && $type != 'hidden'" :label="$label ?: $label()" :name="$attributes->get('id') ?: $id()" :framework="$framework" :inline="$inline" :required="$required" :floating="$floating">
+<x-forms::form-group :show-label="$inline" :wrap="$showLabel && $type != 'hidden'" :label="$label ?: $label()" :name="$attributes->get('id') ?: $id()" :framework="$framework" :inline="$inline" :required="$required" :floating="$floating">
     <div class="form-check">
         <input
             {!! $attributes->merge([
@@ -12,15 +12,11 @@
             @checked($checked)
         >
         <x-forms::label
-            :label="$label"
+            :label="$inline ? ' ' : ($label ?: $label())"
             :for="$attributes->get('id') ?: $id()"
             class="form-check-label"
             :required="$inline ? false : $required"
         >
-            @if($inline)
-                <x-slot:label>
-                </x-slot:label>
-            @endif
         </x-forms::label>
     </div>
 

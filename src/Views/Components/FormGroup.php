@@ -11,6 +11,7 @@ class FormGroup extends Component
     public bool $inline;
     public bool $floating;
     public bool $wrap;
+    public bool $showLabel;
 
     /**
      * Create a new component instance.
@@ -24,6 +25,7 @@ class FormGroup extends Component
         bool   $inline = false,
         bool   $floating = false,
         bool   $wrap = true,
+        bool   $showLabel = true,
         string $framework = ''
     )
     {
@@ -35,5 +37,6 @@ class FormGroup extends Component
         $this->inline = $inline;
         $this->floating = $floating;
         $this->wrap = $wrap;
+        $this->showLabel = $showLabel;
     }
 }
