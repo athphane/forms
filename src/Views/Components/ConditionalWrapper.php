@@ -10,7 +10,7 @@ class ConditionalWrapper extends Component
 {
     protected string $view = 'conditional-wrapper';
     public string $reference;
-    public array $values;
+    public array | string $values;
     public bool $json;
     public bool $withWrapper;
     public bool $hideFields;
@@ -23,7 +23,7 @@ class ConditionalWrapper extends Component
      */
     public function __construct(
         string $reference = '#',
-        array $values = [],
+        array | string $values = [],
         bool $json = false,
         bool $withWrapper = true,
         bool $hideFields = true,
