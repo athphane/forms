@@ -3,12 +3,12 @@
 namespace Javaabu\Forms\Views\Components;
 
 use BackedEnum;
+use Illuminate\Contracts\Database\Eloquent\Builder as BuilderContract;
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
-use Illuminate\Contracts\Database\Eloquent\Builder as BuilderContract;
 use Javaabu\Forms\Support\HandlesDefaultAndOldValue;
 use Javaabu\Forms\Support\HandlesValidationErrors;
 
@@ -42,9 +42,9 @@ class Select extends Component
         string $name,
         string $label = '',
         string $placeholder = '',
-               $options = [],
-               $model = null,
-               $default = null,
+        $options = [],
+        $model = null,
+        $default = null,
         bool   $multiple = false,
         bool   $relation = false,
         bool   $showErrors = true,
@@ -56,8 +56,7 @@ class Select extends Component
         string $nameField = '',
         string $idField = '',
         string $framework = ''
-    )
-    {
+    ) {
         parent::__construct($framework);
 
         $this->name = $name;
@@ -93,7 +92,7 @@ class Select extends Component
             $this->selectedKey = $this->selectedKey->toArray();
         }
 
-        $this->multiple   = $multiple;
+        $this->multiple = $multiple;
         $this->showErrors = $showErrors;
         $this->showLabel = $showLabel;
         $this->floating = $floating;

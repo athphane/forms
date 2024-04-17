@@ -18,8 +18,7 @@ class LinkButton extends Component
         string $url = '',
         string $color = 'primary',
         string $framework = ''
-    )
-    {
+    ) {
         parent::__construct($framework);
 
         $this->url = $url;

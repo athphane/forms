@@ -2,8 +2,6 @@
 
 namespace Javaabu\Forms\Views\Components;
 
-use Illuminate\Support\Str;
-
 class Filter extends Component
 {
     protected string $view = 'filter';
@@ -15,8 +13,7 @@ class Filter extends Component
      */
     public function __construct(
         string $framework = '',
-    )
-    {
+    ) {
         parent::__construct($framework);
     }
 }

@@ -15,8 +15,7 @@ class ButtonGroup extends Component
     public function __construct(
         ?bool $inline = true,
         string $framework = ''
-    )
-    {
+    ) {
         parent::__construct($framework);
 
         $this->inline = $inline;

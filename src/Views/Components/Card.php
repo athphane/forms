@@ -16,8 +16,7 @@ class Card extends Component
     public function __construct(
         string $title = '',
         string $framework = ''
-    )
-    {
+    ) {
         parent::__construct($framework);
 
         $this->title = $title;

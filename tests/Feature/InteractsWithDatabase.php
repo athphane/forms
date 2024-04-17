@@ -12,9 +12,9 @@ trait InteractsWithDatabase
 
         $this->app['config']->set('database.default', 'sqlite');
         $this->app['config']->set('database.connections.sqlite', [
-            'driver'   => 'sqlite',
+            'driver' => 'sqlite',
             'database' => ':memory:',
-            'prefix'   => '',
+            'prefix' => '',
         ]);
 
         include_once __DIR__ . '/database/create_posts_table.php';
@@ -27,14 +27,14 @@ trait InteractsWithDatabase
         include_once __DIR__ . '/database/create_addresses_table.php';
         include_once __DIR__ . '/database/create_activities_table.php';
 
-        (new \CreatePostsTable)->up();
-        (new \CreateCommentsTable)->up();
-        (new \CreateCommentPostTable)->up();
-        (new \CreateCommentablesTable)->up();
-        (new \CreateCountriesTable)->up();
-        (new \CreateStatesTable)->up();
-        (new \CreateCitiesTable)->up();
-        (new \CreateAddressesTable)->up();
-        (new \CreateActivitiesTable)->up();
+        (new \CreatePostsTable())->up();
+        (new \CreateCommentsTable())->up();
+        (new \CreateCommentPostTable())->up();
+        (new \CreateCommentablesTable())->up();
+        (new \CreateCountriesTable())->up();
+        (new \CreateStatesTable())->up();
+        (new \CreateCitiesTable())->up();
+        (new \CreateAddressesTable())->up();
+        (new \CreateActivitiesTable())->up();
     }
 }

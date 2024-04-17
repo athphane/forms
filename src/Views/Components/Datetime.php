@@ -22,8 +22,7 @@ class Datetime extends Date
         bool $inline = false,
         bool $floating = false,
         string $framework = ''
-    )
-    {
+    ) {
         parent::__construct(
             $name,
             label: $label,

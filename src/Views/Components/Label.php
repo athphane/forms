@@ -22,8 +22,7 @@ class Label extends Component
         bool $inline = false,
         bool $floating = false,
         string $framework = ''
-    )
-    {
+    ) {
         parent::__construct($framework);
 
         $this->label = $label;

@@ -26,8 +26,7 @@ class Date extends Input
         bool $inline = false,
         bool $floating = false,
         string $framework = ''
-    )
-    {
+    ) {
         parent::__construct(
             $name,
             label: $label,

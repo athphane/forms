@@ -27,12 +27,11 @@ class Cell extends Component
         string $name = '',
         string $label = '',
         bool $showLabel = true,
-               $value = null,
-               $model = null,
+        $value = null,
+        $model = null,
         bool $multiline = false,
         string $framework = ''
-    )
-    {
+    ) {
         parent::__construct($framework);
 
         $this->label = $label;

@@ -12,8 +12,7 @@ class Submit extends Button
     public function __construct(
         string $color = 'primary',
         string $framework = ''
-    )
-    {
+    ) {
         parent::__construct('submit', $color, $framework);
     }
 }

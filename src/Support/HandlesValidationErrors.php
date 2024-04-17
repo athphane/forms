@@ -17,7 +17,7 @@ trait HandlesValidationErrors
      *
      * @param string $name
      * @param string $bag
-     * @return boolean
+     * @return bool
      */
     public function hasErrorAndShow(string $name, string $bag = 'default'): bool
     {
@@ -34,7 +34,7 @@ trait HandlesValidationErrors
      */
     protected function getErrorBag(string $bag = 'default'): MessageBag
     {
-        $bags = View::shared('errors', fn () => request()->session()->get('errors', new ViewErrorBag));
+        $bags = View::shared('errors', fn () => request()->session()->get('errors', new ViewErrorBag()));
 
         return $bags->getBag($bag);
     }
@@ -44,7 +44,7 @@ trait HandlesValidationErrors
      *
      * @param string $name
      * @param string $bag
-     * @return boolean
+     * @return bool
      */
     public function hasError(string $name, string $bag = 'default'): bool
     {

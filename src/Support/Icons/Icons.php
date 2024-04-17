@@ -4,7 +4,6 @@ namespace Javaabu\Forms\Support\Icons;
 
 abstract class Icons
 {
-
     /**
      * @var array
      */

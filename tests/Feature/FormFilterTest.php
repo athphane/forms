@@ -15,20 +15,20 @@ class FormFilterTest extends TestCase
         Config::set('forms.inputs.inline', false);
     }
 
-//    /** @test */
-//    public function it_can_generate_bootstrap_5_form_filter()
-//    {
-//        $this->setFrameworkBootstrap5();
-//        $this->registerTestRoute('form-filter');
-//
-//        $this->visit('/form-filter')
-//            // search field not hidden
-//            ->seeElement('input[type="text"][name="search"]')
-//            ->seeElement('select[name="select"]')
-//            ->seeElement('select[name="per_page"]')
-//            ->seeElement('input[type="hidden"][name="orderby"]')
-//            ->seeElement('input[type="hidden"][name="order"]');
-//    }
+    //    /** @test */
+    //    public function it_can_generate_bootstrap_5_form_filter()
+    //    {
+    //        $this->setFrameworkBootstrap5();
+    //        $this->registerTestRoute('form-filter');
+    //
+    //        $this->visit('/form-filter')
+    //            // search field not hidden
+    //            ->seeElement('input[type="text"][name="search"]')
+    //            ->seeElement('select[name="select"]')
+    //            ->seeElement('select[name="per_page"]')
+    //            ->seeElement('input[type="hidden"][name="orderby"]')
+    //            ->seeElement('input[type="hidden"][name="order"]');
+    //    }
 
     /** @test */
     public function it_can_generate_material_admin_26_form_filter()

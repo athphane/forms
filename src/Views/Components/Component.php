@@ -2,7 +2,6 @@
 
 namespace Javaabu\Forms\Views\Components;
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\View\Component as BaseComponent;
 
@@ -36,7 +35,7 @@ abstract class Component extends BaseComponent
      */
     public function __construct(string $framework = '')
     {
-        if (!$framework) {
+        if (! $framework) {
             $framework = config('forms.framework');
         }
 

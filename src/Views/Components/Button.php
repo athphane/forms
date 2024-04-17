@@ -18,8 +18,7 @@ class Button extends Component
         string $type = '',
         string $color = 'primary',
         string $framework = ''
-    )
-    {
+    ) {
         parent::__construct($framework);
 
         $this->type = $type;

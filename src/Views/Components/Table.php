@@ -30,8 +30,7 @@ class Table extends Component
         string $filterId = null,
         bool $noPagination = false,
         bool $noCheckbox = false,
-    )
-    {
+    ) {
         parent::__construct($framework);
         $this->striped = $striped;
         $this->no_bulk = $noBulk;

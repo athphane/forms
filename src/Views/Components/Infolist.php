@@ -17,8 +17,7 @@ class Infolist extends Card
         string $title = '',
         $model = null,
         string $framework = ''
-    )
-    {
+    ) {
         parent::__construct($title, $framework);
 
         $this->bindModel($model);

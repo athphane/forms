@@ -2,7 +2,6 @@
 
 namespace Javaabu\Forms\Views\Components;
 
-use Illuminate\Database\Eloquent\Model;
 use Javaabu\Forms\Support\FormatsValues;
 use Javaabu\Forms\Support\HandlesBoundValues;
 
@@ -33,8 +32,7 @@ class TextEntry extends Component
         bool $inline = false,
         bool $multiline = false,
         string $framework = ''
-    )
-    {
+    ) {
         parent::__construct($framework);
 
         $this->label = $label;

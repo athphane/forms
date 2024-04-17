@@ -15,12 +15,14 @@ trait HasIcon
     public static function getIcons()
     {
         $icon_class = static::iconsClass();
+
         return $icon_class::getIcons();
     }
 
     public static function getIconKeys()
     {
         $icon_class = static::iconsClass();
+
         return $icon_class::getKeys();
     }
 
@@ -37,6 +39,7 @@ trait HasIcon
     public function getIconClass($icon)
     {
         $icon_class = static::iconsClass();
+
         return $icon_class::getIconClass($icon);
     }
 

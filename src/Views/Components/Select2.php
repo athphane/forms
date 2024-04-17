@@ -2,10 +2,6 @@
 
 namespace Javaabu\Forms\Views\Components;
 
-use Illuminate\Contracts\Support\Arrayable;
-use Illuminate\Support\Arr;
-use Illuminate\Support\Str;
-
 class Select2 extends Select
 {
     public bool $isAjax;
@@ -29,9 +25,9 @@ class Select2 extends Select
         string $name,
         string $label = '',
         string $placeholder = '',
-               $options = [],
-               $model = null,
-               $default = null,
+        $options = [],
+        $model = null,
+        $default = null,
         bool   $multiple = false,
         bool   $relation = false,
         bool   $showErrors = true,
@@ -54,8 +50,7 @@ class Select2 extends Select
         bool $inline = false,
         bool $floating = false,
         string $framework = ''
-    )
-    {
+    ) {
         if ($allowClear && empty($placeholder)) {
             $placeholder = $this->getNothingSelectedText();
         }

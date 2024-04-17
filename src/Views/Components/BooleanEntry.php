@@ -2,9 +2,6 @@
 
 namespace Javaabu\Forms\Views\Components;
 
-use Illuminate\Database\Eloquent\Model;
-use Javaabu\Forms\Support\HandlesBoundValues;
-
 class BooleanEntry extends TextEntry
 {
     /**
@@ -20,8 +17,7 @@ class BooleanEntry extends TextEntry
         bool $showLabel = true,
         bool $inline = false,
         string $framework = ''
-    )
-    {
+    ) {
         parent::__construct(
             $name,
             label: $label,

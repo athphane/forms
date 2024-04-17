@@ -2,10 +2,6 @@
 
 namespace Javaabu\Forms\Views\Components;
 
-use Illuminate\Database\Eloquent\Model;
-use Javaabu\Forms\Support\FormatsValues;
-use Javaabu\Forms\Support\HandlesBoundValues;
-
 class ConditionalWrapper extends Component
 {
     protected string $view = 'conditional-wrapper';
@@ -29,8 +25,7 @@ class ConditionalWrapper extends Component
         bool $hideFields = true,
         bool $reverse = false,
         string $framework = ''
-    )
-    {
+    ) {
         parent::__construct($framework);
 
         $this->reference = $reference;

@@ -5,8 +5,6 @@ namespace Javaabu\Forms\Views\Components;
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
-use Javaabu\Forms\Support\HandlesDefaultAndOldValue;
-use Javaabu\Forms\Support\HandlesValidationErrors;
 
 class Checkbox extends Input
 {
@@ -31,8 +29,7 @@ class Checkbox extends Input
         bool $inline = false,
         bool $floating = false,
         string $framework = ''
-    )
-    {
+    ) {
         parent::__construct(
             $name,
             label: $label,
@@ -55,7 +52,7 @@ class Checkbox extends Input
             $this->checked = in_array($value, Arr::wrap($oldData));
         }
 
-        if (!session()->hasOldInput()) {
+        if (! session()->hasOldInput()) {
             $boundValue = $this->getBoundValue($model, $inputName);
 
             if ($boundValue instanceof Arrayable) {
@@ -64,6 +61,7 @@ class Checkbox extends Input
 
             if (is_array($boundValue)) {
                 $this->checked = in_array($value, $boundValue);
+
                 return;
             }
 

@@ -9,13 +9,12 @@ use Javaabu\Forms\Views\Components\Component;
 
 class Row extends Component
 {
+    use HandlesBoundValues;
     protected string $view = 'table.row';
     public string $rowId;
     public string $name;
     public string $modelId;
     public bool $noCheckbox;
-
-    use HandlesBoundValues;
 
     /**
      * Create a new component instance.
@@ -25,12 +24,11 @@ class Row extends Component
     public function __construct(
         string $name = '',
         string $rowId = '',
-               $model = null,
+        $model = null,
         string $modelId = '',
         bool $noCheckbox = false,
         string $framework = '',
-    )
-    {
+    ) {
         parent::__construct($framework);
 
         $this->rowId = $rowId;

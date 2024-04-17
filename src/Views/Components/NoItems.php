@@ -22,8 +22,7 @@ class NoItems extends Component
         string $modelType,
         string $icon,
         string $framework = '',
-    )
-    {
+    ) {
         parent::__construct($framework);
 
         $this->model = $model;

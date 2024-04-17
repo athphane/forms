@@ -22,8 +22,7 @@ class BulkActions extends Component
         string $model,
         array $actions,
         string $framework = '',
-    )
-    {
+    ) {
         parent::__construct($framework);
 
         $this->model = $model;

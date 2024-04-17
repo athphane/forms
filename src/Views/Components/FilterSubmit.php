@@ -17,9 +17,7 @@ class FilterSubmit extends Component
         string $cancelUrl,
         bool|array|string $export = false,
         string $framework = '',
-
-    )
-    {
+    ) {
         parent::__construct($framework);
 
         $this->export = is_string($export) ? [$export] : $export;

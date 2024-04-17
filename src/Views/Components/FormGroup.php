@@ -27,8 +27,7 @@ class FormGroup extends Component
         bool   $wrap = true,
         bool   $showLabel = true,
         string $framework = ''
-    )
-    {
+    ) {
         parent::__construct($framework);
 
         $this->name = $name;

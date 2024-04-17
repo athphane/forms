@@ -20,7 +20,7 @@ class OverrideFormsDefaults
     {
         config([
             'forms.framework' => $framework,
-            'forms.inputs'    => array_merge(config('forms.inputs'), $this->getInputsConfig())
+            'forms.inputs' => array_merge(config('forms.inputs'), $this->getInputsConfig()),
         ]);
 
         return $next($request);

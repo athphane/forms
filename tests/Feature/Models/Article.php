@@ -2,10 +2,10 @@
 
 namespace Javaabu\Forms\Tests\Feature\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-enum ArticleStatuses: string {
+enum ArticleStatuses: string
+{
     case Draft = 'draft';
     case Published = 'published';
 }

@@ -5,9 +5,9 @@ namespace Javaabu\Forms\Tests;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\View;
+use Javaabu\Forms\FormsServiceProvider;
 use Javaabu\Settings\SettingsServiceProvider;
 use Orchestra\Testbench\BrowserKit\TestCase as BaseTestCase;
-use Javaabu\Forms\FormsServiceProvider;
 
 abstract class TestCase extends BaseTestCase
 {
@@ -35,7 +35,7 @@ abstract class TestCase extends BaseTestCase
     {
         return [
             SettingsServiceProvider::class,
-            FormsServiceProvider::class
+            FormsServiceProvider::class,
         ];
     }
 

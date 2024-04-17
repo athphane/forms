@@ -22,7 +22,7 @@ trait HandlesBoundValues
      * Whether to retrieve the default value as a single
      * attribute or as a collection from the database.
      *
-     * @var boolean
+     * @var bool
      */
     protected $relation = false;
 
@@ -104,7 +104,7 @@ trait HandlesBoundValues
 
         $cast = $model->getCasts()[$key] ?? null;
 
-        if (!$cast || $cast === 'date' || $cast === 'datetime') {
+        if (! $cast || $cast === 'date' || $cast === 'datetime') {
             return Carbon::instance($date)->toJSON();
         }
 
@@ -140,7 +140,7 @@ trait HandlesBoundValues
      */
     protected function getAttachedKeysFromRelation($bind, string $name)
     {
-        if (!$bind instanceof Model) {
+        if (! $bind instanceof Model) {
             return data_get($bind, $name);
         }
 

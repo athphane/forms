@@ -19,8 +19,7 @@ class Errors extends Component
         string $name = '',
         string $bag = 'default',
         string $framework = ''
-    )
-    {
+    ) {
         parent::__construct($framework);
 
         $this->name = static::convertBracketsToDots(Str::before($name, '[]'));

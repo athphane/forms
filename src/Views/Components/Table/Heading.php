@@ -23,8 +23,7 @@ class Heading extends Component
         int    $colspan = 1,
         string $sortable = '',
         string $framework = '',
-    )
-    {
+    ) {
         parent::__construct($framework);
         $this->label = $label;
         $this->colspan = $colspan;
@@ -37,7 +36,7 @@ class Heading extends Component
      * @param  string  $classes
      * @return string
      */
-    function addSortClass(string $classes = ''): string
+    public function addSortClass(string $classes = ''): string
     {
         $sorting_class = 'sorting';
         if (Request::get('orderby') == $this->sortable) {

@@ -20,8 +20,7 @@ class EmptyRow extends Component
         int $columns = 1,
         bool $noCheckbox = false,
         string $framework = '',
-    )
-    {
+    ) {
         parent::__construct($framework);
         $this->columns = $columns;
         $this->noCheckbox = $noCheckbox;

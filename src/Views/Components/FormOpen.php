@@ -18,11 +18,10 @@ class FormOpen extends Form
      */
     public function __construct(
         string $method = 'POST',
-               $model = null,
+        $model = null,
         bool   $files = false,
         string $framework = ''
-    )
-    {
+    ) {
         parent::__construct(
             $method,
             $model,

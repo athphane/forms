@@ -29,16 +29,15 @@ class Input extends Component
         string $name,
         string $label = '',
         string $type = 'text',
-               $model = null,
-               $default = null,
+        $model = null,
+        $default = null,
         bool   $showErrors = true,
         bool   $showLabel = true,
         bool   $required = false,
         bool   $inline = false,
         bool   $floating = false,
         string $framework = ''
-    )
-    {
+    ) {
         parent::__construct($framework);
 
         $this->name = $name;

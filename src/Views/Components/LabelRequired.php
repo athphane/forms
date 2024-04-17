@@ -16,12 +16,11 @@ class LabelRequired extends Component
     public function __construct(
         string $text = '',
         string $framework = ''
-    )
-    {
+    ) {
         parent::__construct($framework);
 
         if (! $text) {
-             $text = __(config('forms.inputs.required_text'));
+            $text = __(config('forms.inputs.required_text'));
         }
 
         $this->text = $text;

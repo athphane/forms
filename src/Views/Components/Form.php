@@ -33,11 +33,10 @@ class Form extends Component
      */
     public function __construct(
         string $method = 'POST',
-               $model = null,
+        $model = null,
         bool $files = false,
         string $framework = ''
-    )
-    {
+    ) {
         parent::__construct($framework);
 
         $this->bindModel($model);
