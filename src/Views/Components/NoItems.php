@@ -6,7 +6,7 @@ class NoItems extends Component
 {
     protected string $view = 'no-items';
 
-    public string $model;
+    public string|object $model;
     public string $createAction;
     public string $modelType;
     public string $icon;
@@ -17,7 +17,7 @@ class NoItems extends Component
      * @return void
      */
     public function __construct(
-        string $model,
+        string|object $model,
         string $createAction,
         string $modelType,
         string $icon,
