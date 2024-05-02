@@ -1,6 +1,6 @@
 <div class="table-responsive">
-
-    @if(empty($no_bulk))
+    
+    @if(empty($noBulk))
         @if(isset($bulkForm) && $bulkForm->isNotEmpty())
             <x-forms::form :action="$bulkForm->attributes->get('action')" >
                 <div class="p-4">
@@ -12,7 +12,7 @@
     {{ $beforeTable ?? '' }}
 
     <div class="mt-0">
-        @if(empty($no_checkbox))
+        @if(empty($noCheckbox))
             <div class="p-4 hidden-lg-up bg-light">
                 <div class="checkbox">
                     <input id="{{ ($model ?? '').'-select-all-resp' }}" data-all="{{ $model ?? '' }}" value="1" class="form-check-input" type="checkbox" />
@@ -23,7 +23,7 @@
         <table class="table mt-0 {{ $table_class ?? '' }}{{ $striped ? ' table-striped' : '' }}" data-form-sortable="#{{ $filter_id ?? 'filter' }}">
             <thead class="thead-default">
                 <tr>
-                    @if(empty($no_checkbox))
+                    @if(empty($noCheckbox))
                         <th class="td-checkbox">
                             <div class="checkbox">
                                 <input id="{{ ($model ?? '').'-select-all' }}" data-all="{{ $model ?? '' }}" value="1" class="form-check-input" type="checkbox" />
@@ -47,7 +47,7 @@
         </table>
     </div>
 
-    @if(empty($no_bulk))
+    @if(empty($noBulk))
         @if(isset($bulkForm) && $bulkForm->isNotEmpty())
             </x-forms::form>
         @endif
