@@ -17,7 +17,9 @@
         @elseif($isAdminModel())
             {!! $value->admin_link !!}
         @else
-            @if($multiline)
+            @if($isStatusEnum())
+                <x-forms::status :framework="$framework" :color="$value->getColor()" :name="$getEnumLabel()" />
+            @elseif($multiline)
                 {!! nl2br(e($value ?: trans('forms::strings.blank'))) !!}
             @elseif(is_array($value))
                 <ul class="list list--check">
