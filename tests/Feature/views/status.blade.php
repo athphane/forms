@@ -1,1 +1,1 @@
-<x-forms::status color="danger" name="Rejected" />
+<x-forms::status color="danger" label="Rejected" />

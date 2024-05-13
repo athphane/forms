@@ -2,6 +2,6 @@
     @if($slot->isNotEmpty())
         {{ $slot }}
     @else
-        {{ $name }}
+        {{ $label }}
     @endif
 </span>
