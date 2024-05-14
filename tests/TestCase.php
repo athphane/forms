@@ -42,7 +42,7 @@ abstract class TestCase extends BaseTestCase
             SettingsServiceProvider::class,
             MediaLibraryServiceProvider::class,
             FormsServiceProvider::class,
-            TestServiceProvider::class
+            TestServiceProvider::class,
         ];
     }
 
