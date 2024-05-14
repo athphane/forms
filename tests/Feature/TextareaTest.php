@@ -25,6 +25,7 @@ class TextareaTest extends TestCase
             ->seeElement('div.mb-4')
             ->within('div.mb-4', function () {
                 $this->seeElement('textarea[name="title"][id="title"].form-control')
+                    ->seeElement('textarea[rows="3"]')
                     ->seeInElement('textarea[name="title"][id="title"].form-control', 'Lorem ipsum')
                     ->seeElement('label.form-label')
                     ->seeInElement('label.form-label[for="title"]', 'Title');
@@ -41,6 +42,7 @@ class TextareaTest extends TestCase
             ->seeElement('div.form-group')
             ->within('div.form-group', function () {
                 $this->seeElement('textarea[name="title"][id="title"].form-control')
+                    ->seeElement('textarea[rows="3"]')
                     ->seeInElement('textarea[name="title"][id="title"].form-control', 'Lorem ipsum')
                     ->seeElement('i.form-group__bar')
                     ->seeElement('label[for="title"]')

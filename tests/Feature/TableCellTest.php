@@ -7,6 +7,40 @@ use Javaabu\Forms\Tests\TestCase;
 class TableCellTest extends TestCase
 {
     /** @test */
+    public function it_can_render_status_table_cell_entries_for_bootstrap_5()
+    {
+        $this->setFrameworkBootstrap5();
+        $this->registerTestRoute('table-cell-status');
+
+        $this->visit('/table-cell-status')
+            ->seeElement('td')
+            ->within('td', function () {
+                $this->seeElement('span.status.text-bg-success')
+                    ->within('span.status', function () {
+                        $this->seeText('Published');
+                    });
+            });
+
+    }
+
+    /** @test */
+    public function it_can_render_status_table_cell_entries_for_material_admin_26()
+    {
+        $this->setFrameworkMaterialAdmin26();
+        $this->registerTestRoute('table-cell-status');
+
+        $this->visit('/table-cell-status')
+            ->seeElement('td')
+            ->within('td', function () {
+                $this->seeElement('span.status.bg-success')
+                    ->within('span.status', function () {
+                        $this->seeText('Published');
+                    });
+            });
+
+    }
+
+    /** @test */
     public function it_can_render_boolean_table_cells()
     {
         $this->setFrameworkBootstrap5();

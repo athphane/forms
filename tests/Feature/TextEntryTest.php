@@ -7,6 +7,50 @@ use Javaabu\Forms\Tests\TestCase;
 class TextEntryTest extends TestCase
 {
     /** @test */
+    public function it_can_render_status_entries_for_bootstrap_5()
+    {
+        $this->setFrameworkBootstrap5();
+        $this->registerTestRoute('text-entry-status');
+
+        $this->visit('/text-entry-status')
+            ->seeElement('dl')
+            ->within('dl', function () {
+                $this->seeElement('dt')
+                    ->seeInElement('dt', 'Status')
+                    ->seeElement('dd')
+                    ->within('dd', function () {
+                        $this->seeElement('span.status.text-bg-success')
+                            ->within('span.status', function () {
+                                $this->seeText('Published');
+                            });
+                    });
+            });
+
+    }
+
+    /** @test */
+    public function it_can_render_status_entries_for_material_admin_26()
+    {
+        $this->setFrameworkMaterialAdmin26();
+        $this->registerTestRoute('text-entry-status');
+
+        $this->visit('/text-entry-status')
+            ->seeElement('dl')
+            ->within('dl', function () {
+                $this->seeElement('dt')
+                    ->seeInElement('dt', 'Status')
+                    ->seeElement('dd')
+                    ->within('dd', function () {
+                        $this->seeElement('span.status.bg-success')
+                            ->within('span.status', function () {
+                                $this->seeText('Published');
+                            });
+                    });
+            });
+
+    }
+
+    /** @test */
     public function it_can_render_array_entries()
     {
         $this->setFrameworkBootstrap5();

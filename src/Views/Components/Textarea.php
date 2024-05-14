@@ -6,6 +6,8 @@ class Textarea extends Input
 {
     protected string $view = 'textarea';
 
+    public int $rows;
+
     /**
      * Create a new component instance.
      *
@@ -14,6 +16,7 @@ class Textarea extends Input
     public function __construct(
         string $name,
         string $label = '',
+        int $rows = 3,
         $model = null,
         $default = null,
         bool $showErrors = true,
@@ -36,5 +39,7 @@ class Textarea extends Input
             floating: $floating,
             framework: $framework
         );
+
+        $this->rows = $rows;
     }
 }

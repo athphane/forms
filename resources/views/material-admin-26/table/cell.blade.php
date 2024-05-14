@@ -8,7 +8,9 @@
     @elseif($isAdminModel())
         {!! $value->admin_link !!}
     @else
-        @if($multiline)
+        @if($isStatusEnum())
+            <x-forms::status :framework="$framework" :color="$value->getColor()" :label="$getEnumLabel()" />
+        @elseif($multiline)
             {!! nl2br(e($value ?: trans('forms::strings.blank'))) !!}
         @elseif(is_array($value))
             {{ implode(trans('forms::table_array_separator'), $value) }}

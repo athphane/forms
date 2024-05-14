@@ -6,6 +6,7 @@
         ]) !!}
         type="{{ $type }}"
         name="{{ $name }}"
+        rows="{{ $rows }}"
         @if($label && ! $attributes->get('id'))
             id="{{ $id() }}"
         @endif
