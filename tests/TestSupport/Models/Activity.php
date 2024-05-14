@@ -1,6 +1,6 @@
 <?php
 
-namespace Javaabu\Forms\Tests\Feature\Models;
+namespace Javaabu\Forms\Tests\TestSupport\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;

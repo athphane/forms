@@ -3,9 +3,9 @@
 namespace Javaabu\Forms\Tests\Feature;
 
 use Illuminate\Support\Facades\Route;
-use Javaabu\Forms\Tests\Feature\Models\Article;
-use Javaabu\Forms\Tests\Feature\Models\ArticleStatuses;
+use Javaabu\Forms\Tests\TestSupport\Models\ArticleStatuses;
 use Javaabu\Forms\Tests\TestCase;
+use Javaabu\Forms\Tests\TestSupport\Models\Article;
 
 class Select2Test extends TestCase
 {

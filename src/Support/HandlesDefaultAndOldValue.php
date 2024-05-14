@@ -6,7 +6,7 @@ trait HandlesDefaultAndOldValue
 {
     use HandlesBoundValues;
 
-    private function setValue(string $name, $bind = null, $default = null)
+    protected function setValue(string $name, $bind = null, $default = null)
     {
         $inputName = static::convertBracketsToDots($name);
 

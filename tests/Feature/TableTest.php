@@ -2,19 +2,13 @@
 
 namespace Javaabu\Forms\Tests\Feature;
 
-use Javaabu\Forms\Tests\Feature\Models\Activity;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Javaabu\Forms\Tests\TestCase;
+use Javaabu\Forms\Tests\TestSupport\Models\Activity;
 
 class TableTest extends TestCase
 {
-    use InteractsWithDatabase;
-
-    public function setUp(): void
-    {
-        parent::setUp();
-
-        $this->setupDatabase();
-    }
+    use RefreshDatabase;
 
     /** @test */
     public function it_can_generate_bootstrap_5_table()

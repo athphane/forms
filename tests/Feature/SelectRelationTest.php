@@ -3,6 +3,7 @@
 namespace Javaabu\Forms\Tests\Feature;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 use Javaabu\Forms\Tests\TestCase;
@@ -43,12 +44,12 @@ class Comment extends Model
 
 class SelectRelationTest extends TestCase
 {
-    use InteractsWithDatabase;
+    use RefreshDatabase;
 
     /** @test */
     public function it_handles_belongs_to_many_relationships()
     {
-        $this->setupDatabase();
+
 
         $post = PostBelongsToMany::create(['content' => 'Content']);
 
@@ -80,7 +81,7 @@ class SelectRelationTest extends TestCase
     /** @test */
     public function it_handles_morph_many_relationships()
     {
-        $this->setupDatabase();
+
 
         $post = PostMorphMany::create(['content' => 'Content']);
 
@@ -110,7 +111,7 @@ class SelectRelationTest extends TestCase
     /** @test */
     public function it_handles_morph_to_many_relationships()
     {
-        $this->setupDatabase();
+
 
         $post = PostMorphToMany::create(['content' => 'Content']);
 

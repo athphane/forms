@@ -1,7 +1,7 @@
 @php
-    $activities = \Javaabu\Forms\Tests\Feature\Models\Activity::factory(10)->create();
+    $activities = \Javaabu\Forms\Tests\TestSupport\Models\Activity::factory(10)->create();
 
-    $activities = \Javaabu\Forms\Tests\Feature\Models\Activity::query()->paginate(2);
+    $activities = \Javaabu\Forms\Tests\TestSupport\Models\Activity::query()->paginate(2);
 @endphp
 <div id="normal">
     <x-forms::table>
@@ -56,14 +56,14 @@
 
 <div id="material">
     <x-forms::table
-        model="users"
-        :no-bulk="!empty($no_bulk)"
-        :no-checkbox="!empty($no_checkbox)"
-        :no-pagination="!empty($no_pagination)"
+            model="users"
+            :no-bulk="!empty($no_bulk)"
+            :no-checkbox="!empty($no_checkbox)"
+            :no-pagination="!empty($no_pagination)"
     >
         <x-slot:bulk-form
-            action="/users"
-            method="PUT"
+                action="/users"
+                method="PUT"
         >
             @include('form-input')
         </x-slot:bulk-form>
@@ -88,17 +88,17 @@
         <x-slot:rows>
             @foreach($activities as $activity)
                 <x-forms::table.row
-                    :model="$activity"
-                    name="activities"
-                    :model-id="$activity->id"
-                    :no-checkbox="!empty($no_checkbox)"
+                        :model="$activity"
+                        name="activities"
+                        :model-id="$activity->id"
+                        :no-checkbox="!empty($no_checkbox)"
                 >
-                    <x-forms::table.cell label="Index" name="id" />
-                    <x-forms::table.cell label="Date A" name="date_a" />
-                    <x-forms::table.cell label="Date B" name="date_b" />
-                    <x-forms::table.cell label="Date C" name="date_c" />
-                    <x-forms::table.cell label="Date D" name="date_d" />
-                    <x-forms::table.cell label="Date E" name="date_e" />
+                    <x-forms::table.cell label="Index" name="id"/>
+                    <x-forms::table.cell label="Date A" name="date_a"/>
+                    <x-forms::table.cell label="Date B" name="date_b"/>
+                    <x-forms::table.cell label="Date C" name="date_c"/>
+                    <x-forms::table.cell label="Date D" name="date_d"/>
+                    <x-forms::table.cell label="Date E" name="date_e"/>
                 </x-forms::table.row>
             @endforeach
         </x-slot:rows>
@@ -111,14 +111,14 @@
 
 <div id="material-empty">
     <x-forms::table
-        model="users"
-        :no-bulk="!empty($no_bulk)"
-        :no-checkbox="!empty($no_checkbox)"
-        :no-pagination="!empty($no_pagination)"
+            model="users"
+            :no-bulk="!empty($no_bulk)"
+            :no-checkbox="!empty($no_checkbox)"
+            :no-pagination="!empty($no_pagination)"
     >
         <x-slot:bulk-form
-            action="/users"
-            method="PUT"
+                action="/users"
+                method="PUT"
         >
             @include('form-input')
         </x-slot:bulk-form>
@@ -134,8 +134,8 @@
 
         <x-slot:rows>
             <x-forms::table.empty-row
-                columns="4"
-                :no-checkbox="!empty($no_checkbox)"
+                    columns="4"
+                    :no-checkbox="!empty($no_checkbox)"
             >
                 No matching things
             </x-forms::table.empty-row>

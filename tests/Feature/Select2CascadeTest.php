@@ -4,6 +4,7 @@ namespace Javaabu\Forms\Tests\Feature;
 
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Route;
 use Javaabu\Forms\Tests\TestCase;
 
@@ -68,13 +69,11 @@ class Address extends Model
 
 class Select2CascadeTest extends TestCase
 {
-    use InteractsWithDatabase;
+    use RefreshDatabase;
 
     /** @test */
     public function it_can_create_select2_options_from_a_collection()
     {
-        $this->setupDatabase();
-
         $countryA = Country::create(['name' => 'Maldives']);
         $countryB = Country::create(['name' => 'India']);
         $countryC = Country::create(['name' => 'Japan']);
@@ -101,8 +100,6 @@ class Select2CascadeTest extends TestCase
     /** @test */
     public function it_can_create_select2_options_from_a_query_builder()
     {
-        $this->setupDatabase();
-
         $countryA = Country::create(['name' => 'Maldives']);
         $countryB = Country::create(['name' => 'India']);
         $countryC = Country::create(['name' => 'Japan']);
@@ -129,7 +126,7 @@ class Select2CascadeTest extends TestCase
     /** @test */
     public function it_can_extract_an_accessor_field_from_the_builder()
     {
-        $this->setupDatabase();
+
 
         $countryA = Country::create(['name' => 'Maldives']);
         $countryB = Country::create(['name' => 'India']);
@@ -159,7 +156,7 @@ class Select2CascadeTest extends TestCase
     /** @test */
     public function it_can_extract_a_get_accessor_field_from_the_builder()
     {
-        $this->setupDatabase();
+
 
         $countryA = Country::create(['name' => 'Maldives']);
         $countryB = Country::create(['name' => 'India']);
@@ -189,7 +186,7 @@ class Select2CascadeTest extends TestCase
     /** @test */
     public function it_can_render_a_select2_cascade()
     {
-        $this->setupDatabase();
+
 
         $countryA = Country::create(['name' => 'Maldives']);
         $countryB = Country::create(['name' => 'India']);

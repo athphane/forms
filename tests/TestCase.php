@@ -2,12 +2,15 @@
 
 namespace Javaabu\Forms\Tests;
 
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\View;
 use Javaabu\Forms\FormsServiceProvider;
+use Javaabu\Forms\Tests\TestSupport\Providers\TestServiceProvider;
 use Javaabu\Settings\SettingsServiceProvider;
 use Orchestra\Testbench\BrowserKit\TestCase as BaseTestCase;
+use Spatie\MediaLibrary\MediaLibraryServiceProvider;
 
 abstract class TestCase extends BaseTestCase
 {
@@ -28,14 +31,18 @@ abstract class TestCase extends BaseTestCase
 
         //$this->app['config']->set('form-components.framework', env('FORM_COMPONENTS_FRAMEWORK', 'tailwind'));
 
-        View::addLocation(__DIR__ . '/Feature/views');
+        View::addLocation(__DIR__ . '/TestSupport/views');
+
+        Model::unguard();
     }
 
     protected function getPackageProviders($app)
     {
         return [
             SettingsServiceProvider::class,
+            MediaLibraryServiceProvider::class,
             FormsServiceProvider::class,
+            TestServiceProvider::class
         ];
     }
 
