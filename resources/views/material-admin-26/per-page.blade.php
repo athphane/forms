@@ -7,4 +7,4 @@ if (! in_array($selected_per_page, $amounts)) {
 }
 @endphp
 
-<x-forms::select2 name="per_page" :label="__('Per Page')" :options="$amounts" />
+<x-forms::select2 name="per_page" :label="__('Per Page')" :options="$amounts" :default="$selected_per_page"/>
