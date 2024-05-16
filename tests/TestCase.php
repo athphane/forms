@@ -2,6 +2,7 @@
 
 namespace Javaabu\Forms\Tests;
 
+use Composer\Semver\VersionParser;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Config;
@@ -23,6 +24,11 @@ abstract class TestCase extends BaseTestCase
         return version_compare(app()->version(), '10.0', '>=');
     }
 
+    public static function isMediaLibrary10(): bool
+    {
+        return \Composer\InstalledVersions::satisfies(new VersionParser, 'spatie/laravel-medialibrary', '10.*');
+    }
+
     public function setUp(): void
     {
         parent::setUp();
@@ -37,7 +43,7 @@ abstract class TestCase extends BaseTestCase
 
         Artisan::call('vendor:publish', [
             '--provider' => 'Spatie\\MediaLibrary\\MediaLibraryServiceProvider',
-            '--tag' => 'medialibrary-migrations',
+            '--tag' => self::isMediaLibrary10() ? 'migrations' : 'medialibrary-migrations',
         ]);
 
         Model::unguard();
