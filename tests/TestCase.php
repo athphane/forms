@@ -3,8 +3,10 @@
 namespace Javaabu\Forms\Tests;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\View;
 use Javaabu\Forms\FormsServiceProvider;
 use Javaabu\Forms\Tests\TestSupport\Providers\TestServiceProvider;
@@ -32,6 +34,11 @@ abstract class TestCase extends BaseTestCase
         //$this->app['config']->set('form-components.framework', env('FORM_COMPONENTS_FRAMEWORK', 'tailwind'));
 
         View::addLocation(__DIR__ . '/TestSupport/views');
+
+        Artisan::call('vendor:publish', [
+            '--provider' => 'Spatie\\MediaLibrary\\MediaLibraryServiceProvider',
+            '--tag' => 'medialibrary-migrations'
+        ]);
 
         Model::unguard();
     }
@@ -72,6 +79,22 @@ abstract class TestCase extends BaseTestCase
                 Route::post($uri, $post);
             }
         });
+
+        return $this;
+    }
+
+    /**
+     * Copied from https://github.com/spatie/laravel-medialibrary/issues/623#issuecomment-2110321741
+     * @return $this
+     */
+    protected function setupFakeMediaDisk(): self
+    {
+        Storage::fake('uploads');
+
+        config()->set('filesystems.disks.media', [
+            'driver' => 'local',
+            'root' => Storage::disk('uploads')->path(''),
+        ]);
 
         return $this;
     }

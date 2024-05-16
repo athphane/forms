@@ -1,6 +1,6 @@
 @php
     $article = new \Javaabu\Forms\Tests\TestSupport\Models\Article();
-    $article->status = \Javaabu\Forms\Tests\TestSupport\Models\ArticleStatuses::Published;
+    $article->status = \Javaabu\Forms\Tests\TestSupport\Enums\ArticleStatuses::Published;
 @endphp
 
 @model($article)

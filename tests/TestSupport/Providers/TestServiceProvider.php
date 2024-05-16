@@ -13,7 +13,6 @@ class TestServiceProvider extends ServiceProvider
     {
         $this->loadMigrationsFrom([
             __DIR__ . '/../database',
-            __DIR__ . '/../../../vendor/spatie/laravel-medialibrary/database/migrations',
         ]);
     }
 

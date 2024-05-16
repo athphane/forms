@@ -63,4 +63,9 @@ class Input extends Component
     {
         return false;
     }
+
+    public function isFileInput(): bool
+    {
+        return false;
+    }
 }

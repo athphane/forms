@@ -54,4 +54,9 @@ class File extends Input
             framework: $framework
         );
     }
+
+    public function isFileInput(): bool
+    {
+        return true;
+    }
 }
