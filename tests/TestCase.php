@@ -37,7 +37,7 @@ abstract class TestCase extends BaseTestCase
 
         Artisan::call('vendor:publish', [
             '--provider' => 'Spatie\\MediaLibrary\\MediaLibraryServiceProvider',
-            '--tag' => 'medialibrary-migrations'
+            '--tag' => 'medialibrary-migrations',
         ]);
 
         Model::unguard();

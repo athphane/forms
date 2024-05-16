@@ -17,7 +17,7 @@ class Article extends Model implements HasMedia
     protected $fillable = [
         'status',
         'title',
-        'content'
+        'content',
     ];
 
     protected $casts = [

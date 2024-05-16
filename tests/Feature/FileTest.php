@@ -11,7 +11,6 @@ use Spatie\MediaLibrary\MediaCollections\Exceptions\FileIsTooBig;
 
 class FileTest extends TestCase
 {
-
     use RefreshDatabase;
 
     public function setUp(): void
