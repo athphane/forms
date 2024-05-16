@@ -19,6 +19,7 @@ class Textarea extends Input
         int $rows = 3,
         $model = null,
         $default = null,
+        $value = null,
         bool $showErrors = true,
         bool $showLabel = true,
         bool $required = false,
@@ -41,5 +42,9 @@ class Textarea extends Input
         );
 
         $this->rows = $rows;
+
+        if (! is_null($value)) {
+            $this->value = $value;
+        }
     }
 }

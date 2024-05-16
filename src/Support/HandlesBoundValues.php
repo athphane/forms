@@ -79,7 +79,11 @@ trait HandlesBoundValues
             return $this->getAttachedKeysFromRelation($bind, $name);
         }
 
-        $boundValue = data_get($bind, $name);
+        if ($bind instanceof Model) {
+            $boundValue = $bind->{$name};
+        } else {
+            $boundValue = data_get($bind, $name);
+        }
 
         if ($bind instanceof Model && $boundValue instanceof DateTimeInterface) {
             return $this->formatDateTime($bind, $name, $boundValue);
