@@ -4,6 +4,7 @@ namespace Javaabu\Forms\Tests\Feature;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\Route;
 use Javaabu\Forms\Tests\TestCase;
 use Javaabu\Forms\Tests\TestSupport\Models\Article;
 use Spatie\MediaLibrary\MediaCollections\Exceptions\FileDoesNotExist;
@@ -18,7 +19,6 @@ class FileTest extends TestCase
         parent::setUp();
 
         $this->setupFakeMediaDisk();
-        $this->markTestIncomplete();
     }
 
     /**
@@ -36,32 +36,208 @@ class FileTest extends TestCase
         return $article;
     }
 
-
-
     /** @test */
-    public function it_can_generate_bootstrap_5_file_inputs()
+    public function it_can_render_missing_file_inputs()
     {
         $article = $this->getArticleWithMedia();
 
+        $this->setFrameworkMaterialAdmin26();
 
+        Route::get('file-missing', function () use ($article) {
+            return view('file-missing')
+                ->with('article', $article);
+        })->middleware('web');
 
-        dd($article->getFirstMediaUrl('featured_image', 'thumb'));
-        /*$this->setFrameworkBootstrap5();
-        $this->registerTestRoute('form-input-prepend-append');
+        $this->visit('/file-missing')
+            ->seeElement('div.form-group')
+            ->within('div.form-group', function () {
+                $this->seeElement('div.fileinput.fileinput-new')
+                    ->within('div.fileinput', function () {
+                        $this->seeElement('span.btn-file')
+                            ->within('span.btn-file', function () {
+                                $this->seeElement('input[name="og_image"][type="file"][accept="application/pdf,image/jpeg,image/png"]#og_image');
+                            });
 
-        $this->visit('/form-input-prepend-append')
-            ->seeElement('div.mb-4')
-            ->within('div.mb-4', function () {
-                $this->seeElement('div.input-group')
-                    ->seeElement('label.form-label')
-                    ->seeInElement('label.form-label[for="title"]', 'Title')
-                    ->within('div.input-group', function () {
-                        $this->seeElement('div.input-group-text.prepend')
-                            ->seeInElement('div.input-group-text.prepend', 'MVR')
-                            ->seeElement('input[name="title"][value="Lorem ipsum"].form-control')
-                            ->seeElement('div.input-group-text.append')
-                            ->seeInElement('div.input-group-text.append', 'New Link');
+                        $this->seeElement('span.fileinput-filename')
+                            ->within('span.fileinput-filename', function () {
+                                $this->dontSeeElement('a');
+                            });
                     });
-            });*/
+            });
+    }
+
+    /** @test */
+    public function it_can_render_unbound_file_inputs()
+    {
+        $this->setFrameworkMaterialAdmin26();
+
+        $this->registerTestRoute('file-unbound');
+
+        $this->visit('/file-unbound')
+            ->seeElement('div.form-group')
+            ->within('div.form-group', function () {
+                $this->seeElement('div.fileinput.fileinput-new')
+                    ->within('div.fileinput', function () {
+                        $this->seeElement('span.btn-file')
+                            ->within('span.btn-file', function () {
+                                $this->seeElement('input[name="featured_image"][type="file"][accept="application/pdf,image/jpeg,image/png"]#featured_image');
+                            });
+
+                        $this->seeElement('span.fileinput-filename')
+                            ->within('span.fileinput-filename', function () {
+                                $this->dontSeeElement('a');
+                            });
+                    });
+            });
+    }
+
+    /** @test */
+    public function it_can_render_file_inputs_with_attribute_accessor()
+    {
+        $article = $this->getArticleWithMedia();
+
+        $this->setFrameworkMaterialAdmin26();
+
+        Route::get('file-attribute-accessor', function () use ($article) {
+            return view('file-attribute-accessor')
+                ->with('article', $article);
+        })->middleware('web');
+
+        $this->visit('/file-attribute-accessor')
+            ->seeElement('div.form-group')
+            ->within('div.form-group', function () {
+                $this->seeElement('div.fileinput.fileinput-exists')
+                    ->within('div.fileinput', function () {
+                        $this->seeElement('span.btn-file')
+                            ->within('span.btn-file', function () {
+                                $this->seeElement('input[name="thumbnail"][type="file"][accept="application/pdf,image/jpeg,image/png"]#thumbnail');
+                            });
+
+                        $this->seeElement('span.fileinput-filename')
+                            ->within('span.fileinput-filename', function () {
+                                $this->seeElement('a[href="/storage/1/conversions/some-cool-image-thumb.jpg"]');
+                            });
+                    });
+            });
+    }
+
+    /** @test */
+    public function it_can_render_file_inputs_with_accessor()
+    {
+        $article = $this->getArticleWithMedia();
+
+        $this->setFrameworkMaterialAdmin26();
+
+        Route::get('file-accessor', function () use ($article) {
+            return view('file-accessor')
+                ->with('article', $article);
+        })->middleware('web');
+
+        $this->visit('/file-accessor')
+            ->seeElement('div.form-group')
+            ->within('div.form-group', function () {
+                $this->seeElement('div.fileinput.fileinput-exists')
+                    ->within('div.fileinput', function () {
+                        $this->seeElement('span.btn-file')
+                            ->within('span.btn-file', function () {
+                                $this->seeElement('input[name="photo"][type="file"][accept="application/pdf,image/jpeg,image/png"]#photo');
+                            });
+
+                        $this->seeElement('span.fileinput-filename')
+                            ->within('span.fileinput-filename', function () {
+                                $this->seeElement('a[href="/storage/1/some-cool-image.jpg"]');
+                            });
+                    });
+            });
+    }
+
+    /** @test */
+    public function it_can_render_file_inputs_with_conversion_name()
+    {
+        $article = $this->getArticleWithMedia();
+
+        $this->setFrameworkMaterialAdmin26();
+
+        Route::get('file-conversion', function () use ($article) {
+            return view('file-conversion')
+                ->with('article', $article);
+        })->middleware('web');
+
+        $this->visit('/file-conversion')
+            ->seeElement('div.form-group')
+            ->within('div.form-group', function () {
+                $this->seeElement('div.fileinput.fileinput-exists')
+                    ->within('div.fileinput', function () {
+                        $this->seeElement('span.btn-file')
+                            ->within('span.btn-file', function () {
+                                $this->seeElement('input[name="featured_image"][type="file"][accept="application/pdf,image/jpeg,image/png"]#featured_image');
+                            });
+
+                        $this->seeElement('span.fileinput-filename')
+                            ->within('span.fileinput-filename', function () {
+                                $this->seeElement('a[href="/storage/1/conversions/some-cool-image-thumb.jpg"]');
+                            });
+                    });
+            });
+    }
+
+    /** @test */
+    public function it_can_render_file_inputs_with_collection_name()
+    {
+        $article = $this->getArticleWithMedia();
+
+        $this->setFrameworkMaterialAdmin26();
+
+        Route::get('file-collection', function () use ($article) {
+            return view('file-collection')
+                ->with('article', $article);
+        })->middleware('web');
+
+        $this->visit('/file-collection')
+            ->seeElement('div.form-group')
+            ->within('div.form-group', function () {
+                $this->seeElement('div.fileinput.fileinput-exists')
+                    ->within('div.fileinput', function () {
+                        $this->seeElement('span.btn-file')
+                            ->within('span.btn-file', function () {
+                                $this->seeElement('input[name="post_image"][type="file"][accept="application/pdf,image/jpeg,image/png"]#post_image');
+                            });
+
+                        $this->seeElement('span.fileinput-filename')
+                            ->within('span.fileinput-filename', function () {
+                                $this->seeElement('a[href="/storage/1/some-cool-image.jpg"]');
+                            });
+                    });
+            });
+    }
+
+    /** @test */
+    public function it_can_render_material_admin_26_file_inputs()
+    {
+        $article = $this->getArticleWithMedia();
+
+        $this->setFrameworkMaterialAdmin26();
+
+        Route::get('file', function () use ($article) {
+            return view('file')
+                ->with('article', $article);
+        })->middleware('web');
+
+        $this->visit('/file')
+            ->seeElement('div.form-group')
+            ->within('div.form-group', function () {
+                $this->seeElement('div.fileinput.fileinput-exists')
+                     ->within('div.fileinput', function () {
+                         $this->seeElement('span.btn-file')
+                              ->within('span.btn-file', function () {
+                                  $this->seeElement('input[name="featured_image"][type="file"][accept="application/pdf,image/jpeg,image/png"]#featured_image');
+                              });
+
+                         $this->seeElement('span.fileinput-filename')
+                             ->within('span.fileinput-filename', function () {
+                                 $this->seeElement('a[href="/storage/1/some-cool-image.jpg"]');
+                             });
+                     });
+            });
     }
 }

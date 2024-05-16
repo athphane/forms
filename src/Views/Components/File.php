@@ -14,6 +14,7 @@ class File extends Input
     public array $mimeTypes;
     public string $collection;
     public string $conversion;
+    public string $fileInputClass;
 
     /**
      * Create a new component instance.
@@ -27,6 +28,7 @@ class File extends Input
         null|string|array $mimeTypes = null,
         string $collection = '',
         string $conversion = '',
+        string $fileInputClass = '',
         $model = null,
         $default = null,
         bool $showErrors = true,
@@ -37,6 +39,7 @@ class File extends Input
     ) {
         $this->collection = $collection ?: $name;
         $this->conversion = $conversion;
+        $this->fileInputClass = $fileInputClass;
         $this->fileTypes = Arr::wrap($type);
         $this->mimeTypes = $mimeTypes ? Arr::wrap($mimeTypes) : AllowedMimeTypes::getAllowedMimeTypes($this->fileTypes);
 

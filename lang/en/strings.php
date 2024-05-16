@@ -7,4 +7,6 @@ return [
     'yes' => 'Yes',
     'no' => 'No',
     'table_array_separator' => ',',
+    'fileinput_select_file' => 'Select file',
+    'fileinput_change_file' => 'Change',
 ];

@@ -36,7 +36,7 @@ trait HandlesMediaValues
 
         $default = is_null($boundValue) ? $default : $boundValue;
 
-        return $this->value = old($inputName, $default);
+        return $this->value = $this->getFileUrl($default);
     }
 
     protected function getFileUrl($media): ?string

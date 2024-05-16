@@ -2,6 +2,7 @@
 
 namespace Javaabu\Forms\Tests\TestSupport\Models;
 
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Javaabu\Forms\Tests\TestSupport\Enums\ArticleStatuses;
@@ -33,5 +34,17 @@ class Article extends Model implements HasMedia
         $this->addMediaConversion('thumb')
             ->width(368)
             ->height(232);
+    }
+
+    public function getPhotoAttribute()
+    {
+        return $this->getFirstMediaUrl('featured_image');
+    }
+
+    protected function thumbnail(): Attribute
+    {
+        return Attribute::make(
+            get: fn ($value) => $this->getFirstMediaUrl('featured_image', 'thumb')
+        );
     }
 }

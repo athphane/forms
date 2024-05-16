@@ -14,24 +14,28 @@
         @endif
     @endif
 
-    <input
-        {!! $attributes->merge([
-            'class' => 'form-control' . ($type === 'color' ? ' form-control-color' : '') . ($hasError($name) ? ' is-invalid' : '') . ($isDateInput() ? ' ' . $datePickerClass() : ''),
-            'required' => $required
-        ]) !!}
-        type="{{ $type }}"
-        value="{{ $value ?? ($type === 'color' ? '#000000' : '') }}"
-        name="{{ $name }}"
-        @if($label && ! $attributes->get('id'))
-            id="{{ $id() }}"
+    @if($isFileInput())
+        @include('forms::material-admin-26.file.file-input')
+    @else
+        <input
+            {!! $attributes->merge([
+                'class' => 'form-control' . ($type === 'color' ? ' form-control-color' : '') . ($hasError($name) ? ' is-invalid' : '') . ($isDateInput() ? ' ' . $datePickerClass() : ''),
+                'required' => $required
+            ]) !!}
+            type="{{ $type }}"
+            value="{{ $value ?? ($type === 'color' ? '#000000' : '') }}"
+            name="{{ $name }}"
+            @if($label && ! $attributes->get('id'))
+                id="{{ $id() }}"
+            @endif
+            {{--  Placeholder is required as of writing  --}}
+            @if($floating && !$attributes->get('placeholder'))
+                placeholder="&nbsp;"
+            @endif
+        />
+        @if($showLabel)
+        <i class="form-group__bar"></i>
         @endif
-        {{--  Placeholder is required as of writing  --}}
-        @if($floating && !$attributes->get('placeholder'))
-            placeholder="&nbsp;"
-        @endif
-    />
-    @if($showLabel)
-    <i class="form-group__bar"></i>
     @endif
 
     @if($isDateInput() || (! empty($prepend)) || (! empty($append)))

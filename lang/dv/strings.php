@@ -7,4 +7,6 @@ return [
     'yes' => 'އާނ',
     'no' => 'ނޫން',
     'table_array_separator' => '،',
+    'fileinput_select_file' => 'ފައިލް ސެލެކްޓްކޮށްލާ',
+    'fileinput_change_file' => 'ބަދަލުކޮށްލާ',
 ];
