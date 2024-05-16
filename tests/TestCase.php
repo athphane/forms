@@ -26,7 +26,7 @@ abstract class TestCase extends BaseTestCase
 
     public static function isMediaLibrary10(): bool
     {
-        return \Composer\InstalledVersions::satisfies(new VersionParser, 'spatie/laravel-medialibrary', '10.*');
+        return \Composer\InstalledVersions::satisfies(new VersionParser(), 'spatie/laravel-medialibrary', '10.*');
     }
 
     public function setUp(): void
