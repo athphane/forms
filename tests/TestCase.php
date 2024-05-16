@@ -41,10 +41,12 @@ abstract class TestCase extends BaseTestCase
 
         View::addLocation(__DIR__ . '/TestSupport/views');
 
-        Artisan::call('vendor:publish', [
-            '--provider' => 'Spatie\\MediaLibrary\\MediaLibraryServiceProvider',
-            '--tag' => self::isMediaLibrary10() ? 'migrations' : 'medialibrary-migrations',
-        ]);
+        if (empty(glob($this->app->databasePath('migrations/*_create_media_table.php')))) {
+            Artisan::call('vendor:publish', [
+                '--provider' => 'Spatie\\MediaLibrary\\MediaLibraryServiceProvider',
+                '--tag' => self::isMediaLibrary10() ? 'migrations' : 'medialibrary-migrations',
+            ]);
+        }
 
         Model::unguard();
     }
