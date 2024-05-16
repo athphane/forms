@@ -12,6 +12,7 @@ class Heading extends Component
     public int $colspan;
     public string $sortable;
     public string $label;
+    public string $name;
 
     /**
      * Create a new component instance.
@@ -19,15 +20,17 @@ class Heading extends Component
      * @return void
      */
     public function __construct(
-        string $label,
+        string $label = '',
         int    $colspan = 1,
         string $sortable = '',
+        string $name = '',
         string $framework = '',
     ) {
         parent::__construct($framework);
         $this->label = $label;
         $this->colspan = $colspan;
-        $this->sortable = $sortable;
+        $this->name = $name;
+        $this->sortable = $sortable ?: $name;
     }
 
     /**
