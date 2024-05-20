@@ -50,11 +50,11 @@ class Tabs extends Component
 
     public function generateTitleByName(string $name): string
     {
-        return Str::of($name)
+        return trans(Str::of($name)
             ->camel()
             ->snake()
             ->replace('_', ' ')
             ->title()
-            ->toString();
+            ->toString());
     }
 }

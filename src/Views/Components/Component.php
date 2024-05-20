@@ -118,12 +118,12 @@ abstract class Component extends BaseComponent
      */
     protected function generateLabelByName(): string
     {
-        return Str::of(str_replace(['[', ']'], ['_', ''], Str::before($this->name, '[]')))
+        return trans(Str::of(str_replace(['[', ']'], ['_', ''], Str::before($this->name, '[]')))
                     ->camel()
                     ->snake()
                     ->replace('_', ' ')
                     ->title()
-                    ->toString();
+                    ->toString());
     }
 
     /**
