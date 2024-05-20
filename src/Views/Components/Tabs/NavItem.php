@@ -15,6 +15,8 @@ class NavItem extends Component
      */
     public function __construct(
         public string $title,
+        public string $name = '',
+        public string $target = '',
         public string $url = '#',
         public bool $active = false,
         public bool $disabled = false,

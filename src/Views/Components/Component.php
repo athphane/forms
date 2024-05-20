@@ -88,6 +88,16 @@ abstract class Component extends BaseComponent
     }
 
     /**
+     * Generates an ID by the name attribute.
+     *
+     * @return string
+     */
+    public function stringToId($text): string
+    {
+        return str_replace(['[', ']'], ['-', ''], Str::before($text, '[]'));
+    }
+
+    /**
      * Generates a label, once, for this component.
      *
      * @return string

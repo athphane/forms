@@ -1,5 +1,6 @@
 ---
 title: Model Binding and Default Values
+sidebar_position: 2
 ---
 
 You can use the `default` attribute to specify the default value of the element.
