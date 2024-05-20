@@ -1,10 +1,12 @@
 <?php
 
-namespace Javaabu\Forms\Views\Components;
+namespace Javaabu\Forms\Views\Components\Tabs;
+
+use Javaabu\Forms\Views\Components\Component;
 
 class NavItem extends Component
 {
-    protected string $view = 'nav-item';
+    protected string $view = 'tabs.nav-item';
 
     /**
      * Create a new component instance.

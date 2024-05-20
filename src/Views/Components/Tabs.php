@@ -38,6 +38,16 @@ class Tabs extends Component
         return $this->active && $this->active == $name;
     }
 
+    public function generateSlotByName(string $name): string
+    {
+        return Str::of($name)
+            ->camel()
+            ->snake()
+            ->replace('_', ' ')
+            ->camel()
+            ->toString();
+    }
+
     public function generateTitleByName(string $name): string
     {
         return Str::of($name)

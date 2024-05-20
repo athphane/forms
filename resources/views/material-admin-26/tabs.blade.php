@@ -1,7 +1,7 @@
 <div {!! $attributes->merge(['class' => 'tab-container']) !!}>
     <ul class="nav nav-tabs" role="tablist">
         @foreach($tabs as $item)
-            <x-forms::nav-item
+            <x-forms::tabs.nav-item
                 :framework="$framework"
                 :title="empty($item['title']) ? $generateTitleByName($item['name']) : $item['title']"
                 :url="empty($item['url']) ? '#'.$item['name'] : $item['url']"
@@ -11,4 +11,18 @@
             />
         @endforeach
     </ul>
+
+    <div class="tab-content">
+        @foreach($tabs as $item)
+            @isset(${$generateSlotByName($item['name'])})
+            <x-forms::tabs.pane
+                :framework="$framework"
+                :name="$item['name']"
+                :active="$item['name'] == $active"
+            >
+                {{ ${$generateSlotByName($item['name'])} }}
+            </x-forms::tabs.pane>
+            @endisset
+        @endforeach
+    </div>
 </div>

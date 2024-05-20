@@ -14,7 +14,7 @@ class TabsTest extends TestCase
 
         $this->visit('/tabs')
             ->seeElement('div.tab-container')
-            ->within('div.tab-container', function () {
+            ->within('.tab-container', function () {
                 $this->seeElement('ul.nav.nav-tabs')
                     ->within('ul.nav.nav-tabs', function () {
                         // first tab
@@ -47,6 +47,28 @@ class TabsTest extends TestCase
                                     ->seeInElement('a.nav-link', 'External Tab')
                                     ->dontSeeElement('a.active');
                             });
+                    });
+
+                $this->seeElement('div.tab-content')
+                    ->within('.tab-content', function () {
+                        $this->seeElementCount('div.tab-pane', 3);
+
+                        // first tab
+                        $this->seeElement('div.tab-pane#first-tab[role="tabpanel"]')
+                            ->dontSeeElement('#first-tab.active')
+                            ->seeInElement('#first-tab', 'First Tab Content');
+
+                        // active tab
+                        $this->seeElement('div.tab-pane.active.show#active-tab[role="tabpanel"]')
+                            ->seeInElement('#active-tab', 'Active Tab Content');
+
+                        // disabled tab
+                        $this->seeElement('div.tab-pane#disabled-tab[role="tabpanel"]')
+                            ->dontSeeElement('#disabled.active')
+                            ->seeInElement('#disabled-tab', 'Disabled Tab Content');
+
+                        // external tab
+                        $this->dontSeeElement('div.tab-pane#external-tab');
                     });
             });
 
