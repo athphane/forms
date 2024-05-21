@@ -17,6 +17,7 @@ class Button extends Component
     public function __construct(
         string $type = '',
         string $color = 'primary',
+        public bool $animate = false,
         string $framework = ''
     ) {
         parent::__construct($framework);

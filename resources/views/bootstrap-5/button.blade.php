@@ -1,6 +1,7 @@
 <button
-    {!! $attributes->merge([
-        'class' => 'btn btn-' . $color,
+    {!! $attributes->class([
+        'btn btn-' . $color,
+        'animate-submit' => $animate,
     ]) !!}
 
     @if($type)
