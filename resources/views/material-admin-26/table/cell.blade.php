@@ -13,7 +13,7 @@
         @elseif($multiline)
             {!! nl2br(e($value ?: trans('forms::strings.blank'))) !!}
         @elseif(is_array($value))
-            {{ implode(trans('forms::table_array_separator'), $value) }}
+            {{ implode(trans('forms::strings.table_array_separator'), $value) }}
         @else
             {{ $formatValue() }}
         @endif
