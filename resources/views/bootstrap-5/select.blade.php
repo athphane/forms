@@ -8,7 +8,7 @@
 
     <select
         {!! $attributes->merge([
-            'class' => 'form-select' . ($hasError($name) ? ' is-invalid' : '') . ($isSelect2 ? ' select2-' . ($isAjax ? 'ajax' : 'basic') : ''),
+            'class' => 'form-select' . ($hasError($name) ? ' is-invalid' : '') . ($isSelect2 ? ' select2-' . ($isIconSelect ? 'b-icon' : ($isAjax ? 'ajax' : 'basic')) : ''),
             'required' => $required
         ]) !!}
         name="{{ $name }}"
@@ -60,6 +60,10 @@
 
             @if($fallback)
                 data-fallback="{{ $fallback }}"
+            @endif
+
+            @if($iconPrefix)
+                data-icon-prefix="{{ $iconPrefix }}"
             @endif
         @endif
 

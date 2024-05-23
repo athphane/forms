@@ -13,7 +13,7 @@
         'class' => implode(' ', [
             'form-control',
             $hasError($name) ? 'is-invalid' : '',
-            $isSelect2 ? 'select2-' . ($isAjax ? 'ajax' : 'basic') : '',
+            $isSelect2 ? 'select2-' . ($isIconSelect ? 'b-icon' : ($isAjax ? 'ajax' : 'basic')) : '',
         ]),
             'required' => $required
         ]) !!}
@@ -75,6 +75,10 @@
 
             @if($fallback)
                 data-fallback="{{ $fallback }}"
+            @endif
+
+            @if($iconPrefix)
+                data-icon-prefix="{{ $iconPrefix }}"
             @endif
         @endif
 

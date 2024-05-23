@@ -38,6 +38,7 @@ class Select2 extends Select
         bool   $tags = false,
         bool   $hideSearch = false,
         bool   $allowClear = true,
+        public bool $isIconSelect = false,
         string $child = '',
         string $ajaxChild = '',
         string $ajaxUrl = '',
@@ -47,6 +48,7 @@ class Select2 extends Select
         string $filterField = '',
         string $fallback = '',
         string $parentModal = '',
+        public string $iconPrefix = '',
         bool $inline = false,
         bool $floating = false,
         string $framework = ''
