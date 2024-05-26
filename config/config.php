@@ -33,4 +33,35 @@ return [
 
         'nothing_selected_text' => 'forms::strings.nothing_selected',
     ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Framework Settings
+    |--------------------------------------------------------------------------
+    |
+    | Framework specific configs
+    |
+    */
+
+    'frameworks' => [
+
+        'bootstrap-5' => [
+            'icon-prefix' => 'fa',
+            'date-icon' => 'calendar',
+            'datetime-icon' => 'calendar',
+            'time-icon' => 'clock',
+            'date-clear-icon' => 'close',
+            'date-clear-btn-class' => 'btn btn-outline-secondary btn-date-clear disable-w-input',
+        ],
+
+        'material-admin-26' => [
+            'icon-prefix' => 'zmdi',
+            'date-icon' => 'calendar',
+            'datetime-icon' => 'calendar',
+            'time-icon' => 'clock',
+            'date-clear-icon' => 'close',
+            'date-clear-btn-class' => 'text-body btn-date-clear disable-w-input',
+        ]
+
+    ],
 ];

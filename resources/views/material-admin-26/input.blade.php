@@ -5,7 +5,7 @@
             <div class="input-group-prepend">
                 @if($isDateInput())
                     <span class="input-group-text">
-                    <i class="{{ $icon ?? 'zmdi zmdi-calendar' }}"></i>
+                    <i class="{{ $icon }}"></i>
                 </span>
                 @elseif(! empty($prepend))
                     {{ $prepend }}
@@ -43,8 +43,8 @@
             <div class="input-group-append">
                 @if($isDateInput())
                     <div class="input-group-text input-group-text-link">
-                        <a href="#" data-date-clear="#{{ $attributes->get('id') ?: $id() }}" class="text-body disable-w-input" title="{{ __('Clear') }}">
-                            <i class="{{ $clearIcon ?? 'zmdi zmdi-close' }}"></i>
+                        <a href="#" data-date-clear="#{{ $attributes->get('id') ?: $id() }}" class="{{ $clearBtnClass }}" title="{{ __('Clear') }}">
+                            <i class="{{ $clearIcon }}"></i>
                         </a>
                     </div>
                 @elseif(! empty($append))

@@ -42,6 +42,18 @@ abstract class Component extends BaseComponent
         $this->framework = $framework;
     }
 
+    public function getFrameworkIcon(string $icon): string
+    {
+        $icon_prefix = $this->frameworkConfig('icon-prefix');
+
+        return "$icon_prefix $icon_prefix-$icon";
+    }
+
+    public function frameworkConfig(string $config, $default = null)
+    {
+        return config('forms.frameworks.' . $this->framework . '.' . $config, $default);
+    }
+
     public function getView(): string
     {
         return 'forms::{framework}.' . $this->view;

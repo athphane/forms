@@ -6,6 +6,7 @@ class Date extends Input
 {
     public string $icon;
     public string $clearIcon;
+    public string $clearBtnClass;
 
     /**
      * Create a new component instance.
@@ -18,8 +19,9 @@ class Date extends Input
         string $type = 'date',
         $model = null,
         $default = null,
-        string $icon = 'zmdi zmdi-calendar',
-        string $clearIcon = 'zmdi zmdi-close',
+        string $icon = '',
+        string $clearIcon = '',
+        string $clearBtnClass = '',
         bool $showErrors = true,
         bool $showLabel = true,
         bool $required = false,
@@ -41,8 +43,9 @@ class Date extends Input
             framework: $framework
         );
 
-        $this->icon = $icon;
-        $this->clearIcon = $clearIcon;
+        $this->icon = $icon ?: $this->getFrameworkIcon($this->frameworkConfig('date-icon'));
+        $this->clearIcon = $clearIcon ?: $this->getFrameworkIcon($this->frameworkConfig('date-clear-icon'));
+        $this->clearBtnClass = $clearBtnClass ?: $this->frameworkConfig('date-clear-btn-class');
     }
 
     public function datePickerClass(): string

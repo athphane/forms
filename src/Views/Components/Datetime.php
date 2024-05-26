@@ -14,8 +14,9 @@ class Datetime extends Date
         string $label = '',
         $model = null,
         $default = null,
-        string $icon = 'zmdi zmdi-calendar',
-        string $clearIcon = 'zmdi zmdi-close',
+        string $icon = '',
+        string $clearIcon = '',
+        string $clearBtnClass = '',
         bool $showErrors = true,
         bool $showLabel = true,
         bool $required = false,
@@ -31,6 +32,7 @@ class Datetime extends Date
             default: $default,
             icon: $icon,
             clearIcon: $clearIcon,
+            clearBtnClass: $clearBtnClass,
             showErrors: $showErrors,
             showLabel: $showLabel,
             required:$required,
@@ -38,6 +40,10 @@ class Datetime extends Date
             floating: $floating,
             framework: $framework
         );
+
+        if (! $icon) {
+            $this->icon = $this->getFrameworkIcon($this->frameworkConfig('datetime-icon'));
+        }
     }
 
     public function datePickerClass(): string
