@@ -13,7 +13,7 @@ class ConditionalWrapperTest extends TestCase
         $this->registerTestRoute('conditional-wrapper');
 
         $this->visit('/conditional-wrapper')
-            ->seeElement('div[data-enable-elem="#"]');
+            ->seeElement('div[data-enable-elem="#input"]');
     }
 
     /** @test */
@@ -23,6 +23,6 @@ class ConditionalWrapperTest extends TestCase
         $this->registerTestRoute('conditional-wrapper');
 
         $this->visit('/conditional-wrapper')
-            ->seeElement('div[data-enable-elem="#"]');
+            ->seeElement('div[data-enable-elem="#input"]');
     }
 }
