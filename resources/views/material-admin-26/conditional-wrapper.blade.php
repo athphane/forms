@@ -2,7 +2,7 @@
     {{ $attributes }}
 
     data-enable-elem="{{ $enableElem }}"
-    data-enable-section-value="{{ json_encode($enableValue) }}"
+    data-enable-section-value="{{ $enableValue ? json_encode($enableValue) : $enableValue }}"
 
     @if($hideFields)
     data-hide-fields="true"
