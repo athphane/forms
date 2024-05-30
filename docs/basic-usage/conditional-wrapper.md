@@ -3,7 +3,7 @@ title: Conditional Wrapper
 sidebar_position: 6
 ---
 
-This component uses [`@javaabu/js-utilities`](https://github.com/Javaabu/js-utilities) `conditionalDisplay` functions to conditionally enable or disable inputs based on another input value.
+This component uses [`@javaabu/js-utilities`](https://github.com/Javaabu/js-utilities) `conditionalDisplay` `data-enable-section-value` function to conditionally enable or disable inputs based on another input value.
 
 In the example below, `expires_at` will be disabled and hidden unless the `quiz` option is selected from the `type` select.
 

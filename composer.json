@@ -23,7 +23,8 @@
         "composer/semver": "^3.4"
     },
     "suggest": {
-        "spatie/laravel-medialibrary": "Required for file and image components"
+        "spatie/laravel-medialibrary": "Required for file and image components",
+        "javaabu/geospatial": "Required for map components"
     },
     "autoload": {
         "psr-4": {
