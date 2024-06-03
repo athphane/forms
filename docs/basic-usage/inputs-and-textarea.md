@@ -69,4 +69,6 @@ The included input types are given below.
 <x-forms::email name="email" />
 <x-forms::url name="url" />
 <x-forms::tel name="tel" />
+<x-forms::latitude name="latitude" /> <!-- Number field with range -90 to 90 -->
+<x-forms::longitude name="longitude" /> <!-- Number field with range -180 to 180 -->
 ```

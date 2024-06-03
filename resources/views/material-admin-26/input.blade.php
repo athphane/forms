@@ -21,7 +21,7 @@
             {!! $attributes->merge([
                 'class' => 'form-control' . ($type === 'color' ? ' form-control-color' : '') . ($hasError($name) ? ' is-invalid' : '') . ($isDateInput() ? ' ' . $datePickerClass() : ''),
                 'required' => $required
-            ]) !!}
+            ] + $getDefaultAttributes()) !!}
             type="{{ $type }}"
             value="{{ $value ?? ($type === 'color' ? '#000000' : '') }}"
             name="{{ $name }}"

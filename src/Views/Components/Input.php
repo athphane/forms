@@ -68,4 +68,9 @@ class Input extends Component
     {
         return false;
     }
+
+    public function getDefaultAttributes(): array
+    {
+        return [];
+    }
 }

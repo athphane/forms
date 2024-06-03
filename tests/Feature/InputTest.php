@@ -175,4 +175,22 @@ class InputTest extends TestCase
             ->seeElement('input[name="url"][type="url"]')
             ->seeElement('input[name="tel"][type="tel"]');
     }
+
+    /** @test */
+    public function it_can_generate_latitude_inputs()
+    {
+        $this->registerTestRoute('latitude');
+
+        $this->visit('/latitude')
+            ->seeElement('input[name="latitude"][type="number"][step="0.000001"][min="-90"][max="90"]');
+    }
+
+    /** @test */
+    public function it_can_generate_longitude_inputs()
+    {
+        $this->registerTestRoute('longitude');
+
+        $this->visit('/longitude')
+            ->seeElement('input[name="longitude"][type="number"][step="0.000001"][min="-180"][max="180"]');
+    }
 }
