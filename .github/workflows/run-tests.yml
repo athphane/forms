@@ -43,7 +43,7 @@ jobs:
 
     services:
         mysql:
-            image: ${{ (matrix.laravel = 9.*) && 'mysql:8.0' || '' }}
+            image: ${{ (matrix.laravel == 9.*) && 'mysql:8.0' || '' }}
             env:
                 MYSQL_USER: user
                 MYSQL_PASSWORD: secret
@@ -80,4 +80,4 @@ jobs:
           env:
               DB_USERNAME: user
               DB_PASSWORD: secret
-              DB_PORT: ${{ (matrix.laravel = 9.*) && job.services.mysql.ports[3306] || '' }}
+              DB_PORT: ${{ (matrix.laravel == 9.*) && job.services.mysql.ports[3306] || '' }}
