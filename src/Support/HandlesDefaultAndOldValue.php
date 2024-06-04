@@ -6,7 +6,7 @@ trait HandlesDefaultAndOldValue
 {
     use HandlesBoundValues;
 
-    protected function setValue(string $name, $bind = null, $default = null)
+    protected function getValue(string $name, $bind = null, $default = null)
     {
         $inputName = static::convertBracketsToDots($name);
 
@@ -14,6 +14,11 @@ trait HandlesDefaultAndOldValue
 
         $default = is_null($boundValue) ? $default : $boundValue;
 
-        return $this->value = old($inputName, $default);
+        return old($inputName, $default);
+    }
+
+    protected function setValue(string $name, $bind = null, $default = null)
+    {
+        return $this->value = $this->getValue($name, $bind, $default);
     }
 }

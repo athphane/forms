@@ -9,4 +9,10 @@ return [
     'table_array_separator' => '،',
     'fileinput_select_file' => 'ފައިލް ސެލެކްޓްކޮށްލާ',
     'fileinput_change_file' => 'ބަދަލުކޮށްލާ',
+    'latitude' => 'ލެޓިޓިއުޑް',
+    'longitude' => 'ލޯންޖިޓިއުޑް',
+    'radius' => 'ރޭޑިއަސް',
+    'meters_abbr' => 'm',
+    'km_abbr' => 'km',
+    'boundary' => 'ބައުންޑަރީ'
 ];
