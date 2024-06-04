@@ -2,6 +2,7 @@
 
 namespace Javaabu\Forms\Tests\Feature;
 
+use Illuminate\Foundation\Testing\RefreshDatabaseState;
 use Illuminate\Support\Facades\Route;
 use Javaabu\Forms\Tests\TestCase;
 use MatanYadaev\EloquentSpatial\Objects\Point;
@@ -11,6 +12,17 @@ use Javaabu\Forms\Tests\TestSupport\Models\City;
 class MapInputTest extends TestCase
 {
     const SRID = 4326;
+
+    public function setUp(): void
+    {
+        parent::setUp();
+
+        if (static::isLaravel9()) {
+            // fix for geospatial version 2
+            $this->app['config']->set('database.default', 'mysql');
+            $this->app['config']->set('database.connections.mysql.database', 'forms');
+        }
+    }
 
     /** @test */
     public function it_can_bind_map_inputs_from_attributes()
