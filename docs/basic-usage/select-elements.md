@@ -50,6 +50,12 @@ For multi-selects, if the bound value is a collection, use the `id-field` to spe
 <x-forms::select name="categories[]" :options="\App\Models\Category::withDepth()->inDefaultOrder()" name-field="depth_name" id-field="id" />
 ```
 
+A `sync_<field_name>` hidden input will be added for multi-selects unless the select is disabled. To disable this feature, you can use the `exclude-sync-field` attribute. To customize the sync input name, you can use the `sync-field-name` attribute.
+
+```html
+<x-forms::select name="categories[]" :options="\App\Models\Category::query()" sync-field-name="sync_categories" :exclude-sync-field="false" />
+```
+
 You may add a `placeholder` attribute to the select element. This will prepend a blank option.
 
 ```html
