@@ -32,6 +32,7 @@ class Select extends Component
     public string $nameField;
     public string $idField;
     public bool $showLabel;
+    public string $syncFieldName;
 
     /**
      * Create a new component instance.
@@ -53,6 +54,9 @@ class Select extends Component
         bool    $inline = false,
         bool   $floating = false,
         bool   $isSelect2 = false,
+        public bool $disabled = false,
+        public bool $excludeSyncField = false,
+        string $syncFieldName = '',
         string $nameField = '',
         string $idField = '',
         string $framework = ''
@@ -69,6 +73,8 @@ class Select extends Component
         $this->placeholder = $placeholder;
 
         $inputName = static::convertBracketsToDots(Str::before($name, '[]'));
+
+        $this->syncFieldName = $syncFieldName ?: 'sync_' . $inputName;
 
         if (is_null($default)) {
             $default = $this->getBoundValue($model, $inputName);
@@ -134,5 +140,10 @@ class Select extends Component
     public function nothingSelected(): bool
     {
         return is_array($this->selectedKey) ? empty($this->selectedKey) : is_null($this->selectedKey);
+    }
+
+    public function shouldShowSyncField(): bool
+    {
+        return (!$this->excludeSyncField) && $this->multiple && (!$this->disabled);
     }
 }

@@ -9,7 +9,8 @@
     <select
         {!! $attributes->merge([
             'class' => 'form-select' . ($hasError($name) ? ' is-invalid' : '') . ($isSelect2 ? ' select2-' . ($isIconSelect ? 'b-icon' : ($isAjax ? 'ajax' : 'basic')) : ''),
-            'required' => $required
+            'required' => $required,
+            'disabled' => $disabled
         ]) !!}
         name="{{ $name }}"
 
@@ -107,3 +108,7 @@
         <x-forms::errors :framework="$framework" :name="$name" />
     @endif
 </x-forms::form-group>
+
+@if($shouldShowSyncField())
+    <x-forms::hidden :name="$syncFieldName" :framework="$framework" value="1" />
+@endif

@@ -27,4 +27,17 @@ class SelectTest extends TestCase
             ->seeElement('option[value="a"]')
             ->seeElement('option[value="b"]');
     }
+
+    /** @test */
+    public function it_adds_a_sync_field_for_multi_selects()
+    {
+        $this->registerTestRoute('select-multiple');
+
+        $this->visit('/select-multiple')
+            ->seeElement('select[name="sectors[]"]')
+            ->seeElement('input[type="hidden"][name="sync_sectors"][value="1"]')
+            ->seeElement('option[value="a"]')
+            ->seeElement('option[value="b"]')
+            ->seeElement('option[value="c"]');
+    }
 }

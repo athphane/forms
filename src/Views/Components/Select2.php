@@ -49,6 +49,9 @@ class Select2 extends Select
         string $fallback = '',
         string $parentModal = '',
         public string $iconPrefix = '',
+        bool $disabled = false,
+        bool $excludeSyncField = false,
+        string $syncFieldName = '',
         bool $inline = false,
         bool $floating = false,
         string $framework = ''
@@ -72,6 +75,9 @@ class Select2 extends Select
             inline: $inline,
             floating: $floating,
             isSelect2: true,
+            disabled: $disabled,
+            excludeSyncField: $excludeSyncField,
+            syncFieldName: $syncFieldName,
             nameField: $nameField,
             idField: $idField,
             framework: $framework
