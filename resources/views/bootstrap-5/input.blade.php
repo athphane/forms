@@ -1,4 +1,6 @@
-<x-forms::form-group :wrap="$showLabel && $type != 'hidden'" :label="$label ?: $label()" :name="$attributes->get('id') ?: $id()" :framework="$framework" :inline="$inline" :required="$required" :floating="$floating">
+<x-forms::form-group :wrap="$showLabel && $type != 'hidden'" :label="$label ?: $label()"
+                     :name="$attributes->get('id') ?: $id()" :framework="$framework" :inline="$inline"
+                     :required="$required" :floating="$floating">
     @if($isDateInput() || (! empty($prepend)) || (! empty($append)))
         <div class="input-group">
             @if($isDateInput())
@@ -8,33 +10,41 @@
             @elseif(! empty($prepend))
                 {{ $prepend }}
             @endif
-    @endif
+            @endif
 
-    <input
-        {!! $attributes->merge([
-            'class' => 'form-control' . ($type === 'color' ? ' form-control-color' : '') . ($hasError($name) ? ' is-invalid' : '') . ($isDateInput() ? ' ' . $datePickerClass() : ''),
-            'required' => $required
-        ] + $getDefaultAttributes()) !!}
-        type="{{ $type }}"
-        value="{{ $value ?? ($type === 'color' ? '#000000' : '') }}"
-        name="{{ $name }}"
-        @if($label && ! $attributes->get('id'))
-            id="{{ $id() }}"
-        @endif
-        {{--  Placeholder is required as of writing  --}}
-        @if($floating && !$attributes->get('placeholder'))
-            placeholder="&nbsp;"
-        @endif
-    />
+            @if($isFileInput())
+                @include('forms::bootstrap-5.file.file-input')
+            @else
+                <input
+                    {!! $attributes->merge([
+                        'class' => 'form-control' . ($type === 'color' ? ' form-control-color' : '') . ($hasError($name) ? ' is-invalid' : '') . ($isDateInput() ? ' ' . $datePickerClass() : ''),
+                        'required' => $required
+                    ] + $getDefaultAttributes()) !!}
+                    type="{{ $type }}"
+                    value="{{ $value ?? ($type === 'color' ? '#000000' : '') }}"
+                    name="{{ $name }}"
+                    @if($label && ! $attributes->get('id'))
+                        id="{{ $id() }}"
+                    @endif
+                    {{--  Placeholder is required as of writing  --}}
+                    @if($floating && !$attributes->get('placeholder'))
+                        placeholder="&nbsp;"
+                    @endif
+                />
+                @if($showLabel)
+                    <i class="form-group__bar"></i>
+                @endif
+            @endif
 
-    @if($isDateInput() || (! empty($prepend)) || (! empty($append)))
-        @if($isDateInput())
-            <button type="button" data-date-clear="#{{ $attributes->get('id') ?: $id() }}" class="{{ $clearBtnClass }}" title="{{ __('Clear') }}">
-                <i class="{{ $clearIcon }}"></i>
-            </button>
-        @elseif(! empty($append))
-            {{ $append }}
-        @endif
+            @if($isDateInput() || (! empty($prepend)) || (! empty($append)))
+                @if($isDateInput())
+                    <button type="button" data-date-clear="#{{ $attributes->get('id') ?: $id() }}"
+                            class="{{ $clearBtnClass }}" title="{{ __('Clear') }}">
+                        <i class="{{ $clearIcon }}"></i>
+                    </button>
+                @elseif(! empty($append))
+                    {{ $append }}
+                @endif
         </div>
     @endif
 
@@ -45,6 +55,6 @@
     @endif
 
     @if($hasErrorAndShow($name))
-        <x-forms::errors :framework="$framework" :name="$name" />
+        <x-forms::errors :framework="$framework" :name="$name"/>
     @endif
 </x-forms::form-group>
