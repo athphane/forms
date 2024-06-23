@@ -25,7 +25,7 @@
                     'disabled' => $disabled
                 ]) !!}
                 type="file"
-                accept="{{ implode(',', $mimeTypes) }}"
+                accept="{{ implode(',', $mimetypes) }}"
                 name="{{ $name }}"
                 @if($label && ! $attributes->get('id'))
                     id="{{ $id() }}"

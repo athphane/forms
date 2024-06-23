@@ -13,7 +13,7 @@ class File extends Input
     use HandlesMediaValues;
 
     public array $fileTypes;
-    public array $mimeTypes;
+    public array $mimetypes;
     public string $collection;
     public string $conversion;
     public string $fileInputClass;
@@ -30,20 +30,20 @@ class File extends Input
      * @return void
      */
     public function __construct(
-        string $name,
-        string $label = '',
-        string|array $type = 'document',
-        null|string|array $mimeTypes = null,
+        string            $name,
+        string            $label = '',
+        string|array      $type = 'document',
+        null|string|array $mimetypes = null,
         null|string|array $extensions = null,
-        ?int $maxSize = null,
-        string $collection = '',
-        string $conversion = '',
-        string $fileInputClass = '',
-        string $clearIcon = '',
-        string $downloadIcon = '',
-        $model = null,
-        $default = null,
-        bool $showHint = false,
+        ?int              $maxSize = null,
+        string            $collection = '',
+        string            $conversion = '',
+        string            $fileInputClass = '',
+        string            $clearIcon = '',
+        string            $downloadIcon = '',
+                          $model = null,
+                          $default = null,
+        bool              $showHint = true,
         bool $showErrors = true,
         bool $showLabel = true,
         bool $required = false,
@@ -56,8 +56,8 @@ class File extends Input
         $this->conversion = $conversion;
         $this->fileInputClass = $fileInputClass;
         $this->fileTypes = Arr::wrap($type);
-        $this->mimeTypes = $mimeTypes ? Arr::wrap($mimeTypes) : AllowedMimeTypes::getAllowedMimeTypes($this->fileTypes);
-        $this->extensions = $extensions ? Arr::wrap($extensions) : AllowedMimeTypes::getExtensions($this->mimeTypes);
+        $this->mimetypes = $mimetypes ? Arr::wrap($mimetypes) : AllowedMimeTypes::getAllowedMimeTypes($this->fileTypes);
+        $this->extensions = $extensions ? Arr::wrap($extensions) : AllowedMimeTypes::getExtensions($this->mimetypes);
         $this->maxSize = $maxSize ?: AllowedMimeTypes::getMaxFileSize($this->fileTypes);
 
         parent::__construct(
