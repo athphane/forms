@@ -9,7 +9,9 @@ return [
     'table_array_separator' => '،',
     'fileinput_select_file' => 'ފައިލް ސެލެކްޓްކޮށްލާ',
     'fileinput_change_file' => 'ބަދަލުކޮށްލާ',
+    'fileinput_remove_file' => 'ފުހެލާ',
     'fileinput_nothing_selected' => 'އެއްވެސް ފައިލެއް ސެލްކްޓްނުކޮށް.',
+    'imageinput_select_image' => 'އިމޭޖެއް ސެލެކްޓްކުރަން ފިތާލާ',
     'latitude' => 'ލެޓިޓިއުޑް',
     'longitude' => 'ލޯންޖިޓިއުޑް',
     'radius' => 'ރޭޑިއަސް',
@@ -17,6 +19,7 @@ return [
     'km_abbr' => 'km',
     'boundary' => 'ބައުންޑަރީ',
     'file_hint' => 'ހަމައެކަނި :type ވައްތަރުގެ :size އަށް ވުރެ ބޮޑު ނޫން ފައިލް.',
+    'image_hint' => 'ރަނގަޅުވާނީ :widthpx x :heightpx.',
     'text_list_separator' => '، ',
     'text_list_separator_last_glue' => ' އަދި ',
 ];

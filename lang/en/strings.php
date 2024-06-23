@@ -9,7 +9,9 @@ return [
     'table_array_separator' => ',',
     'fileinput_select_file' => 'Select file',
     'fileinput_change_file' => 'Change',
+    'fileinput_remove_file' => 'Remove',
     'fileinput_nothing_selected' => 'No file selected.',
+    'imageinput_select_image' => 'Click to select an image',
     'latitude' => 'Latitude',
     'longitude' => 'Longitude',
     'radius' => 'Radius',
@@ -17,6 +19,7 @@ return [
     'km_abbr' => 'km',
     'boundary' => 'Boundary',
     'file_hint' => 'Only :types files of max :size allowed.',
+    'image_hint' => 'Recommended :widthpx x :heightpx.',
     'text_list_separator' => ', ',
     'text_list_separator_last_glue' => ' and ',
 ];

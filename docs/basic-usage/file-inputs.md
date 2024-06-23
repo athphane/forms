@@ -1,10 +1,11 @@
 ---
-title: File Inputs
+title: File Inputs and Image Inputs
 sidebar_position: 7
 ---
 
-This component renders a [`jasny-bootstrap`](https://www.jasny.net/bootstrap) [`fileinput.js`](https://www.jasny.net/bootstrap/components/#fileinput) powered file input that supports [`spatie/laravel-medialibrary`](https://spatie.be/docs/laravel-medialibrary). This component requires `spatie/laravel-medialibrary`.
+## File Inputs
 
+This component renders a [`jasny-bootstrap`](https://www.jasny.net/bootstrap) [`fileinput.js`](https://www.jasny.net/bootstrap/components/#fileinput) powered file input that supports [`spatie/laravel-medialibrary`](https://spatie.be/docs/laravel-medialibrary). This component requires `spatie/laravel-medialibrary`.
 
 ```html
 <x-forms::form :model="$article">
@@ -33,3 +34,23 @@ File inputs supports the following attributes:
 - `'disabled'` - Whether the input is disabled. `false` by default.
 - `'inline'` - Whether to dispaly the label inline. `false` by default.
 - `'framework'` - Which CSS framework to use. Defaults to the framework set in config.
+
+## Image Inputs
+
+Image inputs work similar to file inputs, with a few extra attributes that allow customizing the preview of the selected image.
+
+```html
+<x-forms::form :model="$article">
+    <x-forms::image name="featured_image" conversion="preview" width="500" height="500" />
+</x-forms::form>
+```
+
+Here are the additional attributes supported by image inputs:
+- `'icon'` - Icon to display in the image preview when no image is selected. Defaults to the framework specific icon from config.
+- `'width'` - The recommended width for the image in pixels. Defaults to `400`.
+- `'height'` - The recommended height for the image in pixels. Defaults to `400`.
+- `'cover'` - Whether the preview image should cover the full preview window. Defaults to `false`.
+- `'fullwidth'` - Whether the preview window should take the full available width. Defaults to `false`.
+- `'circle'` - Whether the preview window should be displayed as a circle. Defaults to `false`.
+- `'aspect-ratio'` - Which aspect ratio to use as number between `0.0` and `1.0`. If using the `circle` option, will be forced to `1.0`. Defaults to the aspect ratio of given `height` and `width`.
+- `'maintain-aspect-ratio'` - Whether the preview window should maintain the given aspect ratio. Defaults to `true`.
