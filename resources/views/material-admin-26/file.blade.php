@@ -10,7 +10,7 @@
              data-provides="fileinput"
         @endif
     >
-        <span class="btn btn-primary btn-file mr-3">
+        <span class="btn btn-primary btn-file mr-3{{ $disabled ? ' disabled' : '' }}">
             <span class="fileinput-new">{{ trans('forms::strings.fileinput_select_file') }}</span>
             <span class="fileinput-exists">{{ trans('forms::strings.fileinput_change_file') }}</span>
             <input
