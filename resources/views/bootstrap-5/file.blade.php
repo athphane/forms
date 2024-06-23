@@ -34,7 +34,7 @@
         </span>
 
         @unless(empty($value))
-            <a class="fileinput-filelink text-truncate btn btn-link text-decoration-none fileinput-exists" target="_blank" href="{{ $value }}">
+            <a class="fileinput-filelink text-truncate btn btn-link text-decoration-none fileinput-exists" title="{{ $value }}" target="_blank" href="{{ $value }}">
                 <i class="{{ $downloadIcon }} me-2"></i> {{ $fileName ?: $value }}
             </a>
         @endunless

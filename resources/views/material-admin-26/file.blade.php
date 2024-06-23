@@ -29,7 +29,7 @@
         </span>
         <span class="fileinput-filename">
             @unless(empty($value))
-            <a href="{{ $value }}" target="_blank">
+            <a href="{{ $value }}" title="{{ $value }}" target="_blank">
                 <i class="{{ $downloadIcon }}"></i> {{ $fileName ?: $value }}
             </a>
             @endunless
