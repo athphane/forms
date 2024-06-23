@@ -19,6 +19,8 @@ class FileTest extends TestCase
         parent::setUp();
 
         $this->setupFakeMediaDisk();
+        $this->app['config']->set('defaults.max_upload_file_size', 1024 * 2);
+        $this->app['config']->set('defaults.max_image_file_size', 1024 * 2);
     }
 
     /**
@@ -61,6 +63,34 @@ class FileTest extends TestCase
                         $this->seeElement('span.fileinput-filename')
                             ->within('span.fileinput-filename', function () {
                                 $this->dontSeeElement('a');
+                            });
+                    });
+            });
+    }
+
+    /** @test */
+    public function it_can_render_file_input_with_value()
+    {
+        $this->setFrameworkMaterialAdmin26();
+
+        $this->registerTestRoute('file-value');
+
+        $this->visit('/file-value')
+            ->seeElement('div.form-group')
+            ->within('div.form-group', function () {
+                $this->seeElement('div.fileinput.fileinput-exists')
+                    ->within('div.fileinput', function () {
+                        $this->seeElement('span.btn-file')
+                            ->within('span.btn-file', function () {
+                                $this->seeElement('input[name="featured_image"][type="file"][accept="application/pdf,image/jpeg,image/png"]#featured_image');
+                            });
+
+                        $this->seeElement('span.fileinput-filename')
+                            ->within('span.fileinput-filename', function () {
+                                $this->seeElement('a[href="https://example.com/uploads/Important-document.pdf?download=true"]')
+                                     ->seeInElement('a', 'Important-document.pdf')
+                                     ->dontSeeInElement('a', '?download=true')
+                                    ->dontSeeInElement('a', 'https://example.com/uploads/');
                             });
                     });
             });
@@ -212,6 +242,39 @@ class FileTest extends TestCase
     }
 
     /** @test */
+    public function it_can_show_file_hint()
+    {
+        $article = $this->getArticleWithMedia();
+
+        $this->setFrameworkMaterialAdmin26();
+
+        Route::get('file-hint', function () use ($article) {
+            return view('file-hint')
+                ->with('article', $article);
+        })->middleware('web');
+
+        $this->visit('/file-hint')
+            ->seeElement('div.form-group')
+            ->within('div.form-group', function () {
+                $this->seeElement('div.fileinput.fileinput-exists')
+                    ->within('div.fileinput', function () {
+                        $this->seeElement('span.btn-file')
+                            ->within('span.btn-file', function () {
+                                $this->seeElement('input[name="featured_image"][type="file"][accept="application/pdf,image/jpeg,image/png"]#featured_image');
+                            });
+
+                        $this->seeElement('span.fileinput-filename')
+                            ->within('span.fileinput-filename', function () {
+                                $this->seeElement('a[href="/storage/1/some-cool-image.jpg"]');
+                            });
+                    });
+
+                $this->seeElement('.form-text')
+                    ->seeInElement('.form-text', 'Only .pdf, .jpeg and .png files of max 2MB allowed.');
+            });
+    }
+
+    /** @test */
     public function it_can_render_material_admin_26_file_inputs()
     {
         $article = $this->getArticleWithMedia();
@@ -235,9 +298,44 @@ class FileTest extends TestCase
 
                          $this->seeElement('span.fileinput-filename')
                              ->within('span.fileinput-filename', function () {
-                                 $this->seeElement('a[href="/storage/1/some-cool-image.jpg"]');
+                                 $this->seeElement('a[href="/storage/1/some-cool-image.jpg"]')
+                                      ->seeElement('i.zmdi.zmdi-open-in-new');
                              });
                      });
+            });
+    }
+
+    /** @test */
+    public function it_can_render_bootstrap_5_file_inputs()
+    {
+        $article = $this->getArticleWithMedia();
+
+        $this->setFrameworkBootstrap5();
+
+        Route::get('file', function () use ($article) {
+            return view('file')
+                ->with('article', $article);
+        })->middleware('web');
+
+        $this->visit('/file')
+            ->seeElement('div.mb-4')
+            ->within('div.mb-4', function () {
+                $this->seeElement('div.fileinput.fileinput-wrapper.fileinput-exists')
+                    ->within('div.fileinput', function () {
+                        $this->seeElement('span.btn-file')
+                            ->within('span.btn-file', function () {
+                                $this->seeElement('input[name="featured_image"][type="file"][accept="application/pdf,image/jpeg,image/png"]#featured_image');
+                            });
+
+                        $this->seeElement('a.fileinput-filelink[href="/storage/1/some-cool-image.jpg"]')
+                            ->within('a.fileinput-filelink', function () {
+                                $this->seeElement('i.fa.fa-arrow-to-bottom');
+                            })
+                            ->seeElement('button.btn-dismiss')
+                            ->within('button.btn-dismiss', function () {
+                                $this->seeElement('i.fa.fa-close');
+                            });
+                    });
             });
     }
 }

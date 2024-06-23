@@ -36,7 +36,21 @@ trait HandlesMediaValues
 
         $default = is_null($boundValue) ? $default : $boundValue;
 
-        return $this->value = $this->getFileUrl($default);
+        $url = $this->getFileUrl($default);
+
+        $this->fileName = $default instanceof Media ? $default->file_name : $this->getFileNameFromUrl($url);
+
+        return $this->value = $url;
+    }
+
+    protected function getFileNameFromUrl(?string $url): string
+    {
+        if ($url) {
+            $path = parse_url($url, PHP_URL_PATH);
+            return basename($path);
+        }
+
+        return '';
     }
 
     protected function getFileUrl($media): ?string

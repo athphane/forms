@@ -52,6 +52,8 @@ return [
             'time-icon' => 'clock',
             'date-clear-icon' => 'close',
             'date-clear-btn-class' => 'btn btn-outline-secondary btn-date-clear disable-w-input',
+            'file-download-icon' => 'arrow-to-bottom',
+            'file-clear-icon' => 'close'
         ],
 
         'material-admin-26' => [
@@ -61,6 +63,8 @@ return [
             'time-icon' => 'clock',
             'date-clear-icon' => 'close',
             'date-clear-btn-class' => 'text-body btn-date-clear disable-w-input',
+            'file-download-icon' => 'open-in-new',
+            'file-clear-icon' => ''
         ]
 
     ],

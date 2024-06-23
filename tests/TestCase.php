@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\View;
 use Javaabu\Forms\FormsServiceProvider;
 use Javaabu\Forms\Tests\TestSupport\Providers\TestServiceProvider;
+use Javaabu\Helpers\HelpersServiceProvider;
 use Javaabu\Settings\SettingsServiceProvider;
 use Orchestra\Testbench\BrowserKit\TestCase as BaseTestCase;
 use Spatie\MediaLibrary\MediaLibraryServiceProvider;
@@ -51,6 +52,8 @@ abstract class TestCase extends BaseTestCase
                 '--provider' => 'Spatie\\MediaLibrary\\MediaLibraryServiceProvider',
                 '--tag' => self::isMediaLibrary10() ? 'migrations' : 'medialibrary-migrations',
             ]);
+
+            Artisan::call('migrate');
         }
 
         Model::unguard();
@@ -61,6 +64,7 @@ abstract class TestCase extends BaseTestCase
         return [
             SettingsServiceProvider::class,
             MediaLibraryServiceProvider::class,
+            HelpersServiceProvider::class,
             FormsServiceProvider::class,
             TestServiceProvider::class,
         ];
