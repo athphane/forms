@@ -20,7 +20,7 @@ class LabelRequired extends Component
         parent::__construct($framework);
 
         if (! $text) {
-            $text = __(config('forms.inputs.required_text'));
+            $text = trans('forms::strings.required_text');
         }
 
         $this->text = $text;

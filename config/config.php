@@ -1,8 +1,6 @@
 <?php
 
 return [
-    'prefix' => '',
-
     /*
     |--------------------------------------------------------------------------
     | Default CSS Framework
@@ -18,21 +16,6 @@ return [
     'framework' => 'bootstrap-5',
 
     'use_eloquent_date_casting' => false,
-
-    /*
-    |--------------------------------------------------------------------------
-    | Default Input Settings
-    |--------------------------------------------------------------------------
-    |
-    | Controls the default settings for rendering form controls
-    |
-    */
-
-    'inputs' => [
-        'required_text' => 'forms::strings.required_text',
-
-        'nothing_selected_text' => 'forms::strings.nothing_selected',
-    ],
 
     /*
     |--------------------------------------------------------------------------

@@ -19,24 +19,9 @@ class OverrideFormsDefaults
     public function handle(Request $request, Closure $next, string $framework)
     {
         config([
-            'forms.framework' => $framework,
-            'forms.inputs' => array_merge(config('forms.inputs'), $this->getInputsConfig()),
+            'forms.framework' => $framework
         ]);
 
         return $next($request);
-    }
-
-    /**
-     * Get the inputs config
-     *
-     * @return array
-     */
-    protected function getInputsConfig(): array
-    {
-        if (property_exists($this, 'inputs_config')) {
-            return $this->inputs_config;
-        }
-
-        return [];
     }
 }

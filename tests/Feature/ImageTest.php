@@ -118,4 +118,30 @@ class ImageTest extends TestCase
                     ->seeInElement('.form-text', 'Recommended 500px x 500px.');
             });
     }
+
+    /** @test */
+    public function it_can_render_image_upload_inputs()
+    {
+        $article = $this->getArticleWithMedia();
+
+        $this->setFrameworkBootstrap5();
+
+        Route::get('image-upload', function () use ($article) {
+            return view('image-upload')
+                ->with('article', $article);
+        })->middleware('web');
+
+        $this->visit('/image-upload')
+            ->seeElement('div.mb-4')
+            ->within('div.mb-4', function () {
+                $this->seeElement('div.fileinput.fileinput-exists')
+                    ->within('div.fileinput', function () {
+                        $this->seeElement('.upload-btn')
+                            ->within('.upload-btn', function () {
+                                $this->seeElement('i.fa.fa-arrow-to-top')
+                                    ->seeText('Upload file');
+                            });
+                    });
+            });
+    }
 }

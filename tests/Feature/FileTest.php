@@ -338,4 +338,30 @@ class FileTest extends TestCase
                     });
             });
     }
+
+    /** @test */
+    public function it_can_render_file_upload_inputs()
+    {
+        $article = $this->getArticleWithMedia();
+
+        $this->setFrameworkBootstrap5();
+
+        Route::get('file-upload', function () use ($article) {
+            return view('file-upload')
+                ->with('article', $article);
+        })->middleware('web');
+
+        $this->visit('/file-upload')
+            ->seeElement('div.mb-4')
+            ->within('div.mb-4', function () {
+                $this->seeElement('div.fileinput.fileinput-wrapper.fileinput-exists')
+                    ->within('div.fileinput', function () {
+                        $this->seeElement('.upload-btn')
+                            ->within('.upload-btn', function () {
+                                $this->seeElement('i.fa.fa-arrow-to-top')
+                                    ->seeText('Upload file');
+                            });
+                    });
+            });
+    }
 }

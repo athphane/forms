@@ -38,6 +38,16 @@ File inputs supports the following attributes:
 - `'upload'` - Whether to use `fileUploadInput` module from [`@javaabu/js-utilities`](https://github.com/Javaabu/js-utilities). Defaults to `false`.
 - `'upload-icon'` - Icon to display in the upload button. Defaults to the framework specific icon from config.
 
+## File Upload Inputs
+
+This component uses `fileUploadInput` module from [`@javaabu/js-utilities`](https://github.com/Javaabu/js-utilities) to upload the selected file through ajax. The file will get uploaded to the parent form's action url, using the parent form's submit method. This component will only work within a form element. This is just a wrapper for the `file` component with the `upload` attribute set to true.
+
+```html
+<x-forms::form :model="$article">
+    <x-forms::file-upload name="attachment" type="document" />
+</x-forms::form>
+```
+
 ## Image Inputs
 
 Image inputs work similar to file inputs, with a few extra attributes that allow customizing the preview of the selected image.
@@ -57,3 +67,13 @@ Here are the additional attributes supported by image inputs:
 - `'circle'` - Whether the preview window should be displayed as a circle. Defaults to `false`.
 - `'aspect-ratio'` - Which aspect ratio to use as number between `0.0` and `1.0`. If using the `circle` option, will be forced to `1.0`. Defaults to the aspect ratio of given `height` and `width`.
 - `'maintain-aspect-ratio'` - Whether the preview window should maintain the given aspect ratio. Defaults to `true`.
+
+## Image Upload Inputs
+
+This is just a wrapper for the `image` component with the `upload` attribute set to true and works similar to the `file-upload` component.
+
+```html
+<x-forms::form :model="$article">
+    <x-forms::image-upload name="featured_image" conversion="preview" width="500" height="500" />
+</x-forms::form>
+```

@@ -102,6 +102,6 @@ class Select2 extends Select
      */
     public function getNothingSelectedText(): string
     {
-        return trans(config('forms.inputs.nothing_selected_text'));
+        return trans('forms::strings.nothing_selected');
     }
 }

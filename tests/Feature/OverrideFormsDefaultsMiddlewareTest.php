@@ -10,6 +10,8 @@ class OverrideFormsDefaultsMiddlewareTest extends TestCase
     /** @test */
     public function it_can_use_the_middleware_to_switch_what_theme_to_use()
     {
+        $this->withoutExceptionHandling();
+
         $current_theme = Config::get('forms.framework');
         $this->assertTrue($current_theme === 'bootstrap-5');
 
