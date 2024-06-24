@@ -65,7 +65,7 @@ return [
             'date-clear-icon' => 'close',
             'date-clear-btn-class' => 'text-body btn-date-clear disable-w-input',
             'file-download-icon' => 'open-in-new',
-            'file-clear-icon' => '',
+            'file-clear-icon' => 'close',
             'image-icon' => 'image',
         ]
 

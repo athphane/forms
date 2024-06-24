@@ -79,4 +79,43 @@ class ImageTest extends TestCase
                     ->seeInElement('.form-text', 'Recommended 500px x 500px.');
             });
     }
+
+    /** @test */
+    public function it_can_render_material_admin_26_image_inputs()
+    {
+        $article = $this->getArticleWithMedia();
+
+        $this->setFrameworkMaterialAdmin26();
+
+        Route::get('image', function () use ($article) {
+            return view('image')
+                ->with('article', $article);
+        })->middleware('web');
+
+        $this->visit('/image')
+            ->seeElement('div.form-group')
+            ->within('div.form-group', function () {
+                $this->seeElement('div.fileinput.fileinput-exists')
+                    ->within('div.fileinput', function () {
+                        $this->seeElement('span.btn-file')
+                            ->within('span.btn-file', function () {
+                                $this->seeElement('input[name="featured_image"][type="file"][accept="image/jpeg,image/png,image/gif,image/tiff,image/x-citrix-png,image/x-png,image/svg+xml,image/svg"]#featured_image');
+                            });
+                    })
+                    ->seeElement('div.fileinput-preview')
+                    ->within('div.fileinput-preview', function () {
+                        $this->seeElement('img[src="/storage/1/some-cool-image.jpg"]');
+                    })
+                    ->seeElement('.fileinput-image-missing')
+                    ->within('.fileinput-image-missing', function () {
+                        $this->seeElement('i.zmdi.zmdi-image');
+                    })
+                    ->seeElement('a[data-dismiss="fileinput"]')
+                    ->seeInElement('a[data-dismiss="fileinput"]', 'Remove')
+                    ->seeElement('.fileinput-image-missing')
+                    ->seeInElement('.fileinput-image-missing', 'Click to select an image')
+                    ->seeElement('.form-text')
+                    ->seeInElement('.form-text', 'Recommended 500px x 500px.');
+            });
+    }
 }

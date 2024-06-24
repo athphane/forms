@@ -1,4 +1,4 @@
-<x-forms::form-group :wrap="$showLabel && $type != 'hidden'" :label="$label ?: $label()" :name="$attributes->get('id') ?: $id()" :framework="$framework" :inline="$inline" :required="$required" :floating="$floating">
+<x-forms::form-group :wrap="$showLabel" :label="$label ?: $label()" :name="$attributes->get('id') ?: $id()" :framework="$framework" :inline="$inline" :required="$required" :floating="$floating">
     <div @class([
         'fileinput',
         $fileInputClass,
@@ -7,60 +7,66 @@
         'is-invalid' => $hasError($name),
         'disabled' => $disabled,
     ])
-        @if(! $disabled)
-            data-provides="fileinput"
+         @if(! $disabled)
+             data-provides="fileinput"
         @endif
     >
 
-        <div class="d-flex flex-column">
-            <div @class([
-                    'fileinput-preview-wrapper',
-                    'cover-preview' => $cover,
-                    'rounded-circle' => $circle,
-                    'fullwidth-preview' => $fullwidth,
-                    'ratio'
-                ])
-                 style="--bs-aspect-ratio: {{ ($maintainAspectRatio ? $aspectRatio : 1) * 100 }}%;"
-                 @if(! $disabled)
-                 data-trigger="fileinput"
-                 @endif
-            >
-                <div class="fileinput-preview">
-                    <img src="{{ $value }}">
-                </div>
+        <div class="mb-3 fileinput-preview-outer-wrapper{{ $fullwidth ? ' fullwidth-preview' : '' }}">
+            <div class="embed-responsive" style="padding-top: {{ ($maintainAspectRatio ? $aspectRatio : 1) * 100 }}%;">
+                <div class="embed-responsive-item">
+                    <div @class([
+                                'fileinput-preview-wrapper',
+                                'cover-preview' => $cover || $circle,
+                                'rounded-circle' => $circle,
+                            ])
+                         @if(! $disabled)
+                             data-trigger="fileinput"
+                        @endif
+                    >
+                        <div class="fileinput-preview">
+                            <img src="{{ $value }}">
+                        </div>
 
-                <div class="fileinput-image-missing fileinput-new">
-                    <i class="image-icon {{ $icon }}"></i>
-                    <span class="px-2">{{ trans('forms::strings.imageinput_select_image') }}</span>
+                        <div class="fileinput-image-missing fileinput-new">
+                            <i class="image-icon {{ $icon }}"></i>
+                            <span class="px-2">{{ trans('forms::strings.imageinput_select_image') }}</span>
+                        </div>
+                    </div>
                 </div>
             </div>
+        </div>
 
-            <div class="fileinput-wrapper border-0">
-                <span class="btn-file flex-grow-0 me-2">
-                    <span class="fileinput-btn btn-file-selector fileinput-new">{{ trans('forms::strings.fileinput_select_file') }}</span>
-                    <span class="fileinput-btn btn-file-selector fileinput-exists">{{ trans('forms::strings.fileinput_change_file') }}</span>
-                    <input
-                        {!! $attributes->merge([
-                            'class' => ($hasError($name) ? 'is-invalid' : ''),
-                            'required' => $required,
-                            'disabled' => $disabled
-                        ]) !!}
-                        type="file"
-                        accept="{{ implode(',', $mimetypes) }}"
-                        name="{{ $name }}"
-                        @if($label && ! $attributes->get('id'))
-                            id="{{ $id() }}"
+        <div>
+            <span class="btn btn-info btn-file {{ $disabled ? 'disabled' : '' }} mb-1">
+                <span class="fileinput-new btn--icon-text">
+                    <i class="{{ $icon }}"></i>&nbsp;
+                    {{ trans('forms::strings.fileinput_select_file') }}
+                </span>
+                <span class="fileinput-exists btn--icon-text">
+                    <i class="{{ 'zmdi zmdi-folder' }}"></i> {{ trans('forms::strings.fileinput_change_file') }}
+                </span>
+                <input
+                    {!! $attributes->merge([
+                        'class' => ($hasError($name) ? 'is-invalid' : ''),
+                        'required' => $required,
+                        'disabled' => $disabled
+                    ]) !!}
+                    type="file"
+                    accept="{{ implode(',', $mimetypes) }}"
+                    name="{{ $name }}"
+                    @if($label && ! $attributes->get('id'))
+                        id="{{ $id() }}"
                         @endif
                     />
-                </span>
-                <button type="button" class="fileinput-btn btn-file-selector fileinput-exists"
-                        @if($disabled)
-                            disabled
-                        @else
-                            data-dismiss="fileinput"
-                       @endif
-                >{{ trans('forms::strings.fileinput_remove_file') }}</button>
-            </div>
+            </span>
+            <a href="#" class="mb-1 btn btn-danger btn--icon-text {{ $disabled ? 'disabled' : '' }} fileinput-exists"
+               @if(! $disabled)
+                   data-dismiss="fileinput"
+                @endif
+            >
+                <i class="{{ $clearIcon }}"></i> {{ __('Remove') }}
+            </a>
         </div>
     </div>
 
@@ -70,7 +76,7 @@
                 {{ $getImageHint() }}<br>
                 {{ $getHint() }}
             @else
-            {!! $help !!}
+                {!! $help !!}
             @endempty
         </x-forms::input-help>
     @endif

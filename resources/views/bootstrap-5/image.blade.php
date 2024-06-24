@@ -1,4 +1,4 @@
-<x-forms::form-group :wrap="$showLabel && $type != 'hidden'" :label="$label ?: $label()" :name="$attributes->get('id') ?: $id()" :framework="$framework" :inline="$inline" :required="$required" :floating="$floating">
+<x-forms::form-group :wrap="$showLabel" :label="$label ?: $label()" :name="$attributes->get('id') ?: $id()" :framework="$framework" :inline="$inline" :required="$required" :floating="$floating">
     <div @class([
         'fileinput',
         $fileInputClass,
@@ -15,7 +15,7 @@
         <div class="d-flex flex-column">
             <div @class([
                     'fileinput-preview-wrapper',
-                    'cover-preview' => $cover,
+                    'cover-preview' => $cover || $circle,
                     'rounded-circle' => $circle,
                     'fullwidth-preview' => $fullwidth,
                     'ratio'
