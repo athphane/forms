@@ -8,12 +8,19 @@
         'is-invalid' => $hasError($name),
     ])
          @if(! $disabled)
-             data-provides="fileinput"
+             data-provides="fileinput{{ $upload ? '-upload' : '' }}"
         @endif
     >
         <span class="btn btn-primary btn-file mr-3{{ $disabled ? ' disabled' : '' }}">
-            <span class="fileinput-new">{{ trans('forms::strings.fileinput_select_file') }}</span>
-            <span class="fileinput-exists">{{ trans('forms::strings.fileinput_change_file') }}</span>
+            @if($upload)
+                <span class="btn--icon-text upload-btn">
+                    <i class="{{ $uploadIcon }}"></i>&nbsp;
+                    {{ trans('forms::strings.fileinput_upload_file') }}
+                </span>
+            @else
+                <span class="fileinput-new">{{ trans('forms::strings.fileinput_select_file') }}</span>
+                <span class="fileinput-exists">{{ trans('forms::strings.fileinput_change_file') }}</span>
+            @endif
             <input
                 {!! $attributes->merge([
                     'class' => ($hasError($name) ? 'is-invalid' : ''),

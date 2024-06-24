@@ -7,7 +7,6 @@ class Image extends File
     protected string $view = 'image';
 
     public string $icon;
-    public string $uploadIcon;
     public float $aspectRatio;
 
     /**
@@ -33,7 +32,7 @@ class Image extends File
         public bool       $fullwidth = false,
         public bool       $maintainAspectRatio = true,
         public bool       $circle = false,
-        public bool       $upload = false,
+        bool       $upload = false,
         ?float            $aspectRatio = null,
                           $model = null,
                           $default = null,
@@ -57,6 +56,7 @@ class Image extends File
             collection: $collection,
             conversion: $conversion,
             fileInputClass: $fileInputClass,
+            uploadIcon: $uploadIcon,
             model: $model,
             default: $default,
             showHint: $showHint,
@@ -65,12 +65,12 @@ class Image extends File
             required: $required,
             disabled: $disabled,
             ignoreAccessor: $ignoreAccessor,
+            upload: $upload,
             inline: $inline,
             framework: $framework
         );
 
         $this->icon = $icon ?: $this->getFrameworkIcon($this->frameworkConfig('image-icon'));
-        $this->uploadIcon = $uploadIcon ?: $this->getFrameworkIcon($this->frameworkConfig('file-upload-icon'));
 
         if ($this->circle) {
             $aspectRatio = 1;

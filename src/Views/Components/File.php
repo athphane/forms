@@ -23,6 +23,7 @@ class File extends Input
     public string $fileName = '';
     public string $clearIcon;
     public string $downloadIcon;
+    public string $uploadIcon;
 
     /**
      * Create a new component instance.
@@ -41,6 +42,7 @@ class File extends Input
         string            $fileInputClass = '',
         string            $clearIcon = '',
         string            $downloadIcon = '',
+        string            $uploadIcon = '',
                           $model = null,
                           $default = null,
         bool              $showHint = true,
@@ -49,6 +51,7 @@ class File extends Input
         bool $required = false,
         public bool $disabled = false,
         public bool $ignoreAccessor = false,
+        public bool       $upload = false,
         bool $inline = false,
         string $framework = ''
     ) {
@@ -76,6 +79,7 @@ class File extends Input
         );
 
         $this->downloadIcon = $downloadIcon ?: $this->getFrameworkIcon($this->frameworkConfig('file-download-icon'));
+        $this->uploadIcon = $uploadIcon ?: $this->getFrameworkIcon($this->frameworkConfig('file-upload-icon'));
         $this->clearIcon = $clearIcon ?: $this->getFrameworkIcon($this->frameworkConfig('file-clear-icon'));
     }
 

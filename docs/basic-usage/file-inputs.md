@@ -35,6 +35,8 @@ File inputs supports the following attributes:
 - `'ignore-accessor'` - Whether to ignore model accessors when finding the bound media. If true, will only use the `getMedia` method to find the media. This can be useful if the model has an accessor as the same name as the collection which returns a default url when the file is not present. `false` by default.
 - `'inline'` - Whether to dispaly the label inline. `false` by default.
 - `'framework'` - Which CSS framework to use. Defaults to the framework set in config.
+- `'upload'` - Whether to use `fileUploadInput` module from [`@javaabu/js-utilities`](https://github.com/Javaabu/js-utilities). Defaults to `false`.
+- `'upload-icon'` - Icon to display in the upload button. Defaults to the framework specific icon from config.
 
 ## Image Inputs
 
@@ -55,5 +57,3 @@ Here are the additional attributes supported by image inputs:
 - `'circle'` - Whether the preview window should be displayed as a circle. Defaults to `false`.
 - `'aspect-ratio'` - Which aspect ratio to use as number between `0.0` and `1.0`. If using the `circle` option, will be forced to `1.0`. Defaults to the aspect ratio of given `height` and `width`.
 - `'maintain-aspect-ratio'` - Whether the preview window should maintain the given aspect ratio. Defaults to `true`.
-- `'upload'` - Whether to use `fileUploadInput` module from [`@javaabu/js-utilities`](https://github.com/Javaabu/js-utilities). Defaults to `false`.
-- `'upload-icon'` - Icon to display in the upload button. Defaults to the framework specific icon from config.

@@ -9,13 +9,20 @@
         'disabled' => $disabled,
     ])
         @if(! $disabled)
-            data-provides="fileinput"
+            data-provides="fileinput{{ $upload ? '-upload' : '' }}"
         @endif
     >
         <span class="fileinput-filename d-none"></span>
         <span class="btn-file">
-            <span class="btn-file-selector fileinput-new">{{ trans('forms::strings.fileinput_select_file') }}</span>
-            <span class="btn-file-selector fileinput-exists">{{ trans('forms::strings.fileinput_change_file') }}</span>
+            @if($upload)
+                <span class="btn-file-selector upload-btn">
+                    <i class="{{ $uploadIcon }} me-2"></i>&nbsp;
+                    {{ trans('forms::strings.fileinput_upload_file') }}
+                </span>
+            @else
+                <span class="btn-file-selector fileinput-new">{{ trans('forms::strings.fileinput_select_file') }}</span>
+                <span class="btn-file-selector fileinput-exists">{{ trans('forms::strings.fileinput_change_file') }}</span>
+            @endif
             <span class="fileinput-selected-filename fileinput-missing fileinput-new text-truncate">{{ trans('forms::strings.fileinput_nothing_selected') }}</span>
             <span class="fileinput-filename fileinput-selected-filename fileinput-exists text-truncate"></span>
             <input
