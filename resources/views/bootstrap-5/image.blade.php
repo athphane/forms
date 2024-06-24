@@ -37,7 +37,7 @@
 
             <div class="fileinput-wrapper border-0">
                 <span class="btn-file flex-grow-0 me-2">
-                    <span class="fileinput-btn btn-file-selector fileinput-new{{ $upload ? ' upload-btn' : '' }}">
+                    <span class="fileinput-btn btn-file-selector {{ $upload ? 'upload-btn' : 'fileinput-new' }}">
                         @if($upload)
                             <i class="{{ $uploadIcon }} me-2"></i>&nbsp;
                             {{ trans('forms::strings.fileinput_upload_file') }}
@@ -45,7 +45,9 @@
                             {{ trans('forms::strings.fileinput_select_file') }}
                         @endif
                     </span>
+                    @if(! $upload)
                     <span class="fileinput-btn btn-file-selector fileinput-exists">{{ trans('forms::strings.fileinput_change_file') }}</span>
+                    @endif
                     <input
                         {!! $attributes->merge([
                             'class' => ($hasError($name) ? 'is-invalid' : ''),

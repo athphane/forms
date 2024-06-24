@@ -39,13 +39,15 @@
 
         <div>
             <span class="btn btn-info btn-file {{ $disabled ? 'disabled' : '' }} mb-1">
-                <span class="fileinput-new btn--icon-text{{ $upload ? ' upload-btn' : '' }}">
+                <span class="btn--icon-text{{ $upload ? ' upload-btn' : ' fileinput-new' }}">
                     <i class="{{ $upload ? $uploadIcon : $icon }}"></i>&nbsp;
                     {{ $upload ? trans('forms::strings.fileinput_upload_file') : trans('forms::strings.fileinput_select_file') }}
                 </span>
+                @if(! $upload)
                 <span class="fileinput-exists btn--icon-text">
                     <i class="{{ 'zmdi zmdi-folder' }}"></i> {{ trans('forms::strings.fileinput_change_file') }}
                 </span>
+                @endif
                 <input
                     {!! $attributes->merge([
                         'class' => ($hasError($name) ? 'is-invalid' : ''),
