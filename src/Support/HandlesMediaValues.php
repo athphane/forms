@@ -18,7 +18,7 @@ trait HandlesMediaValues
         $bind = $bind ?: $this->getBoundTarget();
 
         // get the bound value normally
-        $boundValue = data_get($bind, $name);
+        $boundValue = $this->ignoreAccessor ? null : data_get($bind, $name);
 
         // otherwise try to get the file media
         if (empty($boundValue) && $bind instanceof HasMedia) {

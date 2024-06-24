@@ -48,6 +48,7 @@ class File extends Input
         bool $showLabel = true,
         bool $required = false,
         public bool $disabled = false,
+        public bool $ignoreAccessor = false,
         bool $inline = false,
         string $framework = ''
     ) {

@@ -8,7 +8,7 @@
         'disabled' => $disabled,
     ])
         @if(! $disabled)
-            data-provides="fileinput"
+            data-provides="fileinput{{ $upload ? '-upload' : '' }}"
         @endif
     >
 
@@ -37,7 +37,14 @@
 
             <div class="fileinput-wrapper border-0">
                 <span class="btn-file flex-grow-0 me-2">
-                    <span class="fileinput-btn btn-file-selector fileinput-new">{{ trans('forms::strings.fileinput_select_file') }}</span>
+                    <span class="fileinput-btn btn-file-selector fileinput-new">
+                        @if($upload)
+                            <i class="{{ $uploadIcon }} me-2"></i>&nbsp;
+                            {{ trans('forms::strings.fileinput_upload_file') }}
+                        @else
+                            {{ trans('forms::strings.fileinput_select_file') }}
+                        @endif
+                    </span>
                     <span class="fileinput-btn btn-file-selector fileinput-exists">{{ trans('forms::strings.fileinput_change_file') }}</span>
                     <input
                         {!! $attributes->merge([

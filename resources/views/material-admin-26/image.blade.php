@@ -8,7 +8,7 @@
         'disabled' => $disabled,
     ])
          @if(! $disabled)
-             data-provides="fileinput"
+             data-provides="fileinput{{ $upload ? '-upload' : '' }}"
         @endif
     >
 
@@ -40,8 +40,8 @@
         <div>
             <span class="btn btn-info btn-file {{ $disabled ? 'disabled' : '' }} mb-1">
                 <span class="fileinput-new btn--icon-text">
-                    <i class="{{ $icon }}"></i>&nbsp;
-                    {{ trans('forms::strings.fileinput_select_file') }}
+                    <i class="{{ $upload ? $uploadIcon : $icon }}"></i>&nbsp;
+                    {{ $upload ? trans('forms::strings.fileinput_upload_file') : trans('forms::strings.fileinput_select_file') }}
                 </span>
                 <span class="fileinput-exists btn--icon-text">
                     <i class="{{ 'zmdi zmdi-folder' }}"></i> {{ trans('forms::strings.fileinput_change_file') }}

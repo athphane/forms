@@ -53,6 +53,7 @@ return [
             'date-clear-icon' => 'close',
             'date-clear-btn-class' => 'btn btn-outline-secondary btn-date-clear disable-w-input',
             'file-download-icon' => 'arrow-to-bottom',
+            'file-upload-icon' => 'arrow-to-top',
             'file-clear-icon' => 'close',
             'image-icon' => 'image',
         ],
@@ -65,6 +66,7 @@ return [
             'date-clear-icon' => 'close',
             'date-clear-btn-class' => 'text-body btn-date-clear disable-w-input',
             'file-download-icon' => 'open-in-new',
+            'file-upload-icon' => 'upload',
             'file-clear-icon' => 'close',
             'image-icon' => 'image',
         ]

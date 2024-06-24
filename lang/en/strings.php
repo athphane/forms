@@ -8,6 +8,7 @@ return [
     'no' => 'No',
     'table_array_separator' => ',',
     'fileinput_select_file' => 'Select file',
+    'fileinput_upload_file' => 'Upload file',
     'fileinput_change_file' => 'Change',
     'fileinput_remove_file' => 'Remove',
     'fileinput_nothing_selected' => 'No file selected.',

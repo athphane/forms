@@ -7,6 +7,7 @@ class Image extends File
     protected string $view = 'image';
 
     public string $icon;
+    public string $uploadIcon;
     public float $aspectRatio;
 
     /**
@@ -25,23 +26,27 @@ class Image extends File
         string            $conversion = '',
         string            $fileInputClass = '',
         string            $icon = '',
-        public int $width = 400,
-        public int $height = 400,
+        string            $uploadIcon = '',
+        public int        $width = 400,
+        public int        $height = 400,
         public bool       $cover = false,
         public bool       $fullwidth = false,
         public bool       $maintainAspectRatio = true,
         public bool       $circle = false,
-        ?float $aspectRatio = null,
+        public bool       $upload = false,
+        ?float            $aspectRatio = null,
                           $model = null,
                           $default = null,
         bool              $showHint = true,
         bool              $showErrors = true,
         bool              $showLabel = true,
         bool              $required = false,
-        public bool       $disabled = false,
+        bool              $disabled = false,
+        bool              $ignoreAccessor = false,
         bool              $inline = false,
         string            $framework = ''
-    ) {
+    )
+    {
         parent::__construct(
             $name,
             label: $label,
@@ -59,11 +64,13 @@ class Image extends File
             showLabel: $showLabel,
             required: $required,
             disabled: $disabled,
+            ignoreAccessor: $ignoreAccessor,
             inline: $inline,
             framework: $framework
         );
 
         $this->icon = $icon ?: $this->getFrameworkIcon($this->frameworkConfig('image-icon'));
+        $this->uploadIcon = $uploadIcon ?: $this->getFrameworkIcon($this->frameworkConfig('file-upload-icon'));
 
         if ($this->circle) {
             $aspectRatio = 1;
