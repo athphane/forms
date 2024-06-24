@@ -37,7 +37,7 @@
 
             <div class="fileinput-wrapper border-0">
                 <span class="btn-file flex-grow-0 me-2">
-                    <span class="fileinput-btn btn-file-selector fileinput-new">
+                    <span class="fileinput-btn btn-file-selector fileinput-new{{ $upload ? ' upload-btn' : '' }}">
                         @if($upload)
                             <i class="{{ $uploadIcon }} me-2"></i>&nbsp;
                             {{ trans('forms::strings.fileinput_upload_file') }}

@@ -39,7 +39,7 @@
 
         <div>
             <span class="btn btn-info btn-file {{ $disabled ? 'disabled' : '' }} mb-1">
-                <span class="fileinput-new btn--icon-text">
+                <span class="fileinput-new btn--icon-text{{ $upload ? ' upload-btn' : '' }}">
                     <i class="{{ $upload ? $uploadIcon : $icon }}"></i>&nbsp;
                     {{ $upload ? trans('forms::strings.fileinput_upload_file') : trans('forms::strings.fileinput_select_file') }}
                 </span>
