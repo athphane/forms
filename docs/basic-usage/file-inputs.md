@@ -3,6 +3,16 @@ title: File Inputs and Image Inputs
 sidebar_position: 7
 ---
 
+Before using these components, make sure [`@javaabu/js-utilities`](https://github.com/Javaabu/js-utilities) is installed and updated to the latest version. Also remember to add the necessary sass.
+
+```scss
+// for Bootstrap 5 (add a partial named web/_fileinput.scss)
+@import '@javaabu/js-utilities/src/scss/bootstrap-5/fileinput';
+
+// for Material Admin 2.6 (replace the contents of your admin/_fileinput.scss)
+@import '@javaabu/js-utilities/src/scss/material-admin-26/fileinput';
+```
+
 ## File Inputs
 
 This component renders a [`jasny-bootstrap`](https://www.jasny.net/bootstrap) [`fileinput.js`](https://www.jasny.net/bootstrap/components/#fileinput) powered file input that supports [`spatie/laravel-medialibrary`](https://spatie.be/docs/laravel-medialibrary). This component requires `spatie/laravel-medialibrary`.
