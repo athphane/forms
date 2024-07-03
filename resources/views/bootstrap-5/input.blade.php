@@ -27,13 +27,14 @@
                         id="{{ $id() }}"
                     @endif
                     {{--  Placeholder is required as of writing  --}}
-                    @if($floating && !$attributes->get('placeholder'))
+                    @if($floating || $placeholder)
+                        @if($placeholder)
+                        placeholder="{{ $placeholder }}"
+                        @else
                         placeholder="&nbsp;"
+                        @endif
                     @endif
                 />
-                @if($showLabel)
-                    <i class="form-group__bar"></i>
-                @endif
             @endif
 
             @if($isDateInput() || (! empty($prepend)) || (! empty($append)))

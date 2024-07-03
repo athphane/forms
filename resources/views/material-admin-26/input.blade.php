@@ -26,8 +26,12 @@
             id="{{ $id() }}"
         @endif
         {{--  Placeholder is required as of writing  --}}
-        @if($floating && !$attributes->get('placeholder'))
-            placeholder="&nbsp;"
+        @if($floating || $placeholder)
+            @if($placeholder)
+                placeholder="{{ $placeholder }}"
+            @else
+                placeholder="&nbsp;"
+            @endif
         @endif
     />
     @if($showLabel)

@@ -10,6 +10,9 @@ class MapInput extends Input
 {
     protected string $view = 'map-input';
 
+    public float $defaultMapCenterLat;
+    public float $defaultMapCenterLng;
+
     /**
      * Create a new component instance.
      *
@@ -37,6 +40,8 @@ class MapInput extends Input
         public ?float $defaultLng = null,
         public ?float $defaultRadius = null,
         public ?string $defaultPolygon = null,
+        ?float $defaultMapCenterLat = null,
+        ?float $defaultMapCenterLng = null,
         string $label = '',
         $model = null,
         bool $showErrors = true,
@@ -57,6 +62,9 @@ class MapInput extends Input
             floating: false,
             framework: $framework
         );
+
+        $this->defaultMapCenterLat = is_null($defaultMapCenterLat) ? (float) get_setting('default_lat') : $defaultMapCenterLat;
+        $this->defaultMapCenterLng = is_null($defaultMapCenterLng) ? (float) get_setting('default_lng') : $defaultMapCenterLng;
 
         $this->setLat($this->latName, $model, $this->defaultLat);
         $this->setLng($this->lngName, $model, $this->defaultLng);

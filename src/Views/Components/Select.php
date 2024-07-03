@@ -28,6 +28,7 @@ class Select extends Component
     public bool $inline;
     public bool $floating;
     public string $placeholder;
+    public bool $showPlaceholder;
     public bool $isSelect2;
     public string $nameField;
     public string $idField;
@@ -50,6 +51,7 @@ class Select extends Component
         bool   $relation = false,
         bool   $showErrors = true,
         bool   $showLabel = true,
+        bool   $showPlaceholder = false,
         bool   $required = false,
         bool    $inline = false,
         bool   $floating = false,
@@ -70,7 +72,8 @@ class Select extends Component
         $this->isSelect2 = $isSelect2;
         $this->options = $options instanceof BuilderContract ? $this->getOptionsFromQueryBuilder($options) : $options;
         $this->relation = $relation;
-        $this->placeholder = $placeholder;
+        $this->showPlaceholder = $showPlaceholder;
+        $this->placeholder = $placeholder ?: ($showPlaceholder ? ($label ?: $this->generateLabelByName()) : '');
 
         $inputName = static::convertBracketsToDots(Str::before($name, '[]'));
 

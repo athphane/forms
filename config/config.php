@@ -27,7 +27,6 @@ return [
     */
 
     'frameworks' => [
-
         'bootstrap-5' => [
             'icon-prefix' => 'fa',
             'date-icon' => 'calendar',
@@ -53,6 +52,27 @@ return [
             'file-clear-icon' => 'close',
             'image-icon' => 'image',
         ]
-
     ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Scripts Stack
+    |--------------------------------------------------------------------------
+    |
+    | The name of the stack to push scripts
+    |
+    */
+
+    'scripts_stack' => 'scripts',
+
+    /*
+    |--------------------------------------------------------------------------
+    | Google Maps API Key
+    |--------------------------------------------------------------------------
+    |
+    | API key to use for map inputs
+    |
+    */
+
+    'map_api_key' => env('MAP_API_KEY'),
 ];

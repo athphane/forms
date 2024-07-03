@@ -14,6 +14,8 @@ class Input extends Component
     public string $name;
     public string $label;
     public string $type;
+    public string $placeholder;
+    public bool $showPlaceholder;
     public bool $required;
     public bool $inline;
     public bool $floating;
@@ -33,6 +35,8 @@ class Input extends Component
         $default = null,
         bool   $showErrors = true,
         bool   $showLabel = true,
+        string $placeholder = '',
+        bool   $showPlaceholder = false,
         bool   $required = false,
         bool   $inline = false,
         bool   $floating = false,
@@ -48,6 +52,8 @@ class Input extends Component
         $this->floating = $floating;
         $this->required = $required;
         $this->inline = $inline;
+        $this->showPlaceholder = $showPlaceholder;
+        $this->placeholder = $placeholder ?: ($showPlaceholder ? ($label ?: $this->generateLabelByName()) : '');
 
         if ($type !== 'password') {
             $this->setValue($name, $model, $default);

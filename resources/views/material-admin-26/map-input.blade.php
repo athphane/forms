@@ -3,7 +3,12 @@
     <div
          {{ $attributes }}
          data-map-selector="true"
+         data-lat="{{ $defaultMapCenterLat }}"
+         data-lng="{{ $defaultMapCenterLng }}"
          data-enable-marker="{{ $enableCoordinates ? 'true' : 'false' }}"
+         @if($disabled)
+         data-disabled="true"
+         @endif
          @if($enableRadius)
          data-enable-radius="true"
          @endif
@@ -69,3 +74,7 @@
         <x-forms::errors :framework="$framework" :name="$name" />
     @endif
 </x-forms::form-group>
+
+@pushonce(config('forms.scripts_stack'))
+    @include('forms::partials.maps-script')
+@endpushonce
