@@ -31,6 +31,7 @@ class TextEntry extends Component
         bool $showLabel = true,
         bool $inline = false,
         bool $multiline = false,
+        public bool $wysiwyg = false,
         string $framework = ''
     ) {
         parent::__construct($framework);

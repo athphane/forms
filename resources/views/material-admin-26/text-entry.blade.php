@@ -27,6 +27,8 @@
                         <li>{{ $item }}</li>
                     @endforeach
                 </ul>
+            @elseif($value && $wysiwyg)
+                {!! $value !!}
             @else
                 {{ $value ?: trans('forms::strings.blank') }}
             @endif
