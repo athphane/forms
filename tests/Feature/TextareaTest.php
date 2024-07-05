@@ -3,6 +3,7 @@
 namespace Javaabu\Forms\Tests\Feature;
 
 use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\Route;
 use Javaabu\Forms\Tests\TestCase;
 
 class TextareaTest extends TestCase
@@ -48,5 +49,16 @@ class TextareaTest extends TestCase
                     ->seeElement('label[for="title"]')
                     ->seeInElement('label', 'Title');
             });
+    }
+
+    /** @test */
+    public function it_adds_the_tinymce_script_to_the_scripts_stack_for_wysiwyg_inputs()
+    {
+        $this->registerTestRoute('wysiwyg');
+
+        $this->visit('/wysiwyg')
+            ->seeElement('textarea[name="title"][id="title"].wysiwyg')
+            ->seeElement('script')
+            ->seeInElement('script', 'tinymce');
     }
 }

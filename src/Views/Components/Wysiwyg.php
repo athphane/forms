@@ -2,12 +2,8 @@
 
 namespace Javaabu\Forms\Views\Components;
 
-class Textarea extends Input
+class Wysiwyg extends Textarea
 {
-    protected string $view = 'textarea';
-
-    public int $rows;
-
     /**
      * Create a new component instance.
      *
@@ -24,32 +20,27 @@ class Textarea extends Input
         bool $showLabel = true,
         string $placeholder = '',
         bool   $showPlaceholder = false,
-        public bool $wysiwyg = false,
         bool $required = false,
         bool $inline = false,
         bool $floating = false,
         string $framework = ''
     ) {
         parent::__construct(
-            $name,
+            name: $name,
             label: $label,
-            type: 'textarea',
+            rows: $rows,
             model: $model,
             default: $default,
+            value: $value,
             showErrors: $showErrors,
             showLabel: $showLabel,
             placeholder: $placeholder,
             showPlaceholder: $showPlaceholder,
-            required:$required,
+            wysiwyg: true,
+            required: $required,
             inline: $inline,
             floating: $floating,
-            framework: $framework
+            framework: $framework,
         );
-
-        $this->rows = $rows;
-
-        if (! is_null($value)) {
-            $this->value = $value;
-        }
     }
 }

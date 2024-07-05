@@ -1,7 +1,7 @@
 <x-forms::form-group :wrap="$showLabel && $type != 'hidden'" :label="$label ?: $label()" :name="$attributes->get('id') ?: $id()" :framework="$framework" :inline="$inline" :required="$required" :floating="$floating">
     <textarea
         {!! $attributes->merge([
-            'class' => 'form-control' . ($hasError($name) ? ' is-invalid' : ''),
+            'class' => 'form-control' . ($hasError($name) ? ' is-invalid' : '') . ($wysiwyg ? ' wysiwyg' : ''),
             'required' => $required
         ]) !!}
         type="{{ $type }}"
@@ -30,3 +30,9 @@
         <x-forms::errors :framework="$framework" :name="$name" />
     @endif
 </x-forms::form-group>
+
+@if($wysiwyg)
+    @pushonce(config('forms.scripts_stack'))
+        @include('forms::partials.wysiwyg-script')
+    @endpushonce
+@endif
